@@ -1,25 +1,33 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+
+import classes from './Header.module.scss';
 
 export const Header = () => {
   return (
     <header>
       <nav>
-        <ul>
+        <ul className={classes.header__list}>
           <li>
-            <NavLink to="#">NeoBank</NavLink>
+            <Link to="#">NeoBank</Link>
           </li>
+
           <li>
-            <NavLink to="#">Credit card</NavLink>
+            <ul>
+              <li>
+                <NavLink to="#">Credit card</NavLink>
+              </li>
+              <li>
+                <NavLink to="#">Product</NavLink>
+              </li>
+              <li>
+                <NavLink to="#">Account</NavLink>
+              </li>
+              <li>
+                <NavLink to="#">Resources</NavLink>
+              </li>
+            </ul>
           </li>
-          <li>
-            <NavLink to="#">Product</NavLink>
-          </li>
-          <li>
-            <NavLink to="#">Account</NavLink>
-          </li>
-          <li>
-            <NavLink to="#">Resources</NavLink>
-          </li>
+
           <li></li>
         </ul>
       </nav>

@@ -1,0 +1,10 @@
+@use '../../styles/App' as *;
+
+.header {
+  &__list {
+    @include flex-properties(flex, null, space-between, center, null);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
