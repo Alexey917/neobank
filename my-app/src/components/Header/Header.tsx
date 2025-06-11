@@ -1,37 +1,32 @@
 import { FC } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from '../UI/Button/Button';
+import { NavItem } from '../NavItem/NavItem';
 
 import classes from './Header.module.scss';
 
 export const Header: FC = () => {
   return (
     <header className={classes.header}>
-      <nav>
+      <nav aria-label="Main navigation">
         <ul className={classes.header__list}>
           <li>
-            <Link to="#">NeoBank</Link>
+            <Link to="/" className={classes.header__logo} aria-label="Home">
+              NeoBank
+            </Link>
           </li>
 
           <li>
             <ul className={classes.header__list_inside}>
-              <li>
-                <NavLink to="#">Credit card</NavLink>
-              </li>
-              <li>
-                <NavLink to="#">Product</NavLink>
-              </li>
-              <li>
-                <NavLink to="#">Account</NavLink>
-              </li>
-              <li>
-                <NavLink to="#">Resources</NavLink>
-              </li>
+              <NavItem to="#">Credit card</NavItem>
+              <NavItem to="#">Product</NavItem>
+              <NavItem to="#">Account</NavItem>
+              <NavItem to="#">Resources</NavItem>
             </ul>
           </li>
 
           <li>
-            <Button styleBtn="button_bank">
+            <Button styleBtn="button_bank" aria-label="Online Bank">
               <span className={classes.button_text}>Online Bank</span>
             </Button>
           </li>

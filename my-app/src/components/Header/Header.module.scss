@@ -11,9 +11,25 @@
     @include flex-properties(flex, null, space-between, center, 40px);
     @include list-style(none, 0, 0);
   }
+
+  &__logo {
+    @include text-properties(
+      Ubuntu,
+      24px,
+      112%,
+      0.02em,
+      700,
+      rgba(180, 56, 122, 1)
+    );
+  }
 }
 
 .button_text {
-  @include text-properties(Ubuntu, 16px, 112%, 0.02em, 700);
-  color: #ffffff;
+  @include text-properties(Ubuntu, 16px, 112%, 0.02em, 700, #ffffff);
+}
+
+@media (hover: hover) {
+  .header__logo:hover {
+    color: rgba(180, 56, 122, 1);
+  }
 }

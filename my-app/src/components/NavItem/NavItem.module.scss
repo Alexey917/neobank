@@ -1,0 +1,18 @@
+@use '../../styles/App' as *;
+
+.header__link {
+  @include text-properties(
+    Ubuntu,
+    16px,
+    112%,
+    0.02em,
+    700,
+    rgba(29, 25, 41, 1)
+  );
+}
+
+@media (hover: hover) {
+  .header__link:hover {
+    color: #b2a35f;
+  }
+}

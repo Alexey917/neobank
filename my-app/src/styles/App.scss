@@ -15,12 +15,13 @@ body {
   gap: $gap;
 }
 
-@mixin text-properties($font, $size, $height, $spacing, $weight) {
+@mixin text-properties($font, $size, $height, $spacing, $weight, $color) {
   font-family: $font, sans-serif;
   font-size: $size;
   line-height: $height;
   letter-spacing: $spacing;
   font-weight: $weight;
+  color: $color;
 }
 
 @mixin list-style($style, $margin, $padding) {
