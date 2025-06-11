@@ -4,6 +4,7 @@
 
 body {
   display: block;
+  background-color: rgba(245, 244, 255, 1);
 }
 
 @mixin flex-properties($display, $direction, $justify, $align, $gap) {
@@ -12,4 +13,18 @@ body {
   justify-content: $justify;
   align-items: $align;
   gap: $gap;
+}
+
+@mixin text-properties($font, $size, $height, $spacing, $weight) {
+  font-family: $font, sans-serif;
+  font-size: $size;
+  line-height: $height;
+  letter-spacing: $spacing;
+  font-weight: $weight;
+}
+
+@mixin list-style($style, $margin, $padding) {
+  list-style: $style;
+  margin: $margin;
+  padding: $padding;
 }
