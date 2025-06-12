@@ -10,7 +10,7 @@ interface FooterItemProps {
 
 export const FooterItem: FC<FooterItemProps> = ({ children, to }) => {
   return (
-    <li>
+    <li className={classes.footer__item}>
       <Link to={to} className={classes.footer__link}>
         {children}
       </Link>

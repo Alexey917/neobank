@@ -2,8 +2,8 @@
 
 .header {
   @include container(1300px);
-  padding: 7px 0;
-  margin-bottom: 131px;
+  padding: 0.4375rem 0;
+  margin-bottom: 8.1875rem;
 
   &__list {
     @include flex-properties(flex, null, space-between, center, null);
@@ -18,12 +18,24 @@
   &__logo {
     @include text-properties(
       Ubuntu,
-      24px,
+      1.5rem,
       112%,
       0.02em,
       700,
       rgba(180, 56, 122, 1)
     );
+  }
+
+  &__menu_icon {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  &__menu_btn {
+    display: none;
+    padding: 0.5625rem 0.8125rem;
+    background-color: rgba(0, 60, 255, 1);
+    cursor: pointer;
   }
 }
 
@@ -34,5 +46,31 @@
 @media (hover: hover) {
   .header__logo:hover {
     color: rgba(180, 56, 122, 1);
+  }
+}
+
+@media (max-width: 1300px) {
+  .header {
+    @include container(57.5rem);
+  }
+}
+
+@media (max-width: 920px) {
+  .header {
+    @include container(31.25rem);
+
+    &__list_inside {
+      display: none;
+    }
+
+    &__menu_btn {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    @include container(320px);
   }
 }

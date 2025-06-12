@@ -9,10 +9,10 @@ export const Footer = () => {
     <footer className={classes.footer}>
       <div className={classes.footer__wrapper}>
         <div className={classes.footer__contactsWrapper}>
-          <Link to="#">
+          <Link to="https://www.neoflex.ru/" aria-label="Neoflex homepage">
             <img
               src={neoLogo}
-              alt="Neoflex-logo"
+              alt="Neoflex"
               className={classes.footer__neoLogo}
             />
           </Link>
@@ -27,19 +27,21 @@ export const Footer = () => {
         </div>
         <nav>
           <ul className={classes.footer__list}>
-            <FooterItem to="#">About bank</FooterItem>
-            <FooterItem to="#">Ask a Question</FooterItem>
-            <FooterItem to="#">Quality of service</FooterItem>
-            <FooterItem to="#">Requisites</FooterItem>
-            <FooterItem to="#">Press center</FooterItem>
-            <FooterItem to="#">Bank career</FooterItem>
-            <FooterItem to="#">Investors</FooterItem>
-            <FooterItem to="#">Analytics</FooterItem>
-            <FooterItem to="#">Business and processes</FooterItem>
-            <FooterItem to="#">Compliance and business ethics</FooterItem>
+            <FooterItem to="about">About bank</FooterItem>
+            <FooterItem to="faq">Ask a Question</FooterItem>
+            <FooterItem to="quality">Quality of service</FooterItem>
+            <FooterItem to="requisites">Requisites</FooterItem>
+            <FooterItem to="press">Press center</FooterItem>
+            <FooterItem to="careers">Bank career</FooterItem>
+            <FooterItem to="investors">Investors</FooterItem>
+            <FooterItem to="analytics">Analytics</FooterItem>
+            <FooterItem to="business">Business and processes</FooterItem>
+            <FooterItem to="compliance">
+              Compliance and business ethics
+            </FooterItem>
           </ul>
         </nav>
-        <hr className={classes.footer__separator} />
+        <hr className={classes.footer__separator} aria-hidden="true" />
         <p className={classes.footer__text}>
           We use cookies to personalize our services and improve the user
           experience of our website. Cookies are small files containing

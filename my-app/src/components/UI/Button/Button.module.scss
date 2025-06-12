@@ -12,3 +12,9 @@
     background-color: #7796c0;
   }
 }
+
+@media (max-width: 920px) {
+  .button_bank {
+    display: none;
+  }
+}

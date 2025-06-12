@@ -4,6 +4,7 @@ import { Button } from '../UI/Button/Button';
 import { NavItem } from '../NavItem/NavItem';
 
 import classes from './Header.module.scss';
+import menu from '../../assets/sprite.svg';
 
 export const Header: FC = () => {
   return (
@@ -29,6 +30,14 @@ export const Header: FC = () => {
             <Button styleBtn="button_bank" aria-label="Online Bank">
               <span className={classes.button_text}>Online Bank</span>
             </Button>
+          </li>
+
+          <li>
+            <button type="button" className={classes.header__menu_btn}>
+              <svg className={classes.header__menu_icon}>
+                <use href={menu + '#menu'}></use>
+              </svg>
+            </button>
           </li>
         </ul>
       </nav>

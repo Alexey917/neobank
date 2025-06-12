@@ -39,3 +39,9 @@ body {
   width: $width;
   margin: auto;
 }
+
+@media (max-width: 1300px) {
+  html {
+    font-size: 16px;
+  }
+}

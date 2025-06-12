@@ -1,5 +1,17 @@
 @use '../../styles/App' as *;
 
 .footer__link {
-  @include text-properties(Ubuntu, 16px, 147%, 0.02em, 500, #000000);
+  @include text-properties(Ubuntu, 1rem, 147%, 0.02em, 500, #000000);
+}
+
+@media (hover: hover) {
+  .footer__link:hover {
+    color: #b2a35f;
+  }
+}
+
+@media (max-width: 920px) {
+  .footer__item {
+    margin-bottom: 0.625rem;
+  }
 }
