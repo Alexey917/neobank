@@ -11,7 +11,14 @@ interface NavItemProps {
 export const NavItem: FC<NavItemProps> = ({ children, to }) => {
   return (
     <li>
-      <NavLink to={to} className={classes.header__link}>
+      <NavLink
+        to={to}
+        className={({ isActive }) =>
+          isActive
+            ? `${classes.header__link_active} ${classes.header__link}`
+            : classes.header__link
+        }
+      >
         {children}
       </NavLink>
     </li>

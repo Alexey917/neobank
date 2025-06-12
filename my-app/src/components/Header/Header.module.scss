@@ -1,7 +1,10 @@
 @use '../../styles/App' as *;
 
 .header {
+  @include container(1300px);
   padding: 7px 0;
+  margin-bottom: 131px;
+
   &__list {
     @include flex-properties(flex, null, space-between, center, null);
     @include list-style(none, 0, 0);

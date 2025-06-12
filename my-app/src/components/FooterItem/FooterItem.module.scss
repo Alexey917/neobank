@@ -1,0 +1,5 @@
+@use '../../styles/App' as *;
+
+.footer__link {
+  @include text-properties(Ubuntu, 16px, 147%, 0.02em, 500, #000000);
+}

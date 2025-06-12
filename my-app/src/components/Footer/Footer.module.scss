@@ -1,0 +1,76 @@
+@use '../../styles/App' as *;
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  background: linear-gradient(
+      0deg,
+      rgba(178, 178, 178, 0.2),
+      rgba(178, 178, 178, 0.2)
+    ),
+    linear-gradient(0deg, #f4f4f4, #f4f4f4);
+
+  &__wrapper {
+    @include container(1300px);
+    padding-top: 96px;
+    padding-bottom: 92px;
+  }
+
+  &__contactsWrapper {
+    @include flex-properties(flex, null, space-between, null, null);
+  }
+
+  &__neoLogo {
+    width: 158.14px;
+    height: 50px;
+  }
+
+  &__contacts {
+    @include flex-properties(flex, column, null, null, 6px);
+    margin-bottom: 32px;
+  }
+
+  &__phone {
+    @include text-properties(Ubuntu, 30px, 147%, null, 700, #000000);
+  }
+
+  &__email {
+    @include text-properties(
+      Ubuntu,
+      16px,
+      147%,
+      0.02em,
+      500,
+      rgba(45, 55, 72, 1)
+    );
+  }
+
+  &__list {
+    @include flex-properties(flex, null, null, center, 32px);
+    @include list-style(none, 0, 0);
+    flex-wrap: wrap;
+    row-gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  &__separator {
+    width: 100%;
+    height: 2px;
+    margin-bottom: 32px;
+    background-color: rgba(255, 255, 255, 0.81);
+    border: none;
+  }
+
+  &__text {
+    @include text-properties(
+      Ubuntu,
+      16px,
+      147%,
+      0.02em,
+      500,
+      rgba(45, 55, 72, 1)
+    );
+  }
+}

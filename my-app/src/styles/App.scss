@@ -4,6 +4,8 @@
 
 body {
   display: block;
+  height: 100%;
+  overflow-x: hidden;
   background-color: rgba(245, 244, 255, 1);
 }
 
@@ -28,4 +30,12 @@ body {
   list-style: $style;
   margin: $margin;
   padding: $padding;
+}
+
+@mixin container($width) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: $width;
+  margin: auto;
 }

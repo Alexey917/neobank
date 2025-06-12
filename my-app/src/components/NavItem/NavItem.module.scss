@@ -9,6 +9,10 @@
     700,
     rgba(29, 25, 41, 1)
   );
+
+  &_active {
+    color: #b2a35f;
+  }
 }
 
 @media (hover: hover) {

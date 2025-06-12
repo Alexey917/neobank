@@ -18,10 +18,10 @@ export const Header: FC = () => {
 
           <li>
             <ul className={classes.header__list_inside}>
-              <NavItem to="#">Credit card</NavItem>
-              <NavItem to="#">Product</NavItem>
-              <NavItem to="#">Account</NavItem>
-              <NavItem to="#">Resources</NavItem>
+              <NavItem to="creditCard">Credit card</NavItem>
+              <NavItem to="product">Product</NavItem>
+              <NavItem to="account">Account</NavItem>
+              <NavItem to="resources">Resources</NavItem>
             </ul>
           </li>
 
