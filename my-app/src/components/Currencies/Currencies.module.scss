@@ -1,0 +1,93 @@
+@use '../../styles/App.scss' as *;
+
+.currencies {
+  @include container(81.25rem);
+  @include flex-properties(flex, row, space-between, null, null);
+  padding: 2rem;
+  border-radius: 1.75rem;
+  background: linear-gradient(
+      358.2deg,
+      rgba(178, 178, 178, 0.8) 8.06%,
+      rgba(178, 178, 178, 0) 67.93%
+    ),
+    linear-gradient(0deg, rgba(244, 244, 244, 0.9), rgba(244, 244, 244, 0.9));
+  margin-bottom: 3rem;
+
+  &__wrapper {
+    @include flex-properties(flex, column, null, null, null);
+  }
+
+  &__dateWrapper {
+    @include flex-properties(flex, column, null, flex-end, 79px);
+  }
+
+  &__date {
+    @include text-properties(
+      Ubuntu,
+      1rem,
+      3.125rem,
+      null,
+      500,
+      rgba(0, 0, 0, 1)
+    );
+  }
+
+  &__converter {
+    margin-top: 2.125rem;
+  }
+
+  &__list {
+    width: 25.5625rem;
+    columns: 3 auto;
+    list-style: none;
+    margin: 2rem 0 3.1875rem 0;
+    padding: 0;
+  }
+
+  &__title {
+    @include text-properties(
+      Ubuntu,
+      1.875rem,
+      3.125rem,
+      null,
+      500,
+      rgba(28, 28, 30, 1)
+    );
+    margin: 0;
+  }
+
+  &__converterTitle {
+    @include text-properties(
+      Ubuntu,
+      1.25rem,
+      3.125rem,
+      null,
+      500,
+      rgba(0, 0, 0, 1)
+    );
+    margin: 0;
+  }
+
+  &__btn {
+    align-self: flex-start;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+  }
+
+  &__btnText {
+    @include text-properties(
+      Ubuntu,
+      1.25rem,
+      112%,
+      0.02em,
+      700,
+      rgba(255, 255, 255, 1)
+    );
+  }
+
+  &__icon {
+    width: 7.5rem;
+    height: 7.0625rem;
+  }
+}
