@@ -1,0 +1,103 @@
+@use '../../styles/App.scss' as *;
+
+.features {
+  @include container(81.25rem);
+  @include flex-properties(flex, row, space-between, center, 75px);
+  margin-bottom: 3rem;
+
+  &__imgWrapper {
+    margin: 0;
+  }
+
+  &__img {
+    width: 31.75rem;
+    height: 25.9375rem;
+  }
+
+  &__title {
+    margin: 0 0 1.25rem 0;
+    @include text-properties(
+      Rubik,
+      2.1875rem,
+      3.125rem,
+      null,
+      500,
+      rgba(11, 19, 42, 1)
+    );
+  }
+
+  &__text {
+    margin: 0 0 1.5625rem 0;
+    @include text-properties(
+      Rubik,
+      1rem,
+      1.875rem,
+      null,
+      400,
+      rgba(79, 86, 101, 1)
+    );
+  }
+
+  &__list {
+    @include list-style(none, 0, 0);
+  }
+}
+
+@media (max-width: 1300px) {
+  .features {
+    @include container(57.5rem);
+    margin-bottom: 3rem;
+
+    &__text,
+    &__title {
+      text-align: center;
+    }
+
+    &__list {
+      // columns: 2 auto;
+      @include flex-properties(flex, row, null, center, 0.625rem);
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .features {
+    @include container(31.25rem);
+    margin-bottom: 3rem;
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__list {
+      display: block;
+      columns: 2 auto;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .features {
+    @include container(20rem);
+    margin-bottom: 3rem;
+
+    &__img {
+      width: 320px;
+      height: 245px;
+    }
+
+    &__title {
+      font-size: 1rem;
+      line-height: 2rem;
+    }
+
+    &__text {
+      font-size: 0.8rem;
+      line-height: 1.575rem;
+    }
+
+    &__list {
+      @include flex-properties(flex, column, null, center, 0.625rem);
+    }
+  }
+}

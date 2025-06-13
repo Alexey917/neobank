@@ -1,9 +1,6 @@
 @use '../../styles/App' as *;
 
 .footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
   width: 100vw;
   background: linear-gradient(
       0deg,
@@ -108,11 +105,11 @@
 @media (max-width: 500px) {
   .footer {
     &__wrapper {
-      @include container(320px);
+      @include container(20rem);
     }
 
     &__contactsWrapper {
-      @include flex-properties(flex, column, space-between, center, 20px);
+      @include flex-properties(flex, column, space-between, center, 1.25rem);
     }
 
     &__list {
@@ -121,6 +118,10 @@
 
     &__email {
       text-align: center;
+    }
+
+    &__phone {
+      font-size: 1.575rem;
     }
   }
 }

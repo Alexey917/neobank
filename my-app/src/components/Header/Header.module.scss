@@ -32,10 +32,13 @@
   }
 
   &__menu_btn {
-    display: none;
     padding: 0.5625rem 0.8125rem;
     background-color: rgba(0, 60, 255, 1);
     cursor: pointer;
+  }
+
+  &__menu_item {
+    display: none;
   }
 }
 
@@ -52,25 +55,28 @@
 @media (max-width: 1300px) {
   .header {
     @include container(57.5rem);
+    margin-bottom: 8.1875rem;
   }
 }
 
 @media (max-width: 920px) {
   .header {
     @include container(31.25rem);
+    margin-bottom: 8.1875rem;
 
     &__list_inside {
       display: none;
     }
 
-    &__menu_btn {
-      display: block;
+    &__menu_item {
+      display: flex;
     }
   }
 }
 
 @media (max-width: 500px) {
   .header {
-    @include container(320px);
+    @include container(20rem);
+    margin-bottom: 8.1875rem;
   }
 }

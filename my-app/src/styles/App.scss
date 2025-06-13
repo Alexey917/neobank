@@ -9,6 +9,12 @@ body {
   background-color: rgba(245, 244, 255, 1);
 }
 
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 @mixin flex-properties($display, $direction, $justify, $align, $gap) {
   display: $display;
   flex-direction: $direction;
@@ -43,5 +49,11 @@ body {
 @media (max-width: 1300px) {
   html {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 14px;
   }
 }

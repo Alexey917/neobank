@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../UI/Button/Button';
 import { NavItem } from '../NavItem/NavItem';
@@ -32,7 +32,7 @@ export const Header: FC = () => {
             </Button>
           </li>
 
-          <li>
+          <li className={classes.header__menu_item}>
             <button type="button" className={classes.header__menu_btn}>
               <svg className={classes.header__menu_icon}>
                 <use href={menu + '#menu'}></use>
