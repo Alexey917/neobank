@@ -54,7 +54,6 @@
     }
 
     &__list {
-      // columns: 2 auto;
       @include flex-properties(flex, row, null, center, 0.625rem);
     }
   }
@@ -65,12 +64,18 @@
     @include container(31.25rem);
     margin-bottom: 3rem;
 
+    &__img {
+      width: 28.125rem;
+      height: 21.875rem;
+    }
+
     &__title {
       font-size: 1.5rem;
     }
 
     &__list {
       display: block;
+      -moz-columns: 2 auto;
       columns: 2 auto;
     }
   }
@@ -82,8 +87,8 @@
     margin-bottom: 3rem;
 
     &__img {
-      width: 320px;
-      height: 245px;
+      width: 20rem;
+      height: 15.3125rem;
     }
 
     &__title {

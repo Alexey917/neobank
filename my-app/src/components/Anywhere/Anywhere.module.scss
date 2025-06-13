@@ -1,0 +1,92 @@
+@use '../../styles/App.scss' as *;
+
+.anywhere {
+  @include container(81.25rem);
+  align-items: center;
+  margin-bottom: 3rem;
+
+  &__imgWrapper {
+    margin: 0;
+  }
+
+  &__img {
+    width: 66.25rem;
+    height: 33.6106rem;
+  }
+
+  &__title {
+    margin: 0 0 0.5rem 0;
+    @include text-properties(
+      Ubuntu,
+      1.875rem,
+      3.125rem,
+      null,
+      500,
+      rgba(28, 28, 28, 1)
+    );
+  }
+
+  &__text {
+    margin: 0 0 3rem 0;
+    @include text-properties(
+      Ubuntu,
+      1rem,
+      3.125rem,
+      null,
+      400,
+      rgba(28, 28, 30, 1)
+    );
+  }
+}
+
+@media (max-width: 1300px) {
+  .anywhere {
+    @include container(57.5rem);
+    margin-bottom: 3rem;
+
+    &__img {
+      width: 57.5rem;
+      height: 28.125rem;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .anywhere {
+    @include container(31.25rem);
+    margin-bottom: 3rem;
+
+    &__img {
+      width: 31.25rem;
+      height: 15.625rem;
+    }
+
+    &__title {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .anywhere {
+    @include container(20rem);
+    margin-bottom: 3rem;
+
+    &__img {
+      width: 20rem;
+      height: 10rem;
+    }
+
+    &__title {
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.8rem;
+    }
+
+    &__text {
+      text-align: center;
+      font-size: 0.8rem;
+      line-height: 1.8rem;
+    }
+  }
+}
