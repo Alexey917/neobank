@@ -1,6 +1,7 @@
 @use '../../../styles/App.scss' as *;
 
-.button_bank {
+.link {
+  display: flex;
   padding: 16px;
   background-color: rgba(0, 60, 255, 1);
   border-radius: 16px;
@@ -8,13 +9,13 @@
 }
 
 @media (hover: hover) {
-  .button_bank:hover {
+  .link:hover {
     background-color: #7796c0;
   }
 }
 
 @media (max-width: 920px) {
-  .button_bank {
+  .link {
     display: none;
   }
 }

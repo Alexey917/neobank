@@ -27,7 +27,12 @@ export const Header: FC = () => {
           </li>
 
           <li>
-            <Button styleBtn="button_bank" aria-label="Online Bank">
+            <Button
+              as={Link}
+              to="onlineBank"
+              styleElem="link"
+              aria-label="Online Bank"
+            >
               <span className={classes.button_text}>Online Bank</span>
             </Button>
           </li>

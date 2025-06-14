@@ -1,18 +1,31 @@
-import React, { FC, ReactNode } from 'react';
+import React, { ComponentProps, ElementType, FC, ReactNode } from 'react';
 
 import classes from './Button.module.scss';
 
-interface IButton {
+interface IButtonOwnProps<E extends ElementType = ElementType> {
   children: ReactNode;
-  styleBtn: string;
+  styleElem: string;
+  as?: E;
 }
 
-export const Button: FC<IButton> = ({ children, styleBtn }) => {
+type ButtonProps<E extends ElementType> = IButtonOwnProps<E> &
+  Omit<ComponentProps<E>, keyof IButtonOwnProps>;
+
+const defaultElement = 'button';
+
+export const Button = <E extends ElementType = typeof defaultElement>({
+  children,
+  styleElem,
+  as,
+  ...otherProps
+}: ButtonProps<E>) => {
+  const TagName = as || defaultElement;
+
   return (
     <>
-      <button type="button" className={classes[styleBtn]}>
+      <TagName className={classes[styleElem]} {...otherProps}>
         {children}
-      </button>
+      </TagName>
     </>
   );
 };
