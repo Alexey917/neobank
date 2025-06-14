@@ -2,11 +2,28 @@ import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../UI/Button/Button';
 import { NavItem } from '../NavItem/NavItem';
+import { HeaderMenu } from '../HeaderMenu/HeaderMenu';
 
 import classes from './Header.module.scss';
 import menu from '../../assets/sprite.svg';
+import close from '../../assets/sprite.svg';
 
 export const Header: FC = () => {
+  const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
+  const [menuIcon, setMenuIcon] = useState<string>(menu);
+
+  const openMobileMenu = () => {
+    if (!menuIsOpen) {
+      setMenuIsOpen(true);
+      console.log('открыто');
+      setMenuIcon(close);
+    } else {
+      setMenuIsOpen(false);
+      setMenuIcon(menu);
+      console.log('закрыто');
+    }
+  };
+
   return (
     <header className={classes.header}>
       <nav aria-label="Main navigation">
@@ -30,7 +47,7 @@ export const Header: FC = () => {
             <Button
               as={Link}
               to="onlineBank"
-              styleElem="link"
+              className={classes.link}
               aria-label="Online Bank"
             >
               <span className={classes.button_text}>Online Bank</span>
@@ -38,14 +55,28 @@ export const Header: FC = () => {
           </li>
 
           <li className={classes.header__menu_item}>
-            <button type="button" className={classes.header__menu_btn}>
-              <svg className={classes.header__menu_icon}>
-                <use href={menu + '#menu'}></use>
+            <button
+              type="button"
+              className={classes.header__menu_btn}
+              onClick={() => openMobileMenu()}
+            >
+              <svg
+                className={
+                  menuIsOpen
+                    ? classes.header__closeMenu_icon
+                    : classes.header__openMenu_icon
+                }
+              >
+                <use
+                  href={`${menuIcon}#${!menuIsOpen ? 'menu' : 'close'}`}
+                ></use>
               </svg>
             </button>
           </li>
         </ul>
       </nav>
+
+      {menuIsOpen ? <HeaderMenu /> : ''}
     </header>
   );
 };

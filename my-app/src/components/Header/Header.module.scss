@@ -26,7 +26,12 @@
     );
   }
 
-  &__menu_icon {
+  &__openMenu_icon {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  &__closeMenu_icon {
     width: 1.125rem;
     height: 1.125rem;
   }
@@ -41,6 +46,8 @@
     display: none;
   }
 }
+
+@include buttonLink(inline-flex);
 
 .button_text {
   @include text-properties(Ubuntu, 16px, 112%, 0.02em, 700, #ffffff);
@@ -72,11 +79,13 @@
       display: flex;
     }
   }
+
+  @include buttonLink(none);
 }
 
 @media (max-width: 500px) {
   .header {
     @include container(20rem);
-    margin-bottom: 8.1875rem;
+    margin-bottom: 5.1875rem;
   }
 }

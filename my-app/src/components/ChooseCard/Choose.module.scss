@@ -1,0 +1,66 @@
+@use '../../styles/App.scss' as *;
+
+.chooseCard {
+  @include container(81.25rem);
+  @include flex-properties(flex, row, space-between, null, 9.8125rem);
+  margin-bottom: 7rem;
+
+  &__title {
+    margin: 0 0 2.25rem 0;
+    @include text-properties(
+      Ubuntu,
+      3rem,
+      3.125rem,
+      null,
+      700,
+      rgba(28, 28, 30, 1)
+    );
+  }
+}
+
+.button_text {
+  @include text-properties(Ubuntu, 1rem, 112%, 0.02em, 700, #ffffff);
+}
+
+@include buttonLink(inline-flex);
+
+@media (max-width: 1300px) {
+  .chooseCard {
+    @include container(57.5rem);
+    margin-bottom: 7rem;
+
+    &__title {
+      text-align: center;
+    }
+
+    &__article {
+      @include flex-properties(flex, column, null, center, null);
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .chooseCard {
+    @include container(31.25rem);
+    gap: 4.8125rem;
+    margin-bottom: 7rem;
+
+    &__title {
+      font-size: 2.3rem;
+    }
+  }
+
+  @include buttonLink(inline-flex);
+}
+
+@media (max-width: 500px) {
+  .chooseCard {
+    @include container(20rem);
+    margin-bottom: 7rem;
+
+    &__title {
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+    }
+  }
+}

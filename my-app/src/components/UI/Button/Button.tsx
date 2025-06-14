@@ -4,7 +4,7 @@ import classes from './Button.module.scss';
 
 interface IButtonOwnProps<E extends ElementType = ElementType> {
   children: ReactNode;
-  styleElem: string;
+  className?: string;
   as?: E;
 }
 
@@ -15,7 +15,7 @@ const defaultElement = 'button';
 
 export const Button = <E extends ElementType = typeof defaultElement>({
   children,
-  styleElem,
+  className,
   as,
   ...otherProps
 }: ButtonProps<E>) => {
@@ -23,7 +23,7 @@ export const Button = <E extends ElementType = typeof defaultElement>({
 
   return (
     <>
-      <TagName className={classes[styleElem]} {...otherProps}>
+      <TagName className={className} {...otherProps}>
         {children}
       </TagName>
     </>

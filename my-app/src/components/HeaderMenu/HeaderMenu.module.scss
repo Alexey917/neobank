@@ -1,0 +1,29 @@
+@use '../../styles/App' as *;
+
+.headerMenu {
+  align-self: flex-end;
+  margin-top: 10px;
+
+  &__list {
+    @include flex-properties(none, column, null, center, 20px);
+    @include list-style(none, 0, 0);
+    border-radius: 28px;
+    padding: 20px;
+    background-color: #fff;
+    width: 220px;
+  }
+}
+
+@include buttonLink(inline-flex);
+
+.button_text {
+  @include text-properties(Ubuntu, 16px, 112%, 0.02em, 700, #ffffff);
+}
+
+@media (max-width: 920px) {
+  .headerMenu {
+    &__list {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@use '../../styles/App.scss' as *;
+
+.chooseCard__imgWrapper {
+  margin: 0;
+  @include flex-properties(flex, row, space-between, null, 1rem);
+  flex-wrap: wrap;
+}
+
+.chooseCard__img {
+  width: 15.75rem;
+  height: 9.375rem;
+}
+
+@media (max-width: 1300px) {
+  .chooseCard__imgWrapper {
+    gap: 0.75rem;
+  }
+
+  .chooseCard__img {
+    width: 13.75rem;
+    height: 8.375rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .chooseCard__imgWrapper {
+    justify-content: center;
+  }
+}
