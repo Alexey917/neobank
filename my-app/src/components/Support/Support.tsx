@@ -3,26 +3,10 @@ import { Button } from '../UI/Button/Button';
 
 import classes from './Support.module.scss';
 import sprite from '../../assets/sprite.svg';
-
-//^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)
+import { useEmailValidation } from '../../hooks/useEmailValidation';
 
 export const Support: FC = () => {
-  const [value, setValue] = useState<string>('');
-  const [errorLabel, setErrorLabel] = useState<string>('');
-  const [canSend, setCanSend] = useState<boolean>(true);
-
-  const emailValidation = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const isValid =
-      /^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)/;
-    setValue(e.target.value);
-    if (!isValid.test(value)) {
-      setErrorLabel('Некорректный e-mail');
-      setCanSend(true);
-    } else {
-      setErrorLabel('');
-      setCanSend(false);
-    }
-  };
+  const { emailValidation, errorLabel, canSend } = useEmailValidation();
 
   return (
     <section className={classes.support} aria-labelledby="support-heading">
@@ -65,6 +49,7 @@ export const Support: FC = () => {
             className={classes.support__btn}
             aria-label="Subscribe to newsletter"
             disabled={canSend}
+            onClick={() => alert('You are now subscribed to the newsletter.')}
           >
             <svg className={classes.support__letterIcon} aria-hidden="true">
               <use href={`${sprite}#letter`}></use>

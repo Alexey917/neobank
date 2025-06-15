@@ -15,12 +15,10 @@ export const Header: FC = () => {
   const openMobileMenu = () => {
     if (!menuIsOpen) {
       setMenuIsOpen(true);
-      console.log('открыто');
       setMenuIcon(close);
     } else {
       setMenuIsOpen(false);
       setMenuIcon(menu);
-      console.log('закрыто');
     }
   };
 

@@ -163,12 +163,7 @@
     margin-bottom: 3rem;
 
     &__list {
-      width: 20rem;
-      // -moz-columns: 3 auto;
-      // columns: 3 auto;
-      // list-style: none;
-      // margin: 2rem 0 3.1875rem 0;
-      // padding: 0;
+      width: 13.75rem;
       @include flex-properties(flex, column, null, null, null);
     }
 
@@ -180,6 +175,20 @@
     &__converterTitle,
     &__date {
       text-align: center;
+    }
+
+    &__converter {
+      width: 13.75rem;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__rate {
+      margin-right: 0;
     }
   }
 }
