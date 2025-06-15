@@ -97,6 +97,7 @@
 
     &__list {
       display: block;
+      -moz-columns: 2 auto;
       columns: 2 auto;
     }
   }

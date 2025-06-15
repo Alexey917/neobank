@@ -161,5 +161,25 @@
   .currencies {
     @include container(20rem);
     margin-bottom: 3rem;
+
+    &__list {
+      width: 20rem;
+      // -moz-columns: 3 auto;
+      // columns: 3 auto;
+      // list-style: none;
+      // margin: 2rem 0 3.1875rem 0;
+      // padding: 0;
+      @include flex-properties(flex, column, null, null, null);
+    }
+
+    &__title {
+      font-size: 1.4rem;
+      text-align: center;
+    }
+
+    &__converterTitle,
+    &__date {
+      text-align: center;
+    }
   }
 }

@@ -89,7 +89,7 @@ export const Currencies: FC = () => {
           rate: response.data.result?.toFixed(2) || 'N/A',
         });
         // Добавляем задержку между запросами
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 2500));
       } catch (e) {
         setError('Failed to load currency rates');
         console.error('Fetch error:', e);
