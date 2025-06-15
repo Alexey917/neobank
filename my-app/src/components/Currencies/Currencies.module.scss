@@ -13,6 +13,9 @@
     linear-gradient(0deg, rgba(244, 244, 244, 0.9), rgba(244, 244, 244, 0.9));
   margin-bottom: 3rem;
 
+  box-shadow: 0px 2px 4px 0px rgba(187, 187, 187, 0.2),
+    0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+
   &__wrapper {
     @include flex-properties(flex, column, null, null, null);
   }

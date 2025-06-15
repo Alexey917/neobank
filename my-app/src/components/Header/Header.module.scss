@@ -1,7 +1,7 @@
 @use '../../styles/App' as *;
 
 .header {
-  @include container(1300px);
+  @include container(81.25rem);
   padding: 0.4375rem 0;
   margin-bottom: 8.1875rem;
 
