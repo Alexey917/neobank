@@ -38,13 +38,13 @@ export const Currencies: FC = () => {
             </ul>
           )}
         </article>
-        <button
-          type="submit"
+        <a
+          href="https://alfaforex.ru/analytics/analytics-currencies/"
           className={classes.currencies__btn}
           aria-label="View all currency rates"
         >
           <span className={classes.currencies__btnText}>All courses</span>
-        </button>
+        </a>
       </div>
 
       <div className={classes.currencies__dateWrapper}>

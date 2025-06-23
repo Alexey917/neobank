@@ -1,15 +1,10 @@
 import { useState, useEffect } from 'react';
-import { currencyService } from '../utils/currencyService';
+import { currencyApi } from '../API/api';
 import { useFormatDate } from '../hooks/useFormatDate';
 
 const CURRENCIES = ['USD', 'EUR', 'TRY', 'CNY', 'CHF', 'JPY'];
 
-const API_OPTIONS = {
-  url: 'https://api.exchangerate.host/convert',
-  accessKey: '7489c6fddef20d874fb66def6d8902fc', //7489c6fddef20d874fb66def6d8902fc, 3e54757659fbd84c0609d00c61cece96
-  to: 'RUB',
-  amount: 1,
-};
+const ALL_CURRENCIES = ['AUD', 'CAD', 'KZT', 'PLN', 'SAR', 'SEK'];
 
 const UPDATE_INTERVAL = 15 * 60 * 1000;
 
@@ -27,7 +22,7 @@ export const useFetchCurrencies = () => {
 
   const { date, formatDate } = useFormatDate();
 
-  const fetchCurrencies = async () => {
+  const fetchCurrencies = async (to = 'RUB') => {
     setIsLoading(true);
     setError('');
 
@@ -35,13 +30,11 @@ export const useFetchCurrencies = () => {
 
     for (const currency of CURRENCIES) {
       try {
-        const response = await currencyService(currency, API_OPTIONS);
+        // const response = await currencyApi.get(`/pair/${currency}/${to}`);
         results.push({
           currency,
-          rate: response.data.result?.toFixed(2) || 'N/A',
+          rate: response.data.conversion_rate?.toFixed(2) || 'N/A',
         });
-        // Добавляем задержку между запросами
-        await new Promise((resolve) => setTimeout(resolve, 2500));
       } catch (e) {
         setError('Failed to load currency rates');
         console.error('Fetch error:', e);
