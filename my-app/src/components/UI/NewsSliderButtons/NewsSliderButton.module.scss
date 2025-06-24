@@ -1,0 +1,54 @@
+@use '../../../styles/App.scss' as *;
+
+.sliderButtons {
+  @include flex-properties(flex, null, center, flex-end, 20px);
+  align-self: flex-end;
+
+  .sliderButton {
+    width: 64px;
+    height: 64px;
+    padding: 0;
+    background-color: rgba(0, 60, 255, 1);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &_prevIcon,
+    &_nextIcon {
+      width: 24px;
+      height: 24px;
+      stroke: #ffffff;
+    }
+
+    &[disabled] {
+      background-color: #ffffff;
+      border: 1px solid #003cff;
+      cursor: not-allowed;
+
+      &[disabled] .slider-button-prev-icon,
+      .slider-button-next-icon {
+        stroke: #222222;
+      }
+    }
+  }
+}
+
+@media (hover: hover) {
+  .sliderButton {
+    &:hover {
+      background-color: #ffffff;
+      border: 1px solid #003cff;
+
+      & .sliderButton_prevIcon,
+      .sliderButton_nextIcon {
+        stroke: #222222;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sliderButtons {
+    justify-content: center;
+  }
+}

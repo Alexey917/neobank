@@ -3,6 +3,7 @@ import { Features } from '../../components/Features/Features';
 import { Anywhere } from '../../components/Anywhere/Anywhere';
 import { Currencies } from '../../components/Currencies/Currencies';
 import { ChooseCard } from '../../components/ChooseCard/ChooseCard';
+import { News } from '../../components/News/News';
 import { Support } from '../../components/Support/Support';
 
 import classes from './HomePage.module.scss';
@@ -14,6 +15,7 @@ export const HomePage: FC = () => {
       <Features />
       <Currencies />
       <Anywhere />
+      <News />
       <Support />
     </main>
   );
