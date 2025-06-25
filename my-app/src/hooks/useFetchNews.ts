@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { newsApi } from '../API/api';
 
-interface INews {
+export interface INews {
   urlToImage: string;
   url: string;
   title: string;

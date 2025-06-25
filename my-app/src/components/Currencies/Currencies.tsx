@@ -43,6 +43,7 @@ export const Currencies: FC = () => {
           href="https://alfaforex.ru/analytics/analytics-currencies/"
           className={classes.currencies__btn}
           aria-label="View all currency rates"
+          target="_blank"
         >
           <span className={classes.currencies__btnText}>All courses</span>
         </a>
