@@ -6,6 +6,10 @@ import { NewsItem } from '../NewsItem/NewsItem';
 import classes from './News.module.scss';
 
 const START_POSITION = 0;
+const DESKTOP_WIDTH = 1300;
+const TABLET_WIDTH = 920;
+const MOBILE_WIDTH = 500;
+let sliderOffset = 500;
 
 export const News = () => {
   const { news, loading, error } = useFetchNews();
@@ -30,31 +34,46 @@ export const News = () => {
     }
   }, [news, newsRef.current]);
 
+  let lastPosition = -(
+    (slideWidth + gap) * (news.length - 1) -
+    (slideWidth + gap)
+  );
+
+  if (window.innerWidth <= TABLET_WIDTH && window.innerWidth > MOBILE_WIDTH) {
+    lastPosition =
+      -((slideWidth + gap) * (news.length - 1) - (slideWidth + gap)) -
+      (DESKTOP_WIDTH - window.innerWidth);
+  } else if (window.innerWidth <= MOBILE_WIDTH) {
+    lastPosition =
+      -((slideWidth + gap) * (news.length - 1) - (slideWidth + gap)) -
+      (720 - window.innerWidth);
+    sliderOffset = 352;
+  }
+
   // Вычисляем последнюю позицию
-  const LAST_POSITION = -(slideWidth * (news.length - 1) - gap);
 
   const scrollSliderRight = () => {
     setPosition((prevPosition) => {
-      const newPosition = prevPosition - 500;
+      const newPosition = prevPosition - sliderOffset;
       newsRef.current?.style.setProperty(
         'transform',
         `translateX(${newPosition}px)`,
       );
       newPosition >= START_POSITION ? setIsPrev(true) : setIsPrev(false);
-      newPosition <= LAST_POSITION ? setIsNext(true) : setIsNext(false);
+      newPosition <= lastPosition ? setIsNext(true) : setIsNext(false);
       return newPosition;
     });
   };
 
   const scrollSliderLeft = () => {
     setPosition((prevPosition) => {
-      const newPosition = prevPosition + 500;
+      const newPosition = prevPosition + sliderOffset;
       newsRef.current?.style.setProperty(
         'transform',
         `translateX(${newPosition}px)`,
       );
       newPosition >= START_POSITION ? setIsPrev(true) : setIsPrev(false);
-      newPosition <= LAST_POSITION ? setIsNext(true) : setIsNext(false);
+      newPosition <= lastPosition ? setIsNext(true) : setIsNext(false);
       return newPosition;
     });
   };

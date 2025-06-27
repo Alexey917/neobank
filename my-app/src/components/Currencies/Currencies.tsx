@@ -3,7 +3,6 @@ import { FC } from 'react';
 import classes from './Currencies.module.scss';
 import currency from '../../assets/sprite.svg';
 import { useFetchCurrencies } from '../../hooks/useFetchCurrencies';
-import { useFetchNews } from '../../hooks/useFetchNews';
 
 export const Currencies: FC = () => {
   const { convertCurrencies, isLoading, error, date } = useFetchCurrencies();

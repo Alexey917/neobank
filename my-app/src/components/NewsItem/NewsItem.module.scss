@@ -3,10 +3,10 @@
 .news {
   &__link {
     display: inline-block;
-    width: 320px;
-    height: 448px;
-    padding: 32px;
-    margin: 16px 0 16px 2px;
+    width: 20rem;
+    height: 28rem;
+    padding: 2rem;
+    margin: 1rem 0 1rem 0.125rem;
     background: linear-gradient(#fff, #fff) padding-box,
       linear-gradient(0deg, rgba(187, 187, 187, 0.2), rgba(187, 187, 187, 0.2)),
       linear-gradient(
@@ -17,22 +17,30 @@
         border-box;
     border: 1px solid transparent;
     background-color: #fff;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 0 4px 0 rgba(0, 0, 0, 0.08);
-    border-radius: 28px;
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2),
+      0 0 4px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 1.75rem;
     flex-shrink: 0;
   }
 
   &__img {
-    width: 256px;
-    height: 120px;
-    margin-bottom: 32px;
+    width: 16rem;
+    height: 7.5rem;
+    margin-bottom: 2rem;
     -o-object-fit: cover;
     object-fit: cover;
   }
 
   &__linkTitle {
-    margin: 32px 0;
-    @include text-properties(Ubuntu, 20px, 25px, null, 500, rgba(0, 0, 0, 1));
+    margin: 2rem 0;
+    @include text-properties(
+      Ubuntu,
+      1.25rem,
+      1.5625rem,
+      null,
+      500,
+      rgba(0, 0, 0, 1)
+    );
     display: -webkit-box;
     -webkit-line-clamp: 2; /* Число отображаемых строк */
     -webkit-box-orient: vertical;
@@ -43,12 +51,27 @@
 
   &__description {
     margin: 0;
-    @include text-properties(Ubuntu, 16px, 23px, null, 500, rgba(0, 0, 0, 1));
+    @include text-properties(
+      Ubuntu,
+      1rem,
+      1.4375rem,
+      null,
+      500,
+      rgba(0, 0, 0, 1)
+    );
     display: -webkit-box;
     -webkit-line-clamp: 4; /* Число отображаемых строк */
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .news {
+    &__description {
+      font-size: 0.8rem;
+    }
   }
 }

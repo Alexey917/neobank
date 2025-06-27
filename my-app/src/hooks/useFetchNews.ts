@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useFormatDate } from '../hooks/useFormatDate';
 import { newsApi } from '../API/api';
 
 export interface INews {
@@ -13,11 +14,20 @@ export const useFetchNews = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const { date } = useFormatDate(false);
+
   useEffect(() => {
-    const fetchNews = async () => {
+    if (!date) return;
+    console.log(date);
+    const fetchNews = async (quantity: string) => {
       try {
         setLoading(true);
-        const response = await newsApi.get('');
+        const response = await newsApi.get('', {
+          params: {
+            pageSize: quantity,
+            from: date,
+          },
+        });
         setNews(response.data.articles);
       } catch (err) {
         setError('Failed to fetch news');
@@ -27,8 +37,8 @@ export const useFetchNews = () => {
       }
     };
 
-    fetchNews();
-  }, []);
+    fetchNews('25');
+  }, [date]);
 
   return { news, loading, error };
 };

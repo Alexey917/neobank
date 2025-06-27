@@ -20,7 +20,7 @@ export const useFetchCurrencies = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
 
-  const { date, formatDate } = useFormatDate();
+  const { date } = useFormatDate(true);
 
   const fetchCurrencies = async (to = 'RUB') => {
     setIsLoading(true);
@@ -50,7 +50,6 @@ export const useFetchCurrencies = () => {
   };
 
   useEffect(() => {
-    formatDate();
     fetchCurrencies(); // Первый запрос сразу
     const interval = setInterval(fetchCurrencies, UPDATE_INTERVAL);
     return () => clearInterval(interval);

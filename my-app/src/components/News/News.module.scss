@@ -6,17 +6,24 @@
   overflow: hidden;
 
   &__title {
-    margin: 0 0 8px 0;
-    @include text-properties(Ubuntu, 20px, 25px, null, 500, rgba(0, 0, 0, 1));
+    margin: 0 0 0.5rem 0;
+    @include text-properties(
+      Ubuntu,
+      1.25rem,
+      1.5625rem,
+      null,
+      500,
+      rgba(0, 0, 0, 1)
+    );
     text-align: center;
   }
 
   &__text {
-    margin: 0 0 46px 0;
+    margin: 0 0 2.875rem 0;
     @include text-properties(
       Ubuntu,
-      16px,
-      50px,
+      1rem,
+      3.125rem,
       null,
       500,
       rgba(45, 55, 72, 1)
@@ -25,45 +32,51 @@
   }
 
   &__sliderWrapper {
-    @include flex-properties(flex, null, flex-start, flex-start, 80px);
+    @include flex-properties(flex, null, flex-start, flex-start, 5rem);
     @include list-style(none, 0, 0);
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
     transition-duration: 500ms;
   }
 }
 
-@media (max-width: 1440px) {
-  .container {
-    max-width: 1280px;
+@media (max-width: 1300px) {
+  .news {
+    @include container(57.5rem);
+    margin-bottom: 4rem;
   }
 }
 
-@media (max-width: 1280px) {
-  .container {
-    max-width: 1024px;
+@media (max-width: 920px) {
+  .news {
+    @include container(31.25rem);
+    margin-bottom: 4rem;
+
+    &__text {
+      line-height: 2.5rem;
+    }
+
+    &__sliderWrapper {
+      transform: translateX(84px);
+    }
   }
 }
 
-@media (max-width: 1024px) {
-  .container {
-    max-width: 768px;
-  }
+@media (max-width: 500px) {
+  .news {
+    @include container(20.125rem);
+    margin-bottom: 4rem;
 
-  #wrapper {
-    gap: 120px;
-  }
-}
+    &__title {
+      font-size: 1.3rem;
+    }
 
-@media (max-width: 768px) {
-  .container {
-    max-width: 324px;
-  }
+    &__text {
+      font-size: 0.8rem;
+      line-height: 1.8rem;
+    }
 
-  .slider__buttons {
-    justify-content: center;
-  }
-
-  #wrapper {
-    gap: 80px;
+    &__sliderWrapper {
+      transform: translateX(0);
+    }
   }
 }
