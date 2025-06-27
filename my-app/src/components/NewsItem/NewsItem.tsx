@@ -11,7 +11,12 @@ export const NewsItem: FC<INews> = ({
 }) => {
   return (
     <li>
-      <a href={url} target="_blank" className={classes.news__link}>
+      <a
+        href={url}
+        target="_blank"
+        className={classes.news__link}
+        rel="noopener noreferrer"
+      >
         <img className={classes.news__img} src={urlToImage} alt={title} />
         <h4 className={classes.news__linkTitle}>{title}</h4>
         <p className={classes.news__description}>{description}</p>

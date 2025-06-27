@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useFormatDate } from '../hooks/useFormatDate';
 import { newsApi } from '../API/api';
+import { filterNews } from '../utils/filterNews';
 
 export interface INews {
   urlToImage: string;
@@ -18,7 +19,7 @@ export const useFetchNews = () => {
 
   useEffect(() => {
     if (!date) return;
-    console.log(date);
+
     const fetchNews = async (quantity: string) => {
       try {
         setLoading(true);
@@ -28,7 +29,7 @@ export const useFetchNews = () => {
             from: date,
           },
         });
-        setNews(response.data.articles);
+        setNews(filterNews(response.data.articles));
       } catch (err) {
         setError('Failed to fetch news');
         console.error(err);

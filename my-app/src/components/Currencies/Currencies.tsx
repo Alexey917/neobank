@@ -43,6 +43,7 @@ export const Currencies: FC = () => {
           className={classes.currencies__btn}
           aria-label="View all currency rates"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <span className={classes.currencies__btnText}>All courses</span>
         </a>

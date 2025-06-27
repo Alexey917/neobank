@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, FC } from 'react';
 import { NewsSliderButton } from '../UI/NewsSliderButtons/NewsSliderButtons';
 import { useFetchNews } from '../../hooks/useFetchNews';
 import { NewsItem } from '../NewsItem/NewsItem';
@@ -11,7 +11,7 @@ const TABLET_WIDTH = 920;
 const MOBILE_WIDTH = 500;
 let sliderOffset = 500;
 
-export const News = () => {
+export const News: FC = () => {
   const { news, loading, error } = useFetchNews();
   const newsRef = useRef<HTMLUListElement>(null);
   const [position, setPosition] = useState<number>(START_POSITION);
