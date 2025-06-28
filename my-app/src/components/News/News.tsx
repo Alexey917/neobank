@@ -1,9 +1,10 @@
-import { useRef, useState, useEffect, FC } from 'react';
+import { useRef, FC } from 'react';
 import { NewsSliderButton } from '../UI/NewsSliderButtons/NewsSliderButtons';
 import { useFetchNews } from '../../hooks/useFetchNews';
 import { NewsItem } from '../NewsItem/NewsItem';
 import { useSlider } from '../../hooks/useSlider';
 import { useAdaptiveSlider } from '../../hooks/useAdaptiveSlider';
+import { Spinner } from '../UI/Spinner/Spinner';
 
 import classes from './News.module.scss';
 
@@ -30,8 +31,12 @@ export const News: FC = () => {
       </p>
 
       {loading ? (
-        <div aria-label="Loading news" aria-busy="true">
-          Loading...
+        <div
+          aria-label="Loading news"
+          aria-busy="true"
+          className={classes.spinner_wrapper}
+        >
+          <Spinner />
         </div>
       ) : error ? (
         <div className={classes.error} role="alert">

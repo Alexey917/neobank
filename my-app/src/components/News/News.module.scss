@@ -39,6 +39,10 @@
   }
 }
 
+.spinner_wrapper {
+  @include flex-properties(flex, null, center, center, null);
+}
+
 @media (max-width: 1300px) {
   .news {
     @include container(57.5rem);
