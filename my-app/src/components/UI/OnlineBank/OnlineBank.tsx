@@ -6,12 +6,17 @@ import classes from './OnlineBank.module.scss';
 interface IOnlineBankProp {
   children: ReactNode;
   to: string;
+  className: string;
 }
 
-export const OnlineBank: FC<IOnlineBankProp> = ({ children, to }) => {
+export const OnlineBank: FC<IOnlineBankProp> = ({
+  children,
+  to,
+  className,
+}) => {
   return (
     <>
-      <Link className={classes.link} to={to}>
+      <Link className={className} to={to}>
         {children}
       </Link>
     </>

@@ -14,7 +14,11 @@ export const ChooseCard: FC = () => {
         <h1 className={classes.chooseCard__title} id="chooseCard-heading">
           Choose the design you like and apply for card right now
         </h1>
-        <OnlineBank aria-label="Choose a card in online bank" to="#">
+        <OnlineBank
+          aria-label="Choose a card in online bank"
+          to="chooseCard"
+          className={classes.link}
+        >
           <span className={classes.button_text}>Choose the card</span>
         </OnlineBank>
       </article>

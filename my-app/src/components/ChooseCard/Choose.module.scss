@@ -3,6 +3,7 @@
 .chooseCard {
   @include container(81.25rem);
   @include flex-properties(flex, row, space-between, null, 9.8125rem);
+  margin-top: 8.1875rem;
   margin-bottom: 7rem;
 
   &__title {
@@ -27,6 +28,7 @@
 @media (max-width: 1300px) {
   .chooseCard {
     @include container(57.5rem);
+    margin-top: 8.1875rem;
     margin-bottom: 7rem;
 
     &__title {
@@ -43,6 +45,7 @@
   .chooseCard {
     @include container(31.25rem);
     gap: 4.8125rem;
+    margin-top: 8.1875rem;
     margin-bottom: 7rem;
 
     &__title {
@@ -56,6 +59,7 @@
 @media (max-width: 500px) {
   .chooseCard {
     @include container(20rem);
+    margin-top: 5.1875rem;
     margin-bottom: 7rem;
 
     &__title {

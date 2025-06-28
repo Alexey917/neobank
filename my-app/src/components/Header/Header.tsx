@@ -42,7 +42,11 @@ export const Header: FC = () => {
           </li>
 
           <li>
-            <OnlineBank aria-label="Online Bank" to="#">
+            <OnlineBank
+              aria-label="Online Bank"
+              to="onlineBank"
+              className={classes.link}
+            >
               <span className={classes.button_text}>Online Bank</span>
             </OnlineBank>
           </li>

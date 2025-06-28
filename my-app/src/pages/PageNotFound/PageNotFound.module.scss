@@ -1,0 +1,142 @@
+@use '../../styles/App' as *;
+
+.notFound {
+  @include container(81.25rem);
+  @include flex-properties(flex, row, space-between, center, 18.0625rem);
+  margin-top: 1.5rem;
+  margin-bottom: 6rem;
+
+  &__info {
+    @include flex-properties(flex, column, null, null, null);
+  }
+
+  &__title {
+    margin: 0 0 2rem 0;
+    @include text-properties(
+      Ubuntu,
+      1.875rem,
+      212%,
+      null,
+      700,
+      rgba(28, 28, 30, 1)
+    );
+  }
+
+  &__text {
+    margin: 0 0 2rem 0;
+    @include text-properties(
+      Ubuntu,
+      1rem,
+      112%,
+      null,
+      500,
+      rgba(75, 75, 75, 1)
+    );
+  }
+
+  &__subTitle {
+    @include text-properties(
+      Ubuntu,
+      1.875rem,
+      112%,
+      null,
+      500,
+      rgba(0, 0, 0, 1)
+    );
+  }
+
+  &__goBack {
+    @include flex-properties(inline-flex, null, center, center, null);
+    width: 12rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+    background-color: rgba(0, 60, 255, 1);
+    border-radius: 0.5rem;
+    border: none;
+    @include text-properties(
+      Ubuntu,
+      1rem,
+      112%,
+      0.02em,
+      700,
+      rgba(255, 255, 255, 1)
+    );
+  }
+
+  &__imgWrapper {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__img {
+    width: 32.875rem;
+    height: 32.875rem;
+  }
+}
+
+@media (hover: hover) {
+  .notFound__goBack:hover {
+    background-color: #7796c0;
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+@media (max-width: 1300px) {
+  .notFound {
+    @include container(57.5rem);
+    flex-direction: row;
+    margin-top: 1.5rem;
+    margin-bottom: 6rem;
+
+    &__img {
+      width: 22.875rem;
+      height: 22.875rem;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .notFound {
+    @include container(31.25rem);
+    @include flex-properties(flex, column-reverse, space-between, center, 89px);
+    margin-top: 1.5rem;
+    margin-bottom: 6rem;
+
+    &__title,
+    &__subTitle,
+    &__text {
+      text-align: center;
+    }
+
+    &__goBack {
+      align-self: center;
+    }
+
+    &__img {
+      width: 20.875rem;
+      height: 20.875rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .notFound {
+    @include container(20rem);
+    @include flex-properties(flex, column-reverse, space-between, center, 89px);
+    margin-top: 1.5rem;
+    margin-bottom: 6rem;
+
+    &__title,
+    &__subTitle {
+      font-size: 1.8rem;
+    }
+
+    &__title {
+      line-height: 150%;
+    }
+
+    &__text {
+      line-height: 180%;
+    }
+  }
+}

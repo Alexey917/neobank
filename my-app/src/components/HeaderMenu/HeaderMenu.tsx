@@ -13,7 +13,11 @@ export const HeaderMenu: FC = () => {
         <NavItem to="account">Account</NavItem>
         <NavItem to="resources">Resources</NavItem>
         <li>
-          <OnlineBank aria-label="Online Bank" to="#">
+          <OnlineBank
+            aria-label="Online Bank"
+            to="onlineBank"
+            className={classes.link}
+          >
             <span className={classes.button_text}>Online Bank</span>
           </OnlineBank>
         </li>
