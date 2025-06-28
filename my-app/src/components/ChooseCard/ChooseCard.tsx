@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '../UI/Button/Button';
+import { OnlineBank } from '../UI/OnlineBank/OnlineBank';
 import { ChooseCardImage } from '../ChooseCardImage/ChooseCardImage';
 
 import classes from './Choose.module.scss';
@@ -15,14 +14,9 @@ export const ChooseCard: FC = () => {
         <h1 className={classes.chooseCard__title} id="chooseCard-heading">
           Choose the design you like and apply for card right now
         </h1>
-        <Button
-          as={Link}
-          to="onlineBank"
-          className={classes.link}
-          aria-label="Choose a card in online bank"
-        >
+        <OnlineBank aria-label="Choose a card in online bank" to="#">
           <span className={classes.button_text}>Choose the card</span>
-        </Button>
+        </OnlineBank>
       </article>
 
       <ChooseCardImage />

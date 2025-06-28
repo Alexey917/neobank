@@ -1,0 +1,13 @@
+.link {
+  display: inline-flex;
+  padding: 16px;
+  background-color: rgba(0, 60, 255, 1);
+  border-radius: 16px;
+  border: none;
+}
+
+@media (hover: hover) {
+  .link:hover {
+    background-color: #7796c0;
+  }
+}

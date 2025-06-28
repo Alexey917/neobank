@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '../UI/Button/Button';
+import { OnlineBank } from '../UI/OnlineBank/OnlineBank';
 import { NavItem } from '../NavItem/NavItem';
 
 import classes from './HeaderMenu.module.scss';
@@ -14,14 +13,9 @@ export const HeaderMenu: FC = () => {
         <NavItem to="account">Account</NavItem>
         <NavItem to="resources">Resources</NavItem>
         <li>
-          <Button
-            as={Link}
-            to="onlineBank"
-            className={classes.link}
-            aria-label="Online Bank"
-          >
+          <OnlineBank aria-label="Online Bank" to="#">
             <span className={classes.button_text}>Online Bank</span>
-          </Button>
+          </OnlineBank>
         </li>
       </ul>
     </nav>

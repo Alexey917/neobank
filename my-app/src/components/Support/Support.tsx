@@ -1,5 +1,4 @@
-import { FC, useState } from 'react';
-import { Button } from '../UI/Button/Button';
+import { FC } from 'react';
 
 import classes from './Support.module.scss';
 import sprite from '../../assets/sprite.svg';
@@ -42,7 +41,7 @@ export const Support: FC = () => {
             </span>
           </label>
           <span className={classes.support__errorLabel}>{errorLabel}</span>
-          <Button
+          <button
             type="submit"
             className={classes.support__btn}
             aria-label="Subscribe to newsletter"
@@ -53,7 +52,7 @@ export const Support: FC = () => {
               <use href={`${sprite}#letter`}></use>
             </svg>
             <span className={classes.button_text}>Subscribe</span>
-          </Button>
+          </button>
         </fieldset>
       </form>
     </section>
