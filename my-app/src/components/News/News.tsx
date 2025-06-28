@@ -2,81 +2,22 @@ import { useRef, useState, useEffect, FC } from 'react';
 import { NewsSliderButton } from '../UI/NewsSliderButtons/NewsSliderButtons';
 import { useFetchNews } from '../../hooks/useFetchNews';
 import { NewsItem } from '../NewsItem/NewsItem';
+import { useSlider } from '../../hooks/useSlider';
+import { useAdaptiveSlider } from '../../hooks/useAdaptiveSlider';
 
 import classes from './News.module.scss';
-
-const START_POSITION = 0;
-const DESKTOP_WIDTH = 1300;
-const TABLET_WIDTH = 920;
-const MOBILE_WIDTH = 500;
-let sliderOffset = 500;
 
 export const News: FC = () => {
   const { news, loading, error } = useFetchNews();
   const newsRef = useRef<HTMLUListElement>(null);
-  const [position, setPosition] = useState<number>(START_POSITION);
-  const [slideWidth, setSlideWidth] = useState<number>(0);
-  const [gap, setGap] = useState<number>(0);
-  const [isPrev, setIsPrev] = useState<boolean>(true);
-  const [isNext, setIsNext] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (newsRef.current && news.length > 0) {
-      // Получаем ширину первого слайда
-      const firstSlide = newsRef.current.firstChild as HTMLElement;
-      if (firstSlide) {
-        setSlideWidth(firstSlide.offsetWidth);
+  const { lastPosition, sliderOffset } = useAdaptiveSlider(newsRef, news);
 
-        // Получаем гэп (в пикселях)
-        const computedStyle = window.getComputedStyle(newsRef.current);
-        setGap(parseInt(computedStyle.gap) || 0);
-      }
-    }
-  }, [news, newsRef.current]);
-
-  let lastPosition = -(
-    (slideWidth + gap) * (news.length - 1) -
-    (slideWidth + gap)
+  const { scrollSliderRight, scrollSliderLeft, isPrev, isNext } = useSlider(
+    sliderOffset,
+    lastPosition,
+    newsRef,
   );
-
-  if (window.innerWidth <= TABLET_WIDTH && window.innerWidth > MOBILE_WIDTH) {
-    lastPosition =
-      -((slideWidth + gap) * (news.length - 1) - (slideWidth + gap)) -
-      (DESKTOP_WIDTH - window.innerWidth);
-  } else if (window.innerWidth <= MOBILE_WIDTH) {
-    lastPosition =
-      -((slideWidth + gap) * (news.length - 1) - (slideWidth + gap)) -
-      (720 - window.innerWidth);
-    sliderOffset = 352;
-  }
-
-  // Вычисляем последнюю позицию
-
-  const scrollSliderRight = () => {
-    setPosition((prevPosition) => {
-      const newPosition = prevPosition - sliderOffset;
-      newsRef.current?.style.setProperty(
-        'transform',
-        `translateX(${newPosition}px)`,
-      );
-      newPosition >= START_POSITION ? setIsPrev(true) : setIsPrev(false);
-      newPosition <= lastPosition ? setIsNext(true) : setIsNext(false);
-      return newPosition;
-    });
-  };
-
-  const scrollSliderLeft = () => {
-    setPosition((prevPosition) => {
-      const newPosition = prevPosition + sliderOffset;
-      newsRef.current?.style.setProperty(
-        'transform',
-        `translateX(${newPosition}px)`,
-      );
-      newPosition >= START_POSITION ? setIsPrev(true) : setIsPrev(false);
-      newPosition <= lastPosition ? setIsNext(true) : setIsNext(false);
-      return newPosition;
-    });
-  };
 
   return (
     <section className={classes.news} aria-labelledby="news-heading">

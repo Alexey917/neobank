@@ -41,9 +41,7 @@ export const Support: FC = () => {
               Your email
             </span>
           </label>
-          <label htmlFor="email" className={classes.support__errorLabel}>
-            {errorLabel}
-          </label>
+          <span className={classes.support__errorLabel}>{errorLabel}</span>
           <Button
             type="submit"
             className={classes.support__btn}
