@@ -9,7 +9,7 @@ export const useEmailValidation = () => {
     const isValid =
       /^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)/;
     setValue(e.target.value);
-    if (!isValid.test(value)) {
+    if (!isValid.test(e.target.value)) {
       setErrorLabel('Некорректный e-mail');
       setCanSend(true);
     } else {

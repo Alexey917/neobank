@@ -7,6 +7,11 @@ import { useEmailValidation } from '../../hooks/useEmailValidation';
 export const Support: FC = () => {
   const { emailValidation, errorLabel, canSend } = useEmailValidation();
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert('You are now subscribed to the newsletter.');
+  };
+
   return (
     <section className={classes.support} aria-labelledby="support-heading">
       <h4 className={classes.support__title} id="support-heading">
@@ -17,7 +22,7 @@ export const Support: FC = () => {
         <br />
         <span className={classes.support__textSpan}>Bank News</span>
       </p>
-      <form action="#" noValidate name="subscribe">
+      <form action="#" noValidate name="subscribe" onSubmit={handleSubmit}>
         <fieldset
           className={classes.support__fieldset}
           aria-describedby="email-hint"
@@ -46,7 +51,6 @@ export const Support: FC = () => {
             className={classes.support__btn}
             aria-label="Subscribe to newsletter"
             disabled={canSend}
-            onClick={() => alert('You are now subscribed to the newsletter.')}
           >
             <svg className={classes.support__letterIcon} aria-hidden="true">
               <use href={`${sprite}#letter`}></use>

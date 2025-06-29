@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useFormatDate } from '../hooks/useFormatDate';
 import { newsApi } from '../API/api';
 import { filterNews } from '../utils/filterNews';
+import { UPDATE_INTERVAL } from './useFetchCurrencies';
 
 export interface INews {
   urlToImage: string;
@@ -39,6 +40,8 @@ export const useFetchNews = () => {
     };
 
     fetchNews('25');
+    const interval = setInterval(fetchNews, UPDATE_INTERVAL);
+    return () => clearInterval(interval);
   }, [date]);
 
   return { news, loading, error };
