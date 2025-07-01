@@ -30,9 +30,10 @@ export const useFetchNews = () => {
             from: date,
           },
         });
-        // console.log(response?.data.articles);
-        // console.log(filterNews(response?.data.articles));
-        setNews(filterNews(response?.data.articles));
+        console.log(response?.data.articles.length);
+        const validNews = await filterNews(response?.data.articles);
+        console.log(validNews.length);
+        setNews(validNews);
       } catch (err) {
         setError('Failed to fetch news');
         console.error(err);
@@ -41,7 +42,7 @@ export const useFetchNews = () => {
       }
     };
 
-    fetchNews('15');
+    fetchNews('35');
     const interval = setInterval(fetchNews, UPDATE_INTERVAL);
     return () => clearInterval(interval);
   }, [date]);

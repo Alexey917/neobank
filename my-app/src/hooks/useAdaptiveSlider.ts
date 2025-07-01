@@ -22,16 +22,25 @@ export const useAdaptiveSlider = (
   const [lastPosition, setLastPosition] = useState(0);
 
   const getBaseLastPosition = useCallback(() => {
-    return -((slideWidth + gap) * (news.length - 1) - (slideWidth + gap));
-  }, [slideWidth, gap, news.length]);
+    console.log('ширина слайда:', slideWidth);
+    console.log('отступ между слайдами:', gap);
+    console.log('количество новостей:', news.length - 1);
+
+    return -(
+      (slideWidth + gap) * (news.length - 1) -
+      (slideWidth + gap) -
+      sliderOffset
+    );
+  }, [slideWidth, gap, news.length, sliderOffset]);
 
   const updateAdaptiveValues = useCallback(() => {
     const width = window.innerWidth;
     const basePosition = getBaseLastPosition();
+    console.log(basePosition);
 
     if (width <= BREAKPOINTS.MOBILE) {
       setSliderOffset(DEFAULT_OFFSETS.MOBILE);
-      setLastPosition(basePosition - (720 - width));
+      setLastPosition(basePosition - (BREAKPOINTS.TABLET - width));
     } else if (width <= BREAKPOINTS.TABLET) {
       setLastPosition(basePosition - (BREAKPOINTS.DESKTOP - width));
     } else {

@@ -10,7 +10,7 @@ export const NewsItem: FC<INews> = ({
   description,
 }) => {
   return (
-    <li>
+    <li className={classes.news__item}>
       <a
         href={url}
         target="_blank"

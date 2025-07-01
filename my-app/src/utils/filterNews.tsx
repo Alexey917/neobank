@@ -1,15 +1,20 @@
 import { INews } from '../hooks/useFetchNews';
 
-export const filterNews = (newsArr: INews[]) => {
-  const check = newsArr.map(async (item) => {
-    const response = await fetch(item.urlToImage);
-    console.log(response.status);
-    return response.status;
-  });
+export const filterNews = async (newsArr: INews[]) => {
+  const filtered = await Promise.all(
+    newsArr.map(async (item) => {
+      if (!item.urlToImage || !item.description) return null;
 
-  console.log(check);
+      const isValid = await new Promise<boolean>((resolve) => {
+        const img = new Image();
+        img.src = item.urlToImage!;
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+      });
 
-  return newsArr.filter(
-    (item) => item.urlToImage !== null && item.description !== null,
+      return isValid ? item : null;
+    }),
   );
+
+  return filtered.filter(Boolean) as INews[];
 };
