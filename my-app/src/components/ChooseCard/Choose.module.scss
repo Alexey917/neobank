@@ -1,7 +1,7 @@
 @use '../../styles/App.scss' as *;
 
 .chooseCard {
-  @include container(81.25rem);
+  @include container();
   @include flex-properties(flex, row, space-between, null, 9.8125rem);
   margin-top: 8.1875rem;
   margin-bottom: 7rem;

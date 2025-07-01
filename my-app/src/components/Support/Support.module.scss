@@ -1,7 +1,7 @@
 @use '../../styles/App' as *;
 
 .support {
-  @include container(81.25rem);
+  @include container();
   margin-bottom: 6.125rem;
 
   &__title {

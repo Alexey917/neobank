@@ -1,7 +1,7 @@
 @use '../../styles/App' as *;
 
 .header {
-  @include container(81.25rem);
+  @include container();
   padding: 0.4375rem 0;
 
   &__list {

@@ -1,7 +1,7 @@
 @use '../../styles/App.scss' as *;
 
 .news {
-  @include container(81.25rem);
+  @include container();
   margin-bottom: 4rem;
   overflow: hidden;
 

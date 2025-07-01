@@ -9,7 +9,7 @@ const BREAKPOINTS = {
 
 const DEFAULT_OFFSETS = {
   DESKTOP: 500,
-  MOBILE: 352,
+  MOBILE: 350,
 };
 
 export const useAdaptiveSlider = (

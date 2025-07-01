@@ -38,7 +38,7 @@ body {
   padding: $padding;
 }
 
-@mixin container($width) {
+@mixin container($width: 81.25rem) {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

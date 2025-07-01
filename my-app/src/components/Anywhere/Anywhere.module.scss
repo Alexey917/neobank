@@ -1,7 +1,7 @@
 @use '../../styles/App.scss' as *;
 
 .anywhere {
-  @include container(81.25rem);
+  @include container();
   align-items: center;
   margin-bottom: 3rem;
 

@@ -1,7 +1,7 @@
 @use '../../styles/App.scss' as *;
 
 .currencies {
-  @include container(81.25rem);
+  @include container();
   @include flex-properties(flex, row, space-between, null, null);
   padding: 2rem;
   border-radius: 1.75rem;
