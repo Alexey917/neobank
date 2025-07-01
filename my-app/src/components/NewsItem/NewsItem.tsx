@@ -18,6 +18,7 @@ export const NewsItem: FC<INews> = ({
         rel="noopener noreferrer"
       >
         <img className={classes.news__img} src={urlToImage} alt={title} />
+        <div style={{ width: 65, height: 2, backgroundColor: 'red' }}></div>
         <h4 className={classes.news__linkTitle}>{title}</h4>
         <p className={classes.news__description}>{description}</p>
       </a>

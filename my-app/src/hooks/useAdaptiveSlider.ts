@@ -22,10 +22,6 @@ export const useAdaptiveSlider = (
   const [lastPosition, setLastPosition] = useState(0);
 
   const getBaseLastPosition = useCallback(() => {
-    console.log('ширина слайда:', slideWidth);
-    console.log('отступ между слайдами:', gap);
-    console.log('количество новостей:', news.length - 1);
-
     return -(
       (slideWidth + gap) * (news.length - 1) -
       (slideWidth + gap) -
@@ -36,7 +32,6 @@ export const useAdaptiveSlider = (
   const updateAdaptiveValues = useCallback(() => {
     const width = window.innerWidth;
     const basePosition = getBaseLastPosition();
-    console.log(basePosition);
 
     if (width <= BREAKPOINTS.MOBILE) {
       setSliderOffset(DEFAULT_OFFSETS.MOBILE);
