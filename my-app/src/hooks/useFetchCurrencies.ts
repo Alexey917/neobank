@@ -28,10 +28,10 @@ export const useFetchCurrencies = () => {
 
     for (const currency of CURRENCIES) {
       try {
-        const response = await currencyApi.get(`/pair/${currency}/${to}`);
+        // const response = await currencyApi?.get(`/pair/${currency}/${to}`);
         results.push({
           currency,
-          rate: response.data.conversion_rate?.toFixed(2) || 'N/A',
+          rate: response?.data.conversion_rate?.toFixed(2) || 'N/A',
         });
       } catch (e) {
         setError('Failed to load currency rates');

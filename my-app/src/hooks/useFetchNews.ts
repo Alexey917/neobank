@@ -24,13 +24,15 @@ export const useFetchNews = () => {
     const fetchNews = async (quantity: string) => {
       try {
         setLoading(true);
-        const response = await newsApi.get('', {
+        const response = await newsApi?.get('', {
           params: {
             pageSize: quantity,
             from: date,
           },
         });
-        setNews(filterNews(response.data.articles));
+        // console.log(response?.data.articles);
+        // console.log(filterNews(response?.data.articles));
+        setNews(filterNews(response?.data.articles));
       } catch (err) {
         setError('Failed to fetch news');
         console.error(err);
@@ -39,7 +41,7 @@ export const useFetchNews = () => {
       }
     };
 
-    fetchNews('25');
+    fetchNews('15');
     const interval = setInterval(fetchNews, UPDATE_INTERVAL);
     return () => clearInterval(interval);
   }, [date]);
