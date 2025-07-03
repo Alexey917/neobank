@@ -18,10 +18,19 @@ export const CreditCardFeature: FC<CreditCardFeatureProps> = ({
   const openTooltip = useTooltip(liRef);
 
   return (
-    <li className={classes.creditCard__listItem} ref={liRef}>
+    <li
+      className={classes.creditCard__listItem}
+      ref={liRef}
+      aria-describedby={`tooltip-${title}`}
+    >
       <p className={classes.creditCard__listItemTitle}>{title}</p>
       <p className={classes.creditCard__listItemText}>{text}</p>
-      <Tooltip text={tooltipText} display={openTooltip} />
+      <Tooltip
+        text={tooltipText}
+        display={window.innerWidth > 992 ? openTooltip : false}
+        id={`tooltip-${title}`}
+        role="tooltip"
+      />
     </li>
   );
 };

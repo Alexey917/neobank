@@ -27,3 +27,9 @@
     background-color: rgba(119, 150, 192, 1);
   }
 }
+
+@media (max-width: 1300px) {
+  .button {
+    align-self: center;
+  }
+}

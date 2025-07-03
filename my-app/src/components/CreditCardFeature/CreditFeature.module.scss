@@ -2,15 +2,15 @@
 
 .creditCard {
   &__listItem {
-    margin: 0 0 36px 0;
+    margin: 0 0 2.25rem 0;
     position: relative;
   }
 
   &__listItemTitle {
-    margin: 0 0 9px 0;
+    margin: 0 0 0.5625rem 0;
     @include text-properties(
       Ubuntu,
-      20px,
+      1.25rem,
       112%,
       0.02em,
       700,
@@ -21,7 +21,7 @@
   &__listItemText {
     @include text-properties(
       Ubuntu,
-      16px,
+      1rem,
       112%,
       0.02em,
       500,
@@ -33,5 +33,25 @@
 @media (hover: hover) {
   .creditCard__listItem:hover {
     cursor: pointer;
+  }
+}
+
+@media (max-width: 920px) {
+  .creditCard {
+    &__listItemTitle {
+      text-align: center;
+    }
+
+    &__listItemText {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .creditCard {
+    &__listItemTitle {
+      font-size: 1rem;
+    }
   }
 }
