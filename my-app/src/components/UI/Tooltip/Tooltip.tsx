@@ -3,12 +3,19 @@ import classes from './Tooltip.module.scss';
 
 interface TooltipProps {
   text: string;
+  display: boolean;
 }
 
-export const Tooltip: FC<TooltipProps> = ({ text }) => {
+export const Tooltip: FC<TooltipProps> = ({ text, display }) => {
   return (
     <>
-      <span className={classes.creditCard__tooltip}>{text}</span>
+      <span
+        className={`${classes.creditCard__tooltip} ${
+          display ? classes.creditCard__tooltipShow : ''
+        }`}
+      >
+        {text}
+      </span>
     </>
   );
 };
