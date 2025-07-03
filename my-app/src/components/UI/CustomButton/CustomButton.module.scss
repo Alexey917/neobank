@@ -1,6 +1,7 @@
 @use '../../../styles/App.scss' as *;
 
 .button {
+  align-self: flex-start;
   @include text-properties(
     Ubuntu,
     1rem,
