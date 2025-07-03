@@ -34,7 +34,7 @@ export const Header: FC = () => {
 
           <li>
             <ul className={classes.header__list_inside}>
-              <NavItem to="creditCard">Credit card</NavItem>
+              <NavItem to="loan">Credit card</NavItem>
               <NavItem to="product">Product</NavItem>
               <NavItem to="account">Account</NavItem>
               <NavItem to="resources">Resources</NavItem>

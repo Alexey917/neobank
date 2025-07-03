@@ -1,0 +1,28 @@
+@use '../../../styles/App.scss' as *;
+
+.button {
+  @include text-properties(
+    Ubuntu,
+    1rem,
+    112%,
+    0.02em,
+    700,
+    rgba(255, 255, 255, 1)
+  );
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.defaultColor {
+  background-color: rgba(0, 60, 255, 1);
+}
+
+.defaultPaddings {
+  padding: 1rem;
+}
+
+@media (hover: hover) {
+  .defaultColor:hover {
+    background-color: rgba(119, 150, 192, 1);
+  }
+}

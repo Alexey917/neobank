@@ -1,0 +1,6 @@
+@use '../../styles/App.scss' as *;
+
+.creditCard {
+  @include container();
+  margin-top: 17px;
+}
