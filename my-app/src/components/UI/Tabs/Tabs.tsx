@@ -18,9 +18,8 @@ export const Tabs: FC<ITabsProps> = ({ text }) => {
       {text.map((item) => (
         <CustomButton
           key={item}
-          paddings="tabsPaddings"
-          bgColor="tabsBgColor"
-          color="tabsColor"
+          paddings="pTab"
+          variant="tab"
           text={item}
           onClick={() => dispatch(switchTab(item))}
         />

@@ -7,33 +7,36 @@
   border: none;
 }
 
-.defaultColor {
+.primary {
+  background-color: rgba(0, 60, 255, 1);
   color: rgba(255, 255, 255, 1);
 }
 
-.defaultBgColor {
-  background-color: rgba(0, 60, 255, 1);
-}
-
-.defaultPaddings {
-  padding: 1rem;
-}
-
-.tabsPaddings {
-  padding: 0;
-}
-
-.tabsBgColor {
+.tab {
   background-color: transparent;
-}
-
-.tabsColor {
   color: rgba(123, 116, 84, 1);
 }
 
+.danger {
+  background-color: rgba(217, 55, 55, 0.8);
+  color: rgba(255, 255, 255, 1);
+}
+
+.pTab {
+  padding: 0;
+}
+
+.pPrimary {
+  padding: 1rem;
+}
+
 @media (hover: hover) {
-  .defaultColor:hover {
+  .primary:hover {
     background-color: rgba(119, 150, 192, 1);
+  }
+
+  .danger:hover {
+    background-color: rgba(214, 109, 109, 0.8);
   }
 }
 

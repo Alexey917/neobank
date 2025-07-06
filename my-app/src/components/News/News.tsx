@@ -4,7 +4,7 @@ import { useFetchNews } from '../../hooks/useFetchNews';
 import { NewsItem } from '../NewsItem/NewsItem';
 import { useSlider } from '../../hooks/useSlider';
 import { useAdaptiveSlider } from '../../hooks/useAdaptiveSlider';
-import { Spinner } from '../UI/Spinner/Spinner';
+import { Loader } from '../UI/Loader/Loader';
 
 import classes from './News.module.scss';
 
@@ -36,7 +36,7 @@ export const News: FC = () => {
           aria-busy="true"
           className={classes.spinner_wrapper}
         >
-          <Spinner />
+          <Loader />
         </div>
       ) : error ? (
         <div className={classes.error} role="alert">

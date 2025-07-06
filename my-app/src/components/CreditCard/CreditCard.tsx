@@ -45,6 +45,8 @@ export const CreditCard: FC = () => {
         <CustomButton
           text="Apply for card"
           aria-label="Apply for platinum card"
+          variant="primary"
+          paddings="pPrimary"
         />
       </article>
 

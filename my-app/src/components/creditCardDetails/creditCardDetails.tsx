@@ -16,6 +16,7 @@ export const CreditCardDetails = () => {
         orientation="horizontal"
         thickness={0.125}
         variant="solid"
+        color="grey"
       />
       <CreditTabContent />
     </section>
