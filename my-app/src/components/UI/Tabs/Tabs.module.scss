@@ -1,0 +1,7 @@
+@use '../../../styles/App.scss' as *;
+
+.tabs {
+  @include container();
+  @include flex-properties(flex, row, flex-start, null, 2rem);
+  margin-bottom: 0.5rem;
+}

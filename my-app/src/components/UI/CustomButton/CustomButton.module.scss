@@ -2,24 +2,33 @@
 
 .button {
   align-self: flex-start;
-  @include text-properties(
-    Ubuntu,
-    1rem,
-    112%,
-    0.02em,
-    700,
-    rgba(255, 255, 255, 1)
-  );
+  @include text-properties(Ubuntu, 1rem, 112%, 0.02em, 700, null);
   border-radius: 0.5rem;
   border: none;
 }
 
 .defaultColor {
+  color: rgba(255, 255, 255, 1);
+}
+
+.defaultBgColor {
   background-color: rgba(0, 60, 255, 1);
 }
 
 .defaultPaddings {
   padding: 1rem;
+}
+
+.tabsPaddings {
+  padding: 0;
+}
+
+.tabsBgColor {
+  background-color: transparent;
+}
+
+.tabsColor {
+  color: rgba(123, 116, 84, 1);
 }
 
 @media (hover: hover) {

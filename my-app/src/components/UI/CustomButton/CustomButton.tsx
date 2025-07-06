@@ -2,20 +2,25 @@ import { FC } from 'react';
 
 import classes from './CustomButton.module.scss';
 
-interface ICustomButton {
+export interface ICustomButton {
   text: string;
   color?: string;
   paddings?: string;
+  bgColor?: string;
+  onClick?: () => void;
 }
 
 export const CustomButton: FC<ICustomButton> = ({
   text,
   paddings = 'defaultPaddings',
+  bgColor = 'defaultBgColor',
   color = 'defaultColor',
+  onClick,
 }) => {
   return (
     <button
-      className={`${classes.button} ${classes[color]} ${classes[paddings]}`}
+      className={`${classes.button} ${classes[bgColor]} ${classes[color]} ${classes[paddings]}`}
+      onClick={onClick}
     >
       {text}
     </button>
