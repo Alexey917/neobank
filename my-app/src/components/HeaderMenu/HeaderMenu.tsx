@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { OnlineBank } from '../UI/OnlineBank/OnlineBank';
-import { NavItem } from '../NavItem/NavItem';
+import { CustomLink } from '../UI/CustomLink/CustomLink';
+import { LINK_LIST } from '../Header/Header';
 
 import classes from './HeaderMenu.module.scss';
 
@@ -8,18 +8,23 @@ export const HeaderMenu: FC = () => {
   return (
     <nav className={classes.headerMenu} aria-label="Mobile navigation">
       <ul className={classes.headerMenu__list}>
-        <NavItem to="loan">Credit card</NavItem>
-        <NavItem to="product">Product</NavItem>
-        <NavItem to="account">Account</NavItem>
-        <NavItem to="resources">Resources</NavItem>
+        {LINK_LIST.map((link) => (
+          <li>
+            <CustomLink to="loan" variant="header" paddings="pNav">
+              {link}
+            </CustomLink>
+          </li>
+        ))}
         <li>
-          <OnlineBank
+          <CustomLink
             aria-label="Online Bank"
             to="onlineBank"
-            className={classes.link}
+            variant="primary"
+            paddings="pPrimary"
+            type="mobile"
           >
             <span className={classes.button_text}>Online Bank</span>
-          </OnlineBank>
+          </CustomLink>
         </li>
       </ul>
     </nav>

@@ -1,0 +1,43 @@
+.pNav {
+  padding: 0;
+}
+
+.pPrimary {
+  padding: 1rem;
+}
+
+.primary {
+  background-color: rgba(0, 60, 255, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.header {
+  background-color: transparent;
+  color: rgba(29, 25, 41, 1);
+}
+
+.footer {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 1);
+}
+
+.mobile {
+  display: inline-flex;
+}
+
+@media (hover: hover) {
+  .primary:hover {
+    background-color: rgba(119, 150, 192, 1);
+  }
+
+  .header:hover,
+  .footer:hover {
+    color: rgba(178, 163, 95, 1);
+  }
+}
+
+@media (max-width: 920px) {
+  .mobile {
+    display: none;
+  }
+}

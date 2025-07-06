@@ -1,12 +1,14 @@
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { OnlineBank } from '../UI/OnlineBank/OnlineBank';
+import { CustomLink } from '../UI/CustomLink/CustomLink';
 import { NavItem } from '../NavItem/NavItem';
 import { HeaderMenu } from '../HeaderMenu/HeaderMenu';
 
 import classes from './Header.module.scss';
 import menu from '../../assets/sprite.svg';
 import close from '../../assets/sprite.svg';
+
+export const LINK_LIST = ['Credit card', 'Product', 'Account', 'Resources'];
 
 export const Header: FC = () => {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
@@ -34,21 +36,25 @@ export const Header: FC = () => {
 
           <li>
             <ul className={classes.header__list_inside}>
-              <NavItem to="loan">Credit card</NavItem>
-              <NavItem to="product">Product</NavItem>
-              <NavItem to="account">Account</NavItem>
-              <NavItem to="resources">Resources</NavItem>
+              {LINK_LIST.map((link) => (
+                <li>
+                  <CustomLink to="loan" variant="header" paddings="pNav">
+                    {link}
+                  </CustomLink>
+                </li>
+              ))}
             </ul>
           </li>
 
           <li>
-            <OnlineBank
+            <CustomLink
               aria-label="Online Bank"
               to="onlineBank"
-              className={classes.link}
+              variant="header"
+              paddings="pPrimary"
             >
               <span className={classes.button_text}>Online Bank</span>
-            </OnlineBank>
+            </CustomLink>
           </li>
 
           <li className={classes.header__menu_item}>
