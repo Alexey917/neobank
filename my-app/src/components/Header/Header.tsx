@@ -8,7 +8,12 @@ import classes from './Header.module.scss';
 import menu from '../../assets/sprite.svg';
 import close from '../../assets/sprite.svg';
 
-export const LINK_LIST = ['Credit card', 'Product', 'Account', 'Resources'];
+export const LINKS = {
+  'Credit card': '/loan',
+  'Product': '/product',
+  'Account': '/account',
+  'Resources': '/resources',
+};
 
 export const Header: FC = () => {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
@@ -36,10 +41,10 @@ export const Header: FC = () => {
 
           <li>
             <ul className={classes.header__list_inside}>
-              {LINK_LIST.map((link) => (
+              {Object.entries(LINKS).map(([key, value]) => (
                 <li>
-                  <CustomLink to="loan" variant="header" paddings="pNav">
-                    {link}
+                  <CustomLink to={value} variant="header" paddings="pNav">
+                    {key}
                   </CustomLink>
                 </li>
               ))}
@@ -50,8 +55,9 @@ export const Header: FC = () => {
             <CustomLink
               aria-label="Online Bank"
               to="onlineBank"
-              variant="header"
+              variant="primary"
               paddings="pPrimary"
+              type="mobile"
             >
               <span className={classes.button_text}>Online Bank</span>
             </CustomLink>

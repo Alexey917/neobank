@@ -20,11 +20,14 @@ export const Currencies: FC = () => {
         <article className={classes.currencies__converter}>
           <h4 className={classes.currencies__converterTitle}>Currency</h4>
           {isLoading ? (
-            <div aria-label="Loading currency rates">
+            <div
+              aria-label="Loading currency rates"
+              className={classes.currencies__spinner}
+            >
               <Loader />
             </div>
           ) : error ? (
-            <div className={classes.error}>{error}</div>
+            <div className={classes.currencies__error}>{error}</div>
           ) : (
             <ul
               className={classes.currencies__list}

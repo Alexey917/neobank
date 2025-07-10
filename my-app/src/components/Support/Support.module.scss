@@ -139,6 +139,20 @@
     width: 1.5rem;
     height: 1.375rem;
   }
+
+  &__subscribe {
+    @include text-properties(Ubuntu, 1rem, 127%, null, 700, rgb(235, 128, 29));
+    text-align: center;
+  }
+
+  &__error {
+    @include text-properties(Ubuntu, 1rem, 127%, null, 700, red);
+    text-align: center;
+  }
+
+  &__spinner_wrapper {
+    @include flex-properties(flex, null, center, center, null);
+  }
 }
 
 .button_text {
@@ -234,6 +248,11 @@
       left: 48%;
       bottom: 3.1875rem;
       transform: translateX(-88%);
+    }
+
+    &__subscribe,
+    &__error {
+      font-size: 0.8rem;
     }
   }
 }

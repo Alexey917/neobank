@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import classes from './CustomLink.module.scss';
 
@@ -22,16 +22,23 @@ export const CustomLink: FC<ICustomLink> = ({
   variant,
   type,
 }) => {
+  const location = useLocation();
+  console.log(to);
+  console.log(location);
+
   return (
-    <>
-      <Link
-        className={`${classes[variant]} ${classes[paddings]} ${
-          type && classes[type]
-        }`}
-        to={to}
-      >
-        {children}
-      </Link>
-    </>
+    <Link
+      className={`${classes[variant]} ${classes[paddings]} ${
+        type && classes[type]
+      } ${
+        location.pathname === to &&
+        (variant === 'header' || variant === 'footer')
+          ? classes.isActive
+          : ''
+      }`}
+      to={to}
+    >
+      {children}
+    </Link>
   );
 };

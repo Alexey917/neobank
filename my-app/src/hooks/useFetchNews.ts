@@ -30,9 +30,7 @@ export const useFetchNews = () => {
             from: date,
           },
         });
-        console.log(response?.data.articles.length);
         const validNews = await filterNews(response?.data.articles);
-        console.log(validNews.length);
         setNews(validNews);
       } catch (err) {
         setError('Failed to fetch news');

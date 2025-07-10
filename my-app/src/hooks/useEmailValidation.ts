@@ -18,5 +18,5 @@ export const useEmailValidation = () => {
     }
   };
 
-  return { emailValidation, errorLabel, canSend };
+  return { emailValidation, errorLabel, canSend, value };
 };

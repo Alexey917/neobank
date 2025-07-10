@@ -21,3 +21,9 @@ export const newsApi: AxiosInstance | null =
         },
       })
     : null;
+
+export const getNews: AxiosInstance | null = import.meta.env.VITE_GET_NEWS_URL
+  ? axios.create({
+      baseURL: `${import.meta.env.VITE_GET_NEWS_URL}/email`,
+    })
+  : null;

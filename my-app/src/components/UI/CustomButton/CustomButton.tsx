@@ -3,7 +3,7 @@ import { FC } from 'react';
 import classes from './CustomButton.module.scss';
 
 type buttonVariant = 'primary' | 'tab' | 'danger';
-type buttonPaddings = 'pTab' | 'pPrimary';
+type buttonPaddings = 'pTab' | 'pPrimary' | 'pBack';
 
 export interface ICustomButton {
   text: string;

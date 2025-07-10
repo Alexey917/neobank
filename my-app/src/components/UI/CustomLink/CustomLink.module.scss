@@ -8,6 +8,8 @@
 
 .primary {
   background-color: rgba(0, 60, 255, 1);
+  border-radius: 1rem;
+  border: none;
   color: rgba(255, 255, 255, 1);
 }
 
@@ -23,6 +25,10 @@
 
 .mobile {
   display: inline-flex;
+}
+
+.isActive {
+  color: rgba(178, 163, 95, 1);
 }
 
 @media (hover: hover) {

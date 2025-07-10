@@ -6,18 +6,18 @@ import classes from './Footer.module.scss';
 import neoLogo from '../../assets/images/neoLogo.png';
 import { CustomLink } from '../UI/CustomLink/CustomLink';
 
-const LINK_LIST = [
-  'About bank',
-  'Ask a Question',
-  'Quality of service',
-  'Requisites',
-  'Press center',
-  'Bank career',
-  'Investors',
-  'Analytics',
-  'Business and processes',
-  'Compliance and business ethics',
-];
+const LINKS = {
+  'About bank': '/about',
+  'Ask a Question': '/questions',
+  'Quality of service': '/quality',
+  'Requisites': '/requisites',
+  'Press center': '/press',
+  'Bank career': '/career',
+  'Investors': '/investors',
+  'Analytics': '/analytics',
+  'Business and processes': '/business',
+  'Compliance and business ethics': '/compliance',
+};
 
 export const Footer: FC = () => {
   return (
@@ -42,10 +42,10 @@ export const Footer: FC = () => {
         </div>
         <nav>
           <ul className={classes.footer__list}>
-            {LINK_LIST.map((link) => (
+            {Object.entries(LINKS).map(([key, value]) => (
               <li>
-                <CustomLink to="about" variant="footer" paddings="pNav">
-                  {link}
+                <CustomLink to={value} variant="footer" paddings="pNav">
+                  {key}
                 </CustomLink>
               </li>
             ))}

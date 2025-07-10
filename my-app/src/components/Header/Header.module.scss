@@ -2,7 +2,7 @@
 
 .header {
   @include container();
-  padding: 0.4375rem 0;
+  padding: 1.25rem 0;
 
   &__list {
     @include flex-properties(flex, null, space-between, center, null);
