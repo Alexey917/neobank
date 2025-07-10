@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { TApi, TBody } from '../types/types';
 
 export const usePostRequest = () => {

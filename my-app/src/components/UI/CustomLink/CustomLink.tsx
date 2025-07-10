@@ -23,8 +23,6 @@ export const CustomLink: FC<ICustomLink> = ({
   type,
 }) => {
   const location = useLocation();
-  console.log(to);
-  console.log(location);
 
   return (
     <Link

@@ -44,102 +44,6 @@
     text-align: center;
   }
 
-  &__fieldset {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    border: none;
-  }
-
-  &__input {
-    width: 32.8125rem;
-    height: 5.625rem;
-    padding: 1.375rem 2rem;
-    border-radius: 20px;
-    border: none;
-    box-shadow: 0px 0.625rem 1.25rem 0px rgba(54, 58, 120, 0.1);
-    @include text-properties(
-      Nunito,
-      1.25rem,
-      147%,
-      0.02em,
-      400,
-      rgba(104, 109, 241, 1)
-    );
-
-    &:focus {
-      outline: 0.125rem solid rgba(104, 109, 241, 1);
-    }
-
-    &:focus ~ .support__label {
-      display: none;
-    }
-
-    &:not(:placeholder-shown) ~ .support__label {
-      display: none;
-    }
-  }
-
-  &__label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-170%, -50%);
-    @include flex-properties(flex, null, null, center, 0.625rem);
-  }
-
-  &__errorLabel {
-    position: absolute;
-    bottom: -1.875rem;
-    left: 52%;
-    transform: translateX(-170%);
-    @include text-properties(
-      Nunito,
-      1rem,
-      147%,
-      0.02em,
-      400,
-      rgba(255, 86, 49, 1)
-    );
-  }
-
-  &__emailIcon {
-    width: 1.75rem;
-    height: 2.375rem;
-  }
-
-  &__emailPlaceholder {
-    @include text-properties(
-      Nunito,
-      1.25rem,
-      147%,
-      0.02em,
-      400,
-      rgba(144, 146, 176, 1)
-    );
-  }
-
-  &__btn {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(150%, -50%);
-    @include flex-properties(flex, null, null, center, 0.75rem);
-    border-radius: 1.25rem;
-    background-color: rgb(43, 49, 230);
-    border: none;
-
-    &[disabled] {
-      background-color: rgba(104, 109, 241, 1);
-    }
-  }
-
-  &__letterIcon {
-    width: 1.5rem;
-    height: 1.375rem;
-  }
-
   &__subscribe {
     @include text-properties(Ubuntu, 1rem, 127%, null, 700, rgb(235, 128, 29));
     text-align: center;
@@ -155,16 +59,6 @@
   }
 }
 
-.button_text {
-  @include text-properties(Ubuntu, 1rem, 127%, null, 700, #ffffff);
-}
-
-@media (hover: hover) {
-  .support__btn:hover {
-    background-color: rgb(0 7 185);
-  }
-}
-
 @media (max-width: 1300px) {
   .support {
     @include container(57.5rem);
@@ -177,31 +71,6 @@
     @include container(31.25rem);
     margin-bottom: 6.125rem;
 
-    &__input {
-      width: 24rem;
-      height: 4rem;
-      padding: 1.125rem 1.375rem;
-    }
-
-    &__label {
-      transform: translate(-155%, -180%);
-    }
-
-    &__errorLabel {
-      left: 60%;
-      bottom: 3.4375rem;
-      transform: translateX(-145%);
-    }
-
-    &__emailIcon {
-      width: 1.25rem;
-      height: 1.875rem;
-    }
-
-    &__emailPlaceholder {
-      font-size: 1rem;
-    }
-
     &__title {
       font-size: 1.3rem;
     }
@@ -210,19 +79,6 @@
     &__textSpan {
       font-size: 1.4rem;
     }
-
-    &__btn {
-      position: static;
-      top: 0;
-      right: 0;
-      justify-content: center;
-      transform: translate(0, 0);
-      width: 24rem;
-    }
-
-    &__fieldset {
-      @include flex-properties(flex, column, null, center, 2.3rem);
-    }
   }
 }
 
@@ -230,25 +86,6 @@
   .support {
     @include container(20rem);
     margin-bottom: 6.125rem;
-
-    &__btn {
-      width: 20rem;
-    }
-
-    &__input {
-      width: 20rem;
-      padding: 12px 16px;
-    }
-
-    &__label {
-      transform: translate(-128%, -187%);
-    }
-
-    &__errorLabel {
-      left: 48%;
-      bottom: 3.1875rem;
-      transform: translateX(-88%);
-    }
 
     &__subscribe,
     &__error {
