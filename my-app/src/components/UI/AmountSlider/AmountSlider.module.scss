@@ -1,0 +1,83 @@
+.range {
+  display: grid;
+  gap: 8px;
+  width: 200px;
+  height: 65px;
+}
+
+/* Базовые стили для трека и ползунка */
+.rangeInput {
+  width: 520px;
+  height: 2px;
+  // appearance: none;
+  background: transparent;
+  accent-color: #5b35d5; // Фиолетовый цвет для акцентов
+
+  /* Общие стили для трека */
+  &::-webkit-slider-runnable-track,
+  &::-moz-range-track {
+    height: 8px;
+    background: rgba(226, 232, 240, 1); // Светло-серый фон трека
+    border-radius: 10px;
+  }
+
+  /* Заполненная часть трека (только для Firefox) */
+  &::-moz-range-progress {
+    height: 8px;
+    background: #5b35d5;
+    border-radius: 10px;
+  }
+
+  /* Общие стили для ползунка */
+  &::-webkit-slider-thumb,
+  &::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+    background: #5b35d5; // Фиолетовый ползунок
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-top: -8px; // Выравнивание по вертикали
+  }
+
+  /* Стили для WebKit (Chrome/Safari) */
+  &::-webkit-slider-thumb {
+    appearance: none;
+  }
+
+  /* Состояния: hover и focus */
+  &:hover,
+  &:focus-visible {
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb {
+      transform: scale(1.1);
+    }
+  }
+
+  /* Фокус-стили */
+  &:focus-visible {
+    outline: none;
+
+    &::-webkit-slider-runnable-track,
+    &::-moz-range-track {
+      outline: 1px solid #c56fff;
+      outline-offset: 5px;
+    }
+  }
+
+  /* Отключенное состояние */
+  &:disabled {
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb {
+      background: gray;
+    }
+  }
+}
+
+.sliderLabels {
+  width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,54 @@
+@use '../../styles/App' as *;
+
+.how {
+  @include container();
+  margin-bottom: 96px;
+
+  &__title {
+    @include text-properties(Ubuntu, 30px, 147%, null, 700, rgba(0, 0, 0, 1));
+    text-align: center;
+    margin-bottom: 14px;
+    margin-top: 0;
+  }
+
+  &__steps {
+    @include flex-properties(flex, row, space-between, center, 56px);
+  }
+
+  &__stepMap {
+    @include flex-properties(flex, column, center, center, 20px);
+  }
+
+  &__stepMap_1 {
+    width: 334px;
+  }
+
+  &__stepMap_2 {
+    width: 385px;
+  }
+
+  &__stepMap_3 {
+    width: 419px;
+  }
+
+  &__stepNumWrapper {
+    @include flex-properties(flex, row, null, center, 36px);
+  }
+
+  &__stepNum {
+    @include flex-properties(flex, row, center, center, null);
+    @include text-properties(Ubuntu, 20px, 147%, null, 700, rgba(0, 0, 0, 1));
+    width: 48px;
+    height: 48px;
+    border-radius: 50px;
+    background-color: rgba(217, 217, 217, 1);
+  }
+
+  &__stepInfo {
+    @include text-properties(Ubuntu, 16px, 147%, null, 500, rgba(0, 0, 0, 1));
+    text-align: center;
+    margin: 0;
+  }
+}
+
+// @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(255, 0, 0, 1));

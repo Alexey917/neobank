@@ -1,0 +1,9 @@
+@use '../../../styles/App.scss' as *;
+
+.label {
+  @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(26, 32, 44, 1));
+}
+
+.required {
+  @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(255, 0, 0, 1));
+}

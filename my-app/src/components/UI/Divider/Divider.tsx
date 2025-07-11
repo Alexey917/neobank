@@ -22,17 +22,16 @@ export const Divider: FC<IDividerProps> = ({
 }) => {
   return (
     <div
-      className={classes.divider}
       style={{
-        width: orientation === 'horizontal' ? `${width}rem` : `${thickness}rem`,
-        height: orientation === 'vertical' ? `${width}rem` : `${thickness}rem`,
-        borderStyle: variant,
-        color:
+        width: orientation === 'horizontal' ? `${width}rem` : 0,
+        height: orientation === 'vertical' ? `${width}rem` : 0,
+        borderBottom: `${thickness}rem ${variant} ${
           color === 'grey'
             ? 'rgba(128, 128, 128, 0.2)'
             : color === 'grey-dashed'
-            ? 'rgba(128, 128, 128, 0.2)'
-            : 'rgba(127, 146, 172, 1)',
+            ? 'rgba(128, 128, 128, 0.4)'
+            : 'rgba(127, 146, 172, 1)'
+        }`,
       }}
     ></div>
   );
