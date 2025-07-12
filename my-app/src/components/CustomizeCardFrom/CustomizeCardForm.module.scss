@@ -1,0 +1,56 @@
+@use '../../styles/App' as *;
+
+.form {
+  margin-top: 44px;
+  padding: 32px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 28px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+  @include flex-properties(flex, column, null, null, null);
+
+  &__amountWrapper {
+    @include flex-properties(flex, row, flex-start, null, null);
+    margin-bottom: 32px;
+  }
+
+  &__selectAmountWrapper {
+    margin-right: 40px;
+  }
+
+  &__legendWrapper {
+    @include flex-properties(flex, row, space-between, flex-start, null);
+  }
+
+  &__legend {
+    @include text-properties(Ubuntu, 30px, 100%, null, 700, rgba(0, 0, 0, 1));
+  }
+
+  &__step {
+    @include text-properties(Ubuntu, 16px, 100%, null, 500, rgba(0, 0, 0, 1));
+    margin: 0;
+  }
+
+  &__amountTitle {
+    @include text-properties(Ubuntu, 20px, 100%, null, 700, rgba(0, 0, 0, 1));
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  &__chosenAmount {
+    margin-left: 42px;
+  }
+
+  &__inputGroupsWrapper {
+    margin-bottom: 24px;
+  }
+
+  &__inputGroups {
+    @include flex-properties(flex, row, null, null, 16px);
+    flex-wrap: wrap;
+  }
+
+  &__inputGroup {
+    @include flex-properties(inline-flex, column, null, null, 8px);
+  }
+}

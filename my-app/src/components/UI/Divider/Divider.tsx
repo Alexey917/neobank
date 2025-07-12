@@ -22,6 +22,7 @@ export const Divider: FC<IDividerProps> = ({
 }) => {
   return (
     <div
+      className={orientation === 'vertical' ? classes.borderVertical : ''}
       style={{
         width: orientation === 'horizontal' ? `${width}rem` : 0,
         height: orientation === 'vertical' ? `${width}rem` : 0,

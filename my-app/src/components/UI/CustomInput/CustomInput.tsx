@@ -7,6 +7,9 @@ interface ICustomInput {
   type: string;
   variant: 'primary' | 'amount';
   placeholder?: string;
+  value?: number;
+  onChange?: (elem: React.ChangeEvent<HTMLInputElement>) => void;
+  id?: string;
 }
 
 export const CustomInput: FC<ICustomInput> = ({
@@ -14,13 +17,19 @@ export const CustomInput: FC<ICustomInput> = ({
   type,
   variant,
   placeholder,
+  value,
+  onChange,
+  id,
 }) => {
   return (
     <input
       type={type}
-      style={{ width: `${width}` }}
-      className={classes[variant]}
+      style={{ width: `${width}rem` }}
+      className={`${classes[variant]} ${classes.input}`}
       placeholder={placeholder}
+      value={value} //`${value} ₽`
+      onChange={onChange}
+      id={id}
     />
   );
 };

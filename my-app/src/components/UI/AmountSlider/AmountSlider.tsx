@@ -1,67 +1,32 @@
-import { useState, useEffect, useRef } from 'react';
+import { FC, RefObject } from 'react';
+import { useAmountSlider } from '../../../hooks/useAmountSlider';
 import classes from './AmountSlider.module.scss';
 
-export const AmountSlider = () => {
-  const [value, setValue] = useState(150000);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const thumbRef = useRef<HTMLDivElement>(null);
-  const isDragging = useRef(false);
+interface IAmountSlider {
+  handleChange: (elem: React.ChangeEvent<HTMLInputElement>) => void;
+  startDrag: () => void;
+  formatMoney: (num: number) => string;
+  MIN: number;
+  MAX: number;
+  value: number;
+  sliderRef: RefObject<HTMLDivElement | null>;
+  thumbRef: RefObject<HTMLDivElement | null>;
+}
 
-  const MIN = 15000;
-  const MAX = 600000;
-
-  // // Форматирование денежной суммы (пример для рублей)
-  // const formatMoney = (val: number) => {
-  //   return new Intl.NumberFormat('ru-RU', {
-  //     style: 'currency',
-  //     currency: 'RUB',
-  //     minimumFractionDigits: 0,
-  //   }).format(val * 1000); // Умножаем для примера
-  // };
-
-  // Обработчик изменения через input
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(Number(e.target.value));
-  };
-
-  // Обработчики для кастомного драга
-  const startDrag = () => {
-    isDragging.current = true;
-    document.addEventListener('mousemove', handleDrag);
-    document.addEventListener('mouseup', stopDrag);
-    document.addEventListener('touchmove', handleDrag);
-    document.addEventListener('touchend', stopDrag);
-  };
-
-  const handleDrag = (e: MouseEvent | TouchEvent) => {
-    if (!isDragging.current || !sliderRef.current) return;
-
-    const clientX = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX;
-    const sliderRect = sliderRef.current.getBoundingClientRect();
-    let newValue = ((clientX - sliderRect.left) / sliderRect.width) * 100;
-    newValue = Math.max(MIN, Math.min(MAX, Math.round(newValue)));
-
-    setValue(newValue);
-  };
-
-  const stopDrag = () => {
-    isDragging.current = false;
-    document.removeEventListener('mousemove', handleDrag);
-    document.removeEventListener('mouseup', stopDrag);
-    document.removeEventListener('touchmove', handleDrag);
-    document.removeEventListener('touchend', stopDrag);
-  };
-
-  // Позиция thumb
-  useEffect(() => {
-    if (thumbRef.current) {
-      thumbRef.current.style.left = `calc(${value}% - 12px)`;
-    }
-  }, [value]);
-
+export const AmountSlider: FC<IAmountSlider> = ({
+  value,
+  sliderRef,
+  thumbRef,
+  MIN,
+  MAX,
+  formatMoney,
+  startDrag,
+  handleChange,
+}) => {
   return (
-    <div className="custom-slider-container">
-      <div className="value-display"></div>
+    <div className={classes.customSlider}>
+      <h4 className={classes.sliderTitle}>Select amount</h4>
+      <div className={classes.valueDisplay}>{formatMoney(value)}</div>
 
       {/* Скрытый нативный input для доступности */}
       <input
