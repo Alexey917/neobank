@@ -53,4 +53,8 @@
   &__inputGroup {
     @include flex-properties(inline-flex, column, null, null, 8px);
   }
+
+  & > :last-child {
+    align-self: flex-end;
+  }
 }

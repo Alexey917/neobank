@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../redux/features/tabs/store';
+import { FaqTab } from '../FaqTab/FaqTab';
 
 export const CreditTabContent = () => {
   const activeTab = useSelector((state: RootState) => state.tabs.activeTab);
@@ -8,7 +9,7 @@ export const CreditTabContent = () => {
       {activeTab === 'About card' && '<AboutTab />'}
       {activeTab === 'Rates and conditions' && '<RatesTab />'}
       {activeTab === 'Cashback' && '<CashbackTab />'}
-      {activeTab === 'FAQ' && '<FaqTab />'}
+      {activeTab === 'FAQ' && <FaqTab />}
     </article>
   );
 };

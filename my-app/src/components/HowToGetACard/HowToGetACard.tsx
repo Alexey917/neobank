@@ -2,7 +2,7 @@ import React from 'react';
 import { Divider } from '../UI/Divider/Divider';
 
 import classes from './HowToGetACard.module.scss';
-import { CustomizeCardFrom } from '../CustomizeCardFrom/CustomizeCardFrom';
+import { CustomizeCardForm } from '../CustomizeCardForm/CustomizeCardForm';
 
 const STEPS_GET_Card = [
   'Fill out an online application - you do not need to visit the bank',
@@ -36,7 +36,7 @@ export const HowToGetACard = () => {
           </div>
         ))}
       </article>
-      <CustomizeCardFrom />
+      <CustomizeCardForm />
     </section>
   );
 };

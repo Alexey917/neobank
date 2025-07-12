@@ -18,7 +18,7 @@ export const useAmountSlider = () => {
 
   // Обработчик изменения через input
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(Number(e.target.value));
+    setValue(Number(e.target.value.trim()));
   };
 
   // Обработчики для кастомного драга
