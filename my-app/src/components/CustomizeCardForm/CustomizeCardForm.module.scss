@@ -57,4 +57,15 @@
   & > :last-child {
     align-self: flex-end;
   }
+
+  &__inputError {
+    @include text-properties(
+      Ubuntu,
+      16px,
+      100%,
+      null,
+      500,
+      rgba(255, 86, 49, 1)
+    );
+  }
 }

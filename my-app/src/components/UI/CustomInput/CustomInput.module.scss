@@ -39,3 +39,53 @@ input[type='number']::-webkit-inner-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
 }
+
+.error {
+  border: 0.125rem solid rgba(255, 86, 49, 1);
+
+  &:focus {
+    outline: 0.125rem solid rgba(255, 86, 49, 1);
+  }
+
+  // &__icon {
+  //   position: absolute;
+  //   display: flex;
+  //   top: 50%;
+  //   right: 50%;
+  //   margin-top: -10px;
+  //   margin-right: -130.5px;
+  //   width: 18px;
+  //   height: 18px;
+  // }
+}
+
+// .ok__icon {
+//   position: absolute;
+//   top: 50%;
+//   right: 50%;
+//   margin-top: -10px;
+//   margin-right: -130.5px;
+//   width: 18px;
+//   height: 18px;
+// }
+
+.wrapper {
+  position: relative;
+}
+
+.error__icon,
+.ok__icon {
+  position: absolute;
+  display: none; // По умолчанию скрыты
+  top: 50%;
+  right: 50%;
+  margin-top: -10px;
+  margin-right: -130.5px;
+  width: 18px;
+  height: 18px;
+}
+
+.input:not(:placeholder-shown) ~ .error__icon,
+.input:not(:placeholder-shown) ~ .ok__icon {
+  display: block; // Показываем только когда есть введенное значение
+}

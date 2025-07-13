@@ -7,52 +7,34 @@ import { CustomInput } from '../UI/CustomInput/CustomInput';
 import { CustomLabel } from '../UI/CustomLabel/CustomLabel';
 import { CustomSelect } from '../UI/CustomSelect/CustomSelect';
 import { Divider } from '../UI/Divider/Divider';
+import { DATA_FORM } from '../../consts/consts';
 
 import classes from './CustomizeCardForm.module.scss';
 
 const options = ['6 month', '12 month', '18 month', '24 month'];
 
-const DATA_FORM = [
-  {
-    label: 'Your last name',
-    placeholder: 'For Example Doe',
-    validateMessage: 'it cannot be empty',
-  },
-  {
-    label: 'Your first name',
-    placeholder: 'For Example Jhon',
-    validateMessage: 'it cannot be empty',
-  },
-  {
-    label: 'Your patronymic',
-    placeholder: 'For Example Victorovich',
-    validateMessage: 'it cannot be empty',
-  },
-  { label: 'Select term', placeholder: '6 month' },
-  {
-    label: 'Your email',
-    placeholder: 'test@gmail.com',
-    validateMessage: 'incorrect email address',
-  },
-  {
-    label: 'Your date of birth',
-    placeholder: 'Select Date and Time',
-    validateMessage: 'cannot be under the age of 18',
-  },
-  {
-    label: 'Your passport series',
-    placeholder: '0000',
-    validateMessage: 'The series should consist of 4 digits',
-  },
-  {
-    label: 'Your passport number',
-    placeholder: '000000',
-    validateMessage: 'The number must consist of 6 digits',
-  },
-];
+export const isOver18 = (dateString: string) => {
+  const today = new Date();
+  const birthDate = new Date(dateString);
+
+  // Вычисляем разницу в годах
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+
+  // Корректируем возраст, если ДР ещё не наступил в этом году
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && today.getDate() < birthDate.getDate())
+  ) {
+    age--;
+  }
+
+  return age >= 18;
+};
 
 export const CustomizeCardForm = () => {
   const [option, setOption] = useState<string>(options[0]);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const {
     value,
     sliderRef,
@@ -72,11 +54,17 @@ export const CustomizeCardForm = () => {
     register,
     formState: { errors },
     handleSubmit,
-    setValue,
-  } = useForm();
+    watch,
+  } = useForm({
+    mode: 'onBlur', // Валидация при уходе с поля
+    reValidateMode: 'onChange', // Повторная валидация при изменении
+  });
 
   const onSubmit = (data: any) => {
-    alert(JSON.stringify(data));
+    setIsSubmitted(true);
+    if (Object.keys(errors).length === 0) {
+      alert(JSON.stringify(data));
+    }
   };
 
   return (
@@ -147,6 +135,8 @@ export const CustomizeCardForm = () => {
                   variant="primary"
                   placeholder={data.placeholder}
                   id={data.label}
+                  svgError={!!errors[data.label]}
+                  svgSuccess={!errors[data.label] && watch(data.label)}
                   type={
                     data.label === 'Your email'
                       ? 'email'
@@ -157,13 +147,13 @@ export const CustomizeCardForm = () => {
                       ? 'number'
                       : 'text'
                   }
-                  {...register(data.label, {
-                    required: data.validateMessage,
-                  })}
+                  register={register(data.label, data.errors)}
                 />
               )}
-              {errors[data.label] && (
-                <span>{errors[data.label]?.message?.toString()}</span>
+              {(isSubmitted || errors[data.label]) && (
+                <span className={classes.form__inputError}>
+                  {errors[data.label]?.message?.toString()}
+                </span>
               )}
             </div>
           ))}
