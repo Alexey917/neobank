@@ -46,14 +46,13 @@ export const CustomInput: FC<ICustomInput> = ({
         id={id}
         {...register}
       />
-      <svg
-        className={`${classes.error__icon} ${!svgError ? classes.hidden : ''}`}
-      >
+      {/* Иконка ошибки */}
+      <svg className={classes.error__icon}>
         <use href={error + '#error'}></use>
       </svg>
-      <svg
-        className={`${classes.ok__icon} ${!svgSuccess ? classes.hidden : ''}`}
-      >
+
+      {/* Иконка успеха */}
+      <svg className={classes.ok__icon}>
         <use href={ok + '#ok'}></use>
       </svg>
     </div>

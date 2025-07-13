@@ -47,36 +47,22 @@ input[type='number'] {
     outline: 0.125rem solid rgba(255, 86, 49, 1);
   }
 
-  // &__icon {
-  //   position: absolute;
-  //   display: flex;
-  //   top: 50%;
-  //   right: 50%;
-  //   margin-top: -10px;
-  //   margin-right: -130.5px;
-  //   width: 18px;
-  //   height: 18px;
-  // }
+  &__icon {
+    position: absolute;
+    display: none; // По умолчанию скрыта
+    top: 50%;
+    right: 50%;
+    margin-top: -10px;
+    margin-right: -130.5px;
+    width: 18px;
+    height: 18px;
+    z-index: 2;
+  }
 }
 
-// .ok__icon {
-//   position: absolute;
-//   top: 50%;
-//   right: 50%;
-//   margin-top: -10px;
-//   margin-right: -130.5px;
-//   width: 18px;
-//   height: 18px;
-// }
-
-.wrapper {
-  position: relative;
-}
-
-.error__icon,
 .ok__icon {
   position: absolute;
-  display: none; // По умолчанию скрыты
+  display: none; // По умолчанию скрыта
   top: 50%;
   right: 50%;
   margin-top: -10px;
@@ -85,7 +71,20 @@ input[type='number'] {
   height: 18px;
 }
 
-.input:not(:placeholder-shown) ~ .error__icon,
-.input:not(:placeholder-shown) ~ .ok__icon {
-  display: block; // Показываем только когда есть введенное значение
+// Показываем иконку ошибки только когда есть ошибка
+.input.error:not(:placeholder-shown) ~ .error__icon {
+  display: flex;
 }
+
+// Показываем иконку успеха только когда нет ошибки и есть значение
+.input:not(.error):not(:placeholder-shown) ~ .ok__icon {
+  display: flex;
+}
+
+.wrapper {
+  position: relative;
+}
+
+// .input:not(:placeholder-shown) ~ .ok__icon {
+//   display: flex; // Показываем только когда есть введенное значение
+// }

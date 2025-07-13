@@ -135,8 +135,8 @@ export const CustomizeCardForm = () => {
                   variant="primary"
                   placeholder={data.placeholder}
                   id={data.label}
-                  svgError={!!errors[data.label]}
-                  svgSuccess={!errors[data.label] && watch(data.label)}
+                  svgError={isSubmitted || errors[data.label] ? true : false}
+                  svgSuccess={isSubmitted && !errors[data.label] ? true : false}
                   type={
                     data.label === 'Your email'
                       ? 'email'
