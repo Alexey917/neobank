@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, RefObject } from 'react';
 import { CreditCardFeature } from '../CreditCardFeature/CreditCardFeature';
 import { CustomButton } from '../UI/CustomButton/CustomButton';
 
@@ -23,7 +23,11 @@ const CREDIT_CARD_FEATURE = [
   },
 ];
 
-export const CreditCard: FC = () => {
+interface ICreditCardProps {
+  scrollToForm: () => void;
+}
+
+export const CreditCard: FC<ICreditCardProps> = ({ scrollToForm }) => {
   return (
     <section className={classes.creditCard} aria-label="Credit card details">
       <article className={classes.creditCard__info}>
@@ -47,6 +51,7 @@ export const CreditCard: FC = () => {
           aria-label="Apply for platinum card"
           variant="primary"
           paddings="pPrimary"
+          onClick={scrollToForm}
         />
       </article>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, RefObject } from 'react';
 import { Divider } from '../UI/Divider/Divider';
 
 import classes from './HowToGetACard.module.scss';
@@ -10,7 +10,11 @@ const STEPS_GET_Card = [
   'The bank will deliver the card free of charge, wherever convenient, to your city',
 ];
 
-export const HowToGetACard = () => {
+interface IHowToGetACardProps {
+  formRef: RefObject<HTMLFormElement | null>;
+}
+
+export const HowToGetACard: FC<IHowToGetACardProps> = ({ formRef }) => {
   return (
     <section className={classes.how}>
       <h2 className={classes.how__title}>How to get a card</h2>
@@ -36,7 +40,7 @@ export const HowToGetACard = () => {
           </div>
         ))}
       </article>
-      <CustomizeCardForm />
+      <CustomizeCardForm formRef={formRef} />
     </section>
   );
 };

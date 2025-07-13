@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, RefObject, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAmountSlider } from '../../hooks/useAmountSlider';
 import { AmountSlider } from '../UI/AmountSlider/AmountSlider';
@@ -8,6 +8,9 @@ import { CustomLabel } from '../UI/CustomLabel/CustomLabel';
 import { CustomSelect } from '../UI/CustomSelect/CustomSelect';
 import { Divider } from '../UI/Divider/Divider';
 import { DATA_FORM } from '../../consts/consts';
+import { usePostRequest } from '../../hooks/usePostRequest';
+import { sendCustomizeForm } from '../../API/api';
+import { ISendData } from '../../types/types';
 
 import classes from './CustomizeCardForm.module.scss';
 
@@ -32,9 +35,16 @@ export const isOver18 = (dateString: string) => {
   return age >= 18;
 };
 
-export const CustomizeCardForm = () => {
+interface ICustomizeProps {
+  formRef: RefObject<HTMLFormElement | null>;
+}
+
+export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
   const [option, setOption] = useState<string>(options[0]);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+
+  const { axiosPost, loading, error } = usePostRequest();
+
   const {
     value,
     sliderRef,
@@ -54,21 +64,25 @@ export const CustomizeCardForm = () => {
     register,
     formState: { errors },
     handleSubmit,
-    watch,
   } = useForm({
     mode: 'onBlur', // Валидация при уходе с поля
     reValidateMode: 'onChange', // Повторная валидация при изменении
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
+    console.log(data);
     setIsSubmitted(true);
     if (Object.keys(errors).length === 0) {
-      alert(JSON.stringify(data));
+      await axiosPost(sendCustomizeForm, data);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className={classes.form}
+      ref={formRef}
+    >
       <div className={classes.form__amountWrapper}>
         <div className={classes.form__selectAmountWrapper}>
           <div className={classes.form__legendWrapper}>
@@ -108,7 +122,7 @@ export const CustomizeCardForm = () => {
             value={value}
             onChange={handleChange}
           />
-          {errors.amount && <span className={classes?.error}></span>}
+          {/* {errors.amount && <span className={classes?.error}></span>} */}
         </div>
       </div>
 

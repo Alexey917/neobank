@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, RefObject } from 'react';
 
 import classes from './CustomButton.module.scss';
 

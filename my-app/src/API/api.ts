@@ -27,3 +27,10 @@ export const getNews: AxiosInstance | null = import.meta.env.VITE_GET_NEWS_URL
       baseURL: `${import.meta.env.VITE_GET_NEWS_URL}/email`,
     })
   : null;
+
+export const sendCustomizeForm: AxiosInstance | null = import.meta.env
+  .VITE_GET_NEWS_URL
+  ? axios.create({
+      baseURL: `${import.meta.env.VITE_GET_NEWS_URL}/application`,
+    })
+  : null;

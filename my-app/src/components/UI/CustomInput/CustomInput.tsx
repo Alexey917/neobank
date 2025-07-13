@@ -30,8 +30,6 @@ export const CustomInput: FC<ICustomInput> = ({
   svgError,
   svgSuccess,
 }) => {
-  console.log({ ...register });
-
   return (
     <div className={classes.wrapper}>
       <input
