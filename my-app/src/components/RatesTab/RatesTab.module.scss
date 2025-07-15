@@ -1,0 +1,34 @@
+@use '../../styles/App' as *;
+
+.rates {
+  margin-top: 40px;
+
+  &__wrapper {
+    @include flex-properties(flex, row, null, null, null);
+  }
+
+  &__title {
+    flex-basis: 326px;
+    @include text-properties(Ubuntu, 16px, 100%, 0.02em, 500, rgba(0, 0, 0, 1));
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+
+  &__text {
+    flex-basis: 640px;
+    @include text-properties(
+      Ubuntu,
+      16px,
+      100%,
+      0.02em,
+      500,
+      rgba(67, 67, 67, 1)
+    );
+    margin-top: 24px;
+  }
+
+  &__textBr {
+    margin: 0;
+    line-height: 147%;
+  }
+}

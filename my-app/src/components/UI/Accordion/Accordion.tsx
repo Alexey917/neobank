@@ -22,12 +22,16 @@ export const Accordion: FC<IAccordion> = ({ question, answer }) => {
   };
 
   return (
-    <article>
-      <div>
-        <p>{question}</p>
-        {showAnswer ? <p>{answer}</p> : ''}
+    <article className={classes.accordion}>
+      <div className={classes.accordion__wrapper}>
+        <p className={classes.accordion__question}>{question}</p>
+        {showAnswer ? (
+          <p className={classes.accordion__answer}>{answer}</p>
+        ) : (
+          ''
+        )}
       </div>
-      <button onClick={toggleAccordion}>
+      <button onClick={toggleAccordion} className={classes.accordion__btn}>
         <svg className={classes.accordion__icon} ref={svgRef}>
           <use href={arrow + '#arrow'}></use>
         </svg>

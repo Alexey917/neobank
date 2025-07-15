@@ -3,6 +3,7 @@
 .how {
   @include container();
   margin-bottom: 96px;
+  margin-top: 48px;
 
   &__title {
     @include text-properties(Ubuntu, 30px, 147%, null, 700, rgba(0, 0, 0, 1));
