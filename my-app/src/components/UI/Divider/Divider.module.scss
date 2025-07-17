@@ -2,7 +2,7 @@
   border-right: 0.0625rem dashed rgba(128, 128, 128, 0.4);
 }
 
-.tab {
+.tabs {
   width: 81.25rem;
 }
 
@@ -15,7 +15,7 @@
 }
 
 @media (max-width: 1300px) {
-  .tab {
+  .tabs {
     width: 57.5rem;
   }
 
@@ -27,5 +27,19 @@
     width: 100%;
     height: 4.5rem !important;
     border-right: none;
+  }
+}
+
+@media (max-width: 920px) {
+  .tabs {
+    width: 31.25rem;
+    align-self: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .tabs {
+    width: 20rem;
+    align-self: center;
   }
 }

@@ -122,3 +122,35 @@
     }
   }
 }
+
+@media (max-width: 920px) {
+  .form {
+    @include container(31.25rem);
+    margin-top: 2.75rem;
+    margin-bottom: 6rem;
+
+    &__legendWrapper {
+      @include flex-properties(flex, column, center, center, 1rem);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .form {
+    @include container(20rem);
+    margin-top: 2.75rem;
+    margin-bottom: 6rem;
+
+    &__legend {
+      font-size: 1.3rem;
+    }
+
+    &__legendWrapper {
+      @include flex-properties(flex, column, center, center, 1rem);
+    }
+
+    &__selectAmountWrapper {
+      margin-right: 0;
+    }
+  }
+}

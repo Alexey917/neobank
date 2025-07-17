@@ -81,3 +81,35 @@
     }
   }
 }
+
+@media (max-width: 920px) {
+  .how {
+    @include container(31.25rem);
+
+    &__steps {
+      margin-top: 1rem;
+      @include flex-properties(flex, column, null, center, 2.5rem);
+    }
+
+    &__stepNum {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .how {
+    @include container(20rem);
+
+    &__title {
+      font-size: 1.3rem;
+    }
+
+    &__stepNum {
+      font-size: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}

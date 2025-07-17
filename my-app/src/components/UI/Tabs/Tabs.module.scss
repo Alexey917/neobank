@@ -10,6 +10,24 @@
   .tabs {
     @include container(57.5rem);
     flex-direction: row;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 920px) {
+  .tabs {
+    @include container(31.25rem);
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .tabs {
+    @include container(20rem);
+    justify-content: center;
     margin-bottom: 0.5rem;
   }
 }

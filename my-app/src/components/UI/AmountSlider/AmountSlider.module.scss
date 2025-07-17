@@ -109,3 +109,17 @@
     @include flex-properties(flex, column, center, center, null);
   }
 }
+
+@media (max-width: 920px) {
+  .rangeInput,
+  .sliderLabels {
+    width: 20rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .rangeInput,
+  .sliderLabels {
+    width: 12.25rem;
+  }
+}
