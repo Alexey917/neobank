@@ -1,6 +1,8 @@
-import { FC, RefObject } from 'react';
+import { FC } from 'react';
 import { CreditCardFeature } from '../CreditCardFeature/CreditCardFeature';
 import { CustomButton } from '../UI/CustomButton/CustomButton';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/features/tabs/store';
 
 import classes from './CreditCard.module.scss';
 import creditCardImg from '../../assets/images/creditCard.webp';
@@ -28,6 +30,8 @@ interface ICreditCardProps {
 }
 
 export const CreditCard: FC<ICreditCardProps> = ({ scrollToForm }) => {
+  const activeTab = useSelector((state: RootState) => state.tabs.activeTab);
+
   return (
     <section className={classes.creditCard} aria-label="Credit card details">
       <article className={classes.creditCard__info}>
@@ -57,7 +61,9 @@ export const CreditCard: FC<ICreditCardProps> = ({ scrollToForm }) => {
 
       <figure className={classes.creditCard__imgWrapper}>
         <img
-          className={classes.creditCard__img}
+          className={`${classes.creditCard__img} ${
+            activeTab !== 'About card' && classes.rotate_img
+          }`}
           src={creditCardImg}
           alt="Platinum digital credit card"
         />

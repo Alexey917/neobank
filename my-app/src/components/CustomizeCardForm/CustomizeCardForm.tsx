@@ -105,6 +105,7 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
         </div>
 
         <Divider
+          type="form"
           orientation="vertical"
           width={14.5}
           thickness={0.0625}
@@ -127,7 +128,7 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
       </div>
 
       <div className={classes.form__inputGroupsWrapper}>
-        <h3>Contact Information</h3>
+        <h3 className={classes.form__inputGroupsTitle}>Contact Information</h3>
         <div className={classes.form__inputGroups}>
           {DATA_FORM.map((data, index) => (
             <div className={classes.form__inputGroup} key={data.label}>

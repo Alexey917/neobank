@@ -59,6 +59,10 @@
   }
 }
 
+.rotate_img {
+  transform: rotate(10deg);
+}
+
 @media (max-width: 1300px) {
   .creditCard {
     @include container(57.5rem);

@@ -12,6 +12,7 @@ export const CreditCardDetails = () => {
     <section className={classes.details}>
       <Tabs text={TABS} />
       <Divider
+        type="tabs"
         width={81.25}
         orientation="horizontal"
         thickness={0.125}

@@ -1,4 +1,6 @@
-import { FC, RefObject } from 'react';
+import { FC } from 'react';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../../redux/features/tabs/store';
 
 import classes from './CustomButton.module.scss';
 
@@ -18,9 +20,12 @@ export const CustomButton: FC<ICustomButton> = ({
   variant,
   onClick,
 }) => {
+  const activeTab = useSelector((state: RootState) => state.tabs.activeTab);
   return (
     <button
-      className={`${classes.button} ${classes[paddings]} ${classes[variant]}`}
+      className={`${classes.button} ${classes[paddings]} ${classes[variant]} ${
+        activeTab === text ? classes.active : ''
+      }`}
       onClick={onClick}
     >
       {text}

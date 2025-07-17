@@ -2,15 +2,15 @@
 
 .range {
   display: grid;
-  gap: 8px;
-  width: 200px;
-  height: 65px;
+  gap: 0.5rem;
+  width: 12.5rem;
+  height: 4.0625rem;
 }
 
 /* Базовые стили для трека и ползунка */
 .rangeInput {
-  width: 520px;
-  height: 2px;
+  width: 32.5rem;
+  height: 0.125rem;
   // appearance: none;
   background: transparent;
   accent-color: #5b35d5; // Фиолетовый цвет для акцентов
@@ -18,29 +18,29 @@
   /* Общие стили для трека */
   &::-webkit-slider-runnable-track,
   &::-moz-range-track {
-    height: 8px;
+    height: 0.5rem;
     background: rgba(226, 232, 240, 1); // Светло-серый фон трека
-    border-radius: 10px;
+    border-radius: 0.625rem;
   }
 
   /* Заполненная часть трека (только для Firefox) */
   &::-moz-range-progress {
-    height: 8px;
+    height: 0.5rem;
     background: #5b35d5;
-    border-radius: 10px;
+    border-radius: 0.625rem;
   }
 
   /* Общие стили для ползунка */
   &::-webkit-slider-thumb,
   &::-moz-range-thumb {
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     border: none;
     border-radius: 50%;
     background: #5b35d5; // Фиолетовый ползунок
     cursor: pointer;
     transition: transform 0.3s;
-    margin-top: -8px; // Выравнивание по вертикали
+    margin-top: -0.5rem; // Выравнивание по вертикали
   }
 
   /* Стили для WebKit (Chrome/Safari) */
@@ -63,8 +63,8 @@
 
     &::-webkit-slider-runnable-track,
     &::-moz-range-track {
-      outline: 1px solid #c56fff;
-      outline-offset: 5px;
+      outline: 0.0625rem solid #c56fff;
+      outline-offset: 0.3125rem;
     }
   }
 
@@ -78,28 +78,34 @@
 }
 
 .sliderLabels {
-  margin-top: 9px;
-  width: 520px;
+  margin-top: 0.5625rem;
+  width: 32.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .customSlider {
-  margin-top: 32px;
-  padding: 24px 24px 41px 24px;
+  margin-top: 2rem;
+  padding: 1.5rem 1.5rem 2.5625rem 1.5rem;
   border-radius: 10px;
-  border: 1px solid rgba(91, 53, 213, 1);
+  border: 0.0625rem solid rgba(91, 53, 213, 1);
 }
 
 .sliderTitle {
-  @include text-properties(Ubuntu, 16px, 100%, null, 500, rgba(0, 0, 0, 1));
+  @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(0, 0, 0, 1));
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .valueDisplay {
-  @include text-properties(Ubuntu, 16px, 100%, null, 500, rgba(0, 0, 0, 1));
+  @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(0, 0, 0, 1));
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
+}
+
+@media (max-width: 1300px) {
+  .customSlider {
+    @include flex-properties(flex, column, center, center, null);
+  }
 }

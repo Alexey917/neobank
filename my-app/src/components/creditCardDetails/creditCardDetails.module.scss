@@ -3,3 +3,9 @@
 .details {
   @include container();
 }
+
+@media (max-width: 1300px) {
+  .details {
+    @include container(920px);
+  }
+}

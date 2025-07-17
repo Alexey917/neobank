@@ -42,7 +42,7 @@ export const AmountSlider: FC<IAmountSlider> = ({
       {/* Кастомный слайдер */}
       <div className="custom-slider" ref={sliderRef}>
         <div className="track">
-          <div className="progress" style={{ width: `${value}%` }}></div>
+          <div className="progress" style={{ width: `${value * 0.01}%` }}></div>
         </div>
         <div
           className="thumb"

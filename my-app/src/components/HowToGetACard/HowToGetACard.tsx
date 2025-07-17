@@ -29,6 +29,7 @@ export const HowToGetACard: FC<IHowToGetACardProps> = ({ formRef }) => {
             <div className={classes.how__stepNumWrapper}>
               <div className={classes.how__stepNum}>{index + 1}</div>
               <Divider
+                type="howTo"
                 orientation="horizontal"
                 width={15.625}
                 thickness={0.125}

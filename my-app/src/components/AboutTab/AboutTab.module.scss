@@ -1,0 +1,64 @@
+@use '../../styles/App' as *;
+
+.about {
+  @include flex-properties(flex, row, null, null, 2.5rem);
+  flex-wrap: wrap;
+  margin-top: 3.0625rem;
+  margin-bottom: 6rem;
+
+  &__wrapper {
+    flex-basis: 25.375rem;
+    padding: 2.3125rem 2rem 2rem 2rem;
+    background-color: #f0f0f0;
+    box-shadow: 0px 0.125rem 0.25rem 0rem rgba(0, 0, 0, 0.2),
+      0px 0px 0.5rem 0rem rgba(0, 0, 0, 0.08);
+
+    border-radius: 28px;
+  }
+
+  &__wrapper_3,
+  &__wrapper_4 {
+    flex-basis: 39.375rem;
+  }
+
+  &__wrapper_1,
+  &__wrapper_3 {
+    background-color: rgba(127, 146, 172, 0.7);
+  }
+
+  &__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  &__title {
+    @include text-properties(
+      Ubuntu,
+      1.875rem,
+      147%,
+      0.02em,
+      700,
+      rgba(0, 0, 0, 1)
+    );
+    margin: 1.5rem 0 1rem 0;
+  }
+
+  &__text {
+    @include text-properties(Ubuntu, 1rem, 100%, 0.02em, 500, rgba(0, 0, 0, 1));
+    margin: 0;
+  }
+}
+
+@media (max-width: 1300px) {
+  .about {
+    justify-content: space-between;
+
+    &__wrapper_3 {
+      flex-basis: 25.375rem;
+    }
+
+    &__wrapper_4 {
+      flex-basis: 100%;
+    }
+  }
+}

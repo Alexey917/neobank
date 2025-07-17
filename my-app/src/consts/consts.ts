@@ -1,4 +1,9 @@
 import { isOver18 } from '../components/CustomizeCardForm/CustomizeCardForm';
+import money from '../assets/sprite.svg';
+import calendar from '../assets/sprite.svg';
+import clock from '../assets/sprite.svg';
+import bag from '../assets/sprite.svg';
+import card from '../assets/sprite.svg';
 
 export const DATA_FORM = [
   {
@@ -184,5 +189,74 @@ export const RATES = [
     text: '60 ₽ — SMS or push notifications',
     textBr:
       '0 ₽ — card statement, information about transactions in the online bank',
+  },
+];
+
+export const ABOUT_TAB = [
+  {
+    svg: money,
+    svgId: 'money',
+    title: 'Up to 50 000 ₽',
+    text: 'Cash and transfers without commission and percent',
+  },
+
+  {
+    svg: calendar,
+    svgId: 'calendar',
+    title: 'Up to 160 days',
+    text: 'Without percent on the loan',
+  },
+
+  {
+    svg: clock,
+    svgId: 'clock',
+    title: 'Free delivery',
+    text: 'We will deliver your card by courier at a convenient place and time for you',
+  },
+
+  {
+    svg: bag,
+    svgId: 'bag',
+    title: 'Up to 12 months',
+    text: 'No percent. For equipment, clothes and other purchases in installments',
+  },
+
+  {
+    svg: card,
+    svgId: 'card',
+    title: 'Convenient deposit and withdrawal',
+    text: 'At any ATM. Top up your credit card for free with cash or transfer from other cards',
+  },
+];
+
+export const CASHBACK_TAB = [
+  {
+    title: 'For food delivery, cafes and restaurants',
+    text: '5%',
+  },
+
+  {
+    title: 'In supermarkets with our subscription',
+    text: '5%',
+  },
+
+  {
+    title: "In clothing stores and children's goods",
+    text: '2%',
+  },
+
+  {
+    title: 'Other purchases and payment of services and fines',
+    text: '1%',
+  },
+
+  {
+    title: 'Shopping in online stores',
+    text: 'up to 3%',
+  },
+
+  {
+    title: 'Purchases from our partners',
+    text: '30%',
   },
 ];

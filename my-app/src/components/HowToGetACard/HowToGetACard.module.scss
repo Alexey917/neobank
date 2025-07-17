@@ -2,54 +2,82 @@
 
 .how {
   @include container();
-  margin-bottom: 96px;
-  margin-top: 48px;
+  margin-bottom: 6rem;
+  margin-top: 3rem;
 
   &__title {
-    @include text-properties(Ubuntu, 30px, 147%, null, 700, rgba(0, 0, 0, 1));
+    @include text-properties(
+      Ubuntu,
+      1.875rem,
+      147%,
+      null,
+      700,
+      rgba(0, 0, 0, 1)
+    );
     text-align: center;
-    margin-bottom: 14px;
+    margin-bottom: 0.875rem;
     margin-top: 0;
   }
 
   &__steps {
-    @include flex-properties(flex, row, space-between, center, 56px);
+    @include flex-properties(flex, row, space-between, center, 3.5rem);
   }
 
   &__stepMap {
-    @include flex-properties(flex, column, center, center, 20px);
+    @include flex-properties(flex, column, center, center, 1.25rem);
   }
 
   &__stepMap_1 {
-    width: 334px;
+    width: 20.875rem;
   }
 
   &__stepMap_2 {
-    width: 385px;
+    width: 24.0625rem;
   }
 
   &__stepMap_3 {
-    width: 419px;
+    width: 26.1875rem;
   }
 
   &__stepNumWrapper {
-    @include flex-properties(flex, row, null, center, 36px);
+    @include flex-properties(flex, row, null, center, 2.25rem);
   }
 
   &__stepNum {
     @include flex-properties(flex, row, center, center, null);
-    @include text-properties(Ubuntu, 20px, 147%, null, 700, rgba(0, 0, 0, 1));
-    width: 48px;
-    height: 48px;
-    border-radius: 50px;
+    @include text-properties(
+      Ubuntu,
+      1.25rem,
+      147%,
+      null,
+      700,
+      rgba(0, 0, 0, 1)
+    );
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3.125rem;
     background-color: rgba(217, 217, 217, 1);
   }
 
   &__stepInfo {
-    @include text-properties(Ubuntu, 16px, 147%, null, 500, rgba(0, 0, 0, 1));
+    @include text-properties(Ubuntu, 1rem, 147%, null, 500, rgba(0, 0, 0, 1));
     text-align: center;
     margin: 0;
   }
 }
 
-// @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(255, 0, 0, 1));
+@media (max-width: 1300px) {
+  .how {
+    @include container(57.5rem);
+
+    &__stepMap_1,
+    &__stepMap_2,
+    &__stepMap_3 {
+      width: 260px;
+    }
+
+    &__steps {
+      align-items: flex-start;
+    }
+  }
+}

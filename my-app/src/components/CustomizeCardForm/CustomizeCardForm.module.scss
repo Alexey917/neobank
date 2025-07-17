@@ -1,21 +1,21 @@
 @use '../../styles/App' as *;
 
 .form {
-  margin-top: 44px;
-  padding: 32px;
+  margin-top: 2.75rem;
+  padding: 2rem;
   background-color: rgba(255, 255, 255, 1);
-  border-radius: 28px;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 1.75rem;
+  box-shadow: 0rem 0.125rem 0.25rem 0rem rgba(0, 0, 0, 0.2),
+    0rem 0rem 0.5rem 0rem rgba(0, 0, 0, 0.08);
   @include flex-properties(flex, column, null, null, null);
 
   &__amountWrapper {
     @include flex-properties(flex, row, flex-start, null, null);
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
   }
 
   &__selectAmountWrapper {
-    margin-right: 40px;
+    margin-right: 2.5rem;
   }
 
   &__legendWrapper {
@@ -23,35 +23,49 @@
   }
 
   &__legend {
-    @include text-properties(Ubuntu, 30px, 100%, null, 700, rgba(0, 0, 0, 1));
+    @include text-properties(
+      Ubuntu,
+      1.875rem,
+      100%,
+      null,
+      700,
+      rgba(0, 0, 0, 1)
+    );
   }
 
   &__step {
-    @include text-properties(Ubuntu, 16px, 100%, null, 500, rgba(0, 0, 0, 1));
+    @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(0, 0, 0, 1));
     margin: 0;
   }
 
   &__amountTitle {
-    @include text-properties(Ubuntu, 20px, 100%, null, 700, rgba(0, 0, 0, 1));
+    @include text-properties(
+      Ubuntu,
+      1.25rem,
+      100%,
+      null,
+      700,
+      rgba(0, 0, 0, 1)
+    );
     margin: 0;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
   }
 
   &__chosenAmount {
-    margin-left: 42px;
+    margin-left: 2.625rem;
   }
 
   &__inputGroupsWrapper {
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
   }
 
   &__inputGroups {
-    @include flex-properties(flex, row, null, null, 16px);
+    @include flex-properties(flex, row, null, null, 1rem);
     flex-wrap: wrap;
   }
 
   &__inputGroup {
-    @include flex-properties(inline-flex, column, null, null, 8px);
+    @include flex-properties(inline-flex, column, null, null, 0.5rem);
   }
 
   & > :last-child {
@@ -67,5 +81,44 @@
       500,
       rgba(255, 86, 49, 1)
     );
+  }
+}
+
+@media (max-width: 1300px) {
+  .form {
+    @include container(57.5rem);
+    margin-top: 2.75rem;
+    margin-bottom: 6rem;
+
+    &__amountWrapper {
+      @include flex-properties(flex, column, flex-start, null, null);
+    }
+
+    &__inputGroupsWrapper {
+      @include flex-properties(flex, column, center, center, null);
+    }
+
+    &__inputGroups {
+      justify-content: center;
+    }
+
+    &__chosenAmount {
+      @include flex-properties(flex, column, center, center, null);
+      margin-left: 0;
+    }
+
+    &__amountTitle {
+      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    &__inputGroupsTitle {
+      margin-bottom: 3rem;
+    }
+
+    & > :last-child {
+      align-self: center;
+    }
   }
 }

@@ -4,6 +4,7 @@ import classes from './Divider.module.scss';
 type DividerOrientation = 'horizontal' | 'vertical';
 type DividerVariant = 'solid' | 'dashed';
 type DividerColor = 'grey' | 'blue-grey' | 'grey-dashed';
+type DividerType = 'tabs' | 'howTo' | 'rates' | 'form';
 
 interface IDividerProps {
   width: number;
@@ -11,6 +12,7 @@ interface IDividerProps {
   orientation: DividerOrientation;
   variant: DividerVariant;
   color: DividerColor;
+  type: DividerType;
 }
 
 export const Divider: FC<IDividerProps> = ({
@@ -19,12 +21,15 @@ export const Divider: FC<IDividerProps> = ({
   orientation,
   variant,
   color,
+  type,
 }) => {
   return (
     <div
-      className={orientation === 'vertical' ? classes.borderVertical : ''}
+      className={`${orientation === 'vertical' ? classes.borderVertical : ''} ${
+        classes[type]
+      }`}
       style={{
-        width: orientation === 'horizontal' ? `${width}rem` : 0,
+        // width: orientation === 'horizontal' ? `${width}rem` : 0,
         height: orientation === 'vertical' ? `${width}rem` : 0,
         borderBottom: `${thickness}rem ${variant} ${
           color === 'grey'

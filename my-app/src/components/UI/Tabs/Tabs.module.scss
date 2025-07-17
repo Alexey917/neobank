@@ -5,3 +5,11 @@
   @include flex-properties(flex, row, flex-start, null, 2rem);
   margin-bottom: 0.5rem;
 }
+
+@media (max-width: 1300px) {
+  .tabs {
+    @include container(57.5rem);
+    flex-direction: row;
+    margin-bottom: 0.5rem;
+  }
+}
