@@ -1,34 +1,76 @@
 @use '../../styles/App' as *;
 
 .rates {
-  margin-top: 40px;
+  margin-top: 2.5rem;
 
   &__wrapper {
     @include flex-properties(flex, row, null, null, null);
   }
 
   &__title {
-    flex-basis: 326px;
+    flex-basis: 20.375rem;
     @include text-properties(Ubuntu, 16px, 100%, 0.02em, 500, rgba(0, 0, 0, 1));
-    margin-top: 24px;
+    margin-top: 1.5rem;
     margin-bottom: 0;
   }
 
   &__text {
-    flex-basis: 640px;
+    flex-basis: 40rem;
     @include text-properties(
       Ubuntu,
-      16px,
+      1rem,
       100%,
       0.02em,
       500,
       rgba(67, 67, 67, 1)
     );
-    margin-top: 24px;
+    margin-top: 1.5rem;
+  }
+
+  &__textWrapper {
+    flex-basis: 40rem;
   }
 
   &__textBr {
     margin: 0;
     line-height: 147%;
+  }
+}
+
+@media (max-width: 1300px) {
+  .rates {
+    margin-bottom: 4rem;
+  }
+}
+
+@media (max-width: 920px) {
+  .rates {
+    &__title {
+      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    &__text,
+    &__textWrapper {
+      flex-basis: 27.5rem;
+    }
+
+    &__text {
+      margin-top: 0.75rem;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .rates {
+    &__wrapper {
+      @include flex-properties(flex, column, null, null, null);
+    }
+
+    &__text,
+    &__title {
+      flex-basis: 0;
+      text-align: center;
+    }
   }
 }

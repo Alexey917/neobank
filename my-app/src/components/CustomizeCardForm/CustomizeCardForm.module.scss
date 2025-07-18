@@ -75,13 +75,24 @@
   &__inputError {
     @include text-properties(
       Ubuntu,
-      16px,
+      1rem,
       100%,
       null,
       500,
       rgba(255, 86, 49, 1)
     );
   }
+}
+
+.customForm__spinner_wrapper {
+  @include flex-properties(flex, null, center, center, null);
+  margin-bottom: 1.25rem;
+}
+
+.customForm__error {
+  @include text-properties(Ubuntu, 1rem, 127%, null, 700, red);
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 1300px) {
@@ -152,5 +163,9 @@
     &__selectAmountWrapper {
       margin-right: 0;
     }
+  }
+
+  .customForm__error {
+    font-size: 0.8rem;
   }
 }

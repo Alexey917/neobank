@@ -8,6 +8,7 @@ export const AboutTab = () => {
     <section className={classes.about}>
       {ABOUT_TAB.map((item, index) => (
         <article
+          key={item.title}
           className={`${classes.about__wrapper} ${
             classes[`about__wrapper_${index}`]
           }`}

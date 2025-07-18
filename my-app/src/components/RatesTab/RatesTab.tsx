@@ -14,7 +14,7 @@ export const RatesTab = () => {
             {index !== RATES.length - 1 ? (
               <p className={classes.rates__text}>{item.text}</p>
             ) : (
-              <div>
+              <div className={classes.rates__textWrapper}>
                 <p className={classes.rates__text}>{item.text}</p>
                 <p
                   className={`${classes.rates__text} ${classes.rates__textBr}`}
@@ -26,6 +26,7 @@ export const RatesTab = () => {
           </div>
           {index !== RATES.length - 1 ? (
             <Divider
+              type="rates"
               width={63.5}
               thickness={0.0625}
               orientation="horizontal"

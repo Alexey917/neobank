@@ -1,13 +1,33 @@
-import { isOver18 } from '../components/CustomizeCardForm/CustomizeCardForm';
+import { isOver18 } from '../utils/isOver18';
 import money from '../assets/sprite.svg';
 import calendar from '../assets/sprite.svg';
 import clock from '../assets/sprite.svg';
 import bag from '../assets/sprite.svg';
 import card from '../assets/sprite.svg';
+import { TCustomizeFormData } from '../types/types';
 
-export const DATA_FORM = [
+export const DATA_FORM: TCustomizeFormData = [
+  {
+    field: 'amount',
+    valueAsNumber: true,
+    errors: {
+      required: {
+        value: true,
+        message: 'Enter amount',
+      },
+      min: {
+        value: 15000,
+        message: 'At least 15,000',
+      },
+      max: {
+        value: 600000,
+        message: 'No more than 600,000',
+      },
+    },
+  },
   {
     label: 'Your last name',
+    field: 'lastName',
     placeholder: 'For Example Doe',
     errors: {
       required: 'last name is required',
@@ -15,6 +35,7 @@ export const DATA_FORM = [
   },
   {
     label: 'Your first name',
+    field: 'firstName',
     placeholder: 'For Example Jhon',
     errors: {
       required: 'first name is required',
@@ -22,11 +43,13 @@ export const DATA_FORM = [
   },
   {
     label: 'Your patronymic',
+    field: 'middleName',
     placeholder: 'For Example Victorovich',
   },
-  { label: 'Select term', placeholder: '6 month' },
+  { label: 'Select term', field: 'term', placeholder: '6 month' },
   {
     label: 'Your email',
+    field: 'email',
     placeholder: 'test@gmail.com',
     errors: {
       required: {
@@ -41,6 +64,7 @@ export const DATA_FORM = [
   },
   {
     label: 'Your date of birth',
+    field: 'birthdate',
     placeholder: 'Select Date and Time',
     errors: {
       required: {
@@ -59,6 +83,7 @@ export const DATA_FORM = [
   },
   {
     label: 'Your passport series',
+    field: 'passportSeries',
     placeholder: '0000',
     errors: {
       required: {
@@ -77,8 +102,8 @@ export const DATA_FORM = [
   },
   {
     label: 'Your passport number',
+    field: 'passportNumber',
     placeholder: '000000',
-    required: true,
     errors: {
       required: {
         value: true,
