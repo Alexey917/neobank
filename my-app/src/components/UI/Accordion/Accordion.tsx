@@ -31,8 +31,17 @@ export const Accordion: FC<IAccordion> = ({ question, answer }) => {
           ''
         )}
       </div>
-      <button onClick={toggleAccordion} className={classes.accordion__btn}>
-        <svg className={classes.accordion__icon} ref={svgRef}>
+      <button
+        onClick={toggleAccordion}
+        className={classes.accordion__btn}
+        aria-controls={`accordion-content-${question.replace(/\s+/g, '-')}`}
+      >
+        <svg
+          className={classes.accordion__icon}
+          ref={svgRef}
+          aria-hidden="true"
+          focusable="false"
+        >
           <use href={arrow + '#arrow'}></use>
         </svg>
       </button>

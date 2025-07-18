@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { RATES } from '../../consts/consts';
 import { Divider } from '../UI/Divider/Divider';
 
 import classes from './RatesTab.module.scss';
 
-export const RatesTab = () => {
+export const RatesTab: FC = () => {
   return (
-    <section className={classes.rates}>
+    <section className={classes.rates} aria-label="Card rates and conditions">
       {RATES.map((item, index) => (
-        <div>
+        <div
+          key={`rate-${index}`}
+          role="listitem"
+          aria-labelledby={`rate-title-${index}`}
+        >
           <div className={classes.rates__wrapper}>
-            <p className={classes.rates__title}>{item.title}</p>
+            <p className={classes.rates__title} id={`rate-title-${index}`}>
+              {item.title}
+            </p>
             {index !== RATES.length - 1 ? (
               <p className={classes.rates__text}>{item.text}</p>
             ) : (
@@ -24,7 +30,7 @@ export const RatesTab = () => {
               </div>
             )}
           </div>
-          {index !== RATES.length - 1 ? (
+          {index !== RATES.length - 1 && (
             <Divider
               type="rates"
               width={63.5}
@@ -32,9 +38,8 @@ export const RatesTab = () => {
               orientation="horizontal"
               variant="solid"
               color="blue-grey"
+              aria-hidden="true"
             />
-          ) : (
-            ''
           )}
         </div>
       ))}

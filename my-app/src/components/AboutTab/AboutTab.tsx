@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ABOUT_TAB } from '../../consts/consts';
 
 import classes from './AboutTab.module.scss';
 
-export const AboutTab = () => {
+export const AboutTab: FC = () => {
   return (
-    <section className={classes.about}>
+    <section className={classes.about} aria-label="About card">
       {ABOUT_TAB.map((item, index) => (
         <article
           key={item.title}
@@ -13,7 +13,11 @@ export const AboutTab = () => {
             classes[`about__wrapper_${index}`]
           }`}
         >
-          <svg className={classes.about__icon}>
+          <svg
+            className={classes.about__icon}
+            aria-hidden="true"
+            focusable="false"
+          >
             <use href={item.svg + `#${item.svgId}`}></use>
           </svg>
 

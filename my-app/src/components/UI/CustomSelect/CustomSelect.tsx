@@ -9,6 +9,8 @@ interface ICustomSelect {
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   width: number;
   register?: UseFormRegisterReturn;
+  disabled?: boolean; // Добавлено для контроля состояния
+  required?: boolean; // Добавлено для семантики
 }
 
 export const CustomSelect: FC<ICustomSelect> = ({
@@ -17,6 +19,7 @@ export const CustomSelect: FC<ICustomSelect> = ({
   onChange,
   width,
   register,
+  required = false,
 }) => {
   return (
     <select
@@ -25,9 +28,11 @@ export const CustomSelect: FC<ICustomSelect> = ({
       {...register}
       onChange={onChange}
       style={{ width: `${width}rem` }}
+      aria-required={required} // Для скринридеров
+      aria-invalid={register?.name ? false : undefined} // Для валидации
     >
       {options.map((option) => (
-        <option key={option} value={option}>
+        <option key={option} value={option} aria-selected={value === option}>
           {option + ' month'}
         </option>
       ))}

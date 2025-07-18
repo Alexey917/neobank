@@ -16,6 +16,8 @@ interface ICustomInput {
   register?: UseFormRegisterReturn;
   svgError?: boolean;
   svgSuccess?: boolean;
+  disabled?: boolean;
+  required?: boolean;
 }
 
 export const CustomInput: FC<ICustomInput> = ({
@@ -29,6 +31,7 @@ export const CustomInput: FC<ICustomInput> = ({
   register,
   svgError,
   svgSuccess,
+  required = false,
 }) => {
   return (
     <div className={classes.wrapper}>
@@ -42,15 +45,18 @@ export const CustomInput: FC<ICustomInput> = ({
         value={value}
         onChange={onChange}
         id={id}
+        aria-invalid={svgError ? 'true' : 'false'}
+        aria-required={required}
+        aria-describedby={id ? `${id}-description` : undefined}
         {...register}
       />
       {/* Иконка ошибки */}
-      <svg className={classes.error__icon}>
+      <svg className={classes.error__icon} aria-hidden="true" focusable="false">
         <use href={error + '#error'}></use>
       </svg>
 
       {/* Иконка успеха */}
-      <svg className={classes.ok__icon}>
+      <svg className={classes.ok__icon} aria-hidden="true" focusable="false">
         <use href={ok + '#ok'}></use>
       </svg>
     </div>
