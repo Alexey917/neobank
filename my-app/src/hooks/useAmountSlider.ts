@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
-export const useAmountSlider = () => {
-  const [value, setValue] = useState<number>(150000);
+export const useAmountSlider = (initialValue = 150000) => {
+  const [value, setValue] = useState<number>(initialValue);
   const sliderRef = useRef<HTMLDivElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
@@ -29,6 +29,8 @@ export const useAmountSlider = () => {
     document.addEventListener('touchmove', handleDrag);
     document.addEventListener('touchend', stopDrag);
   };
+
+  //
 
   const handleDrag = (e: MouseEvent | TouchEvent) => {
     if (!isDragging.current || !sliderRef.current) return;

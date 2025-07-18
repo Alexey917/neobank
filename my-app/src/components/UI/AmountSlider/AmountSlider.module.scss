@@ -39,12 +39,15 @@
     border-radius: 50%;
     background: #5b35d5; // Фиолетовый ползунок
     cursor: pointer;
+    -webkit-transition: transform 0.3s;
+    -moz-transition: transform 0.3s;
     transition: transform 0.3s;
     margin-top: -0.5rem; // Выравнивание по вертикали
   }
 
   /* Стили для WebKit (Chrome/Safari) */
   &::-webkit-slider-thumb {
+    -webkit-appearance: none;
     appearance: none;
   }
 

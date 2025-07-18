@@ -29,6 +29,22 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
   const { axiosPost, loading, error } = usePostRequest();
 
   const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    setValue,
+    watch,
+  } = useForm<ISendData>({
+    mode: 'onBlur', // Валидация при уходе с поля
+    reValidateMode: 'onChange', // Повторная валидация при изменении
+    defaultValues: {
+      amount: 150000, // Устанавливаем начальное значение
+    },
+  });
+
+  const amountValue = watch('amount'); // Следим за значением amount
+
+  const {
     value,
     sliderRef,
     thumbRef,
@@ -37,20 +53,11 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
     formatMoney,
     startDrag,
     handleChange,
-  } = useAmountSlider();
+  } = useAmountSlider(amountValue);
 
   const handleOption = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setOption(+e.target.value);
   };
-
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm<ISendData>({
-    mode: 'onBlur', // Валидация при уходе с поля
-    reValidateMode: 'onChange', // Повторная валидация при изменении
-  });
 
   const onSubmit: SubmitHandler<ISendData> = async (data: ISendData) => {
     console.log(data);
@@ -60,11 +67,22 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
     }
   };
 
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = Number(e.target.value);
+    handleChange(e); // Обновляем визуальное состояние слайдера
+    setValue('amount', newValue, { shouldValidate: true }); // Обновляем значение в форме
+  };
+
+  const handleDragUpdate = (newValue: number) => {
+    setValue('amount', newValue, { shouldValidate: true });
+  };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className={classes.form}
       ref={formRef}
+      aria-labelledby="form-heading"
     >
       {loading ? (
         <div
@@ -72,10 +90,14 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
           aria-busy="true"
           className={classes.customForm__spinner_wrapper}
         >
-          <Loader />
+          <Loader aria-hidden="false" />
         </div>
       ) : error ? (
-        <div className={classes.customForm__error} role="alert">
+        <div
+          className={classes.customForm__error}
+          role="alert"
+          aria-live="assertive"
+        >
           {error}
         </div>
       ) : (
@@ -90,14 +112,14 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
               </div>
 
               <AmountSlider
-                value={value}
+                value={amountValue}
                 sliderRef={sliderRef}
                 thumbRef={thumbRef}
                 MIN={MIN}
                 MAX={MAX}
                 formatMoney={formatMoney}
                 startDrag={startDrag}
-                handleChange={handleChange}
+                handleChange={handleAmountChange}
               />
             </div>
 
@@ -108,6 +130,7 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
               thickness={0.0625}
               variant="dashed"
               color="grey-dashed"
+              aria-hidden="true"
             />
             <div className={classes.form__chosenAmount}>
               <h3 className={classes.form__amountTitle}>
@@ -126,9 +149,14 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
                   ),
                 )}
                 onChange={handleChange}
+                aria-describedby="amount-error"
               />
               {(isSubmitted || errors[DATA_FORM[0].field]) && (
-                <span className={classes.form__inputError}>
+                <span
+                  className={classes.form__inputError}
+                  id="amount-error"
+                  role="alert"
+                >
                   {errors[DATA_FORM[0].field]?.message?.toString()}
                 </span>
               )}
@@ -140,7 +168,7 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
               Contact Information
             </h3>
 
-            <div className={classes.form__inputGroups}>
+            <div className={classes.form__inputGroups} role="list">
               {DATA_FORM.map((data) => {
                 // Пропускаем amount, так как оно рендерится отдельно
                 if (data.field === 'amount') return null;
@@ -154,7 +182,11 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
                 if (!shouldRender) return null;
 
                 return (
-                  <div className={classes.form__inputGroup} key={data.field}>
+                  <div
+                    className={classes.form__inputGroup}
+                    key={data.field}
+                    role="listitem"
+                  >
                     {data.label && (
                       <CustomLabel
                         text={data.label}
@@ -173,6 +205,7 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
                           data.field,
                           convertToRegisterOptions(data.field, data.errors),
                         )}
+                        aria-describedby={`${data.field}-error`}
                       />
                     ) : (
                       <CustomInput
@@ -198,11 +231,12 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
                           data.field,
                           convertToRegisterOptions(data.field, data.errors),
                         )}
+                        aria-describedby={`${data.field}-error`}
                       />
                     )}
 
                     {(isSubmitted || errors[data.field]) && (
-                      <span className={classes.form__inputError}>
+                      <span className={classes.form__inputError} role="alert">
                         {errors[data.field]?.message?.toString()}
                       </span>
                     )}

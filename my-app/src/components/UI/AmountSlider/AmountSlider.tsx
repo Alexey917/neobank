@@ -11,6 +11,7 @@ interface IAmountSlider {
   value: number;
   sliderRef: RefObject<HTMLDivElement | null>;
   thumbRef: RefObject<HTMLDivElement | null>;
+  // onDragUpdate?: (value: number) => void;
 }
 
 export const AmountSlider: FC<IAmountSlider> = ({
@@ -24,8 +25,14 @@ export const AmountSlider: FC<IAmountSlider> = ({
   handleChange,
 }) => {
   return (
-    <div className={classes.customSlider}>
-      <h4 className={classes.sliderTitle}>Select amount</h4>
+    <div
+      className={classes.customSlider}
+      role="group"
+      aria-labelledby="slider-title"
+    >
+      <h4 id="slider-title" className={classes.sliderTitle}>
+        Select amount
+      </h4>
       <div className={classes.valueDisplay}>{formatMoney(value)}</div>
 
       {/* Скрытый нативный input для доступности */}
@@ -37,10 +44,14 @@ export const AmountSlider: FC<IAmountSlider> = ({
         onChange={handleChange}
         className={classes.rangeInput}
         aria-hidden="true"
+        aria-valuemin={MIN}
+        aria-valuemax={MAX}
+        aria-valuenow={value}
+        aria-valuetext={formatMoney(value)}
       />
 
       {/* Кастомный слайдер */}
-      <div className="custom-slider" ref={sliderRef}>
+      <div className="custom-slider" ref={sliderRef} aria-hidden="true">
         <div className="track">
           <div className="progress" style={{ width: `${value * 0.01}%` }}></div>
         </div>
@@ -49,6 +60,11 @@ export const AmountSlider: FC<IAmountSlider> = ({
           ref={thumbRef}
           onMouseDown={startDrag}
           onTouchStart={startDrag}
+          aria-valuemin={MIN}
+          aria-valuemax={MAX}
+          aria-valuenow={value}
+          aria-valuetext={formatMoney(value)}
+          aria-labelledby="slider-title"
         ></div>
       </div>
 

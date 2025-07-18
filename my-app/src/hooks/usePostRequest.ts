@@ -15,7 +15,7 @@ export const usePostRequest = () => {
       });
       return response;
     } catch (err) {
-      setError('Failed to get news');
+      setError('Failed request');
       console.error(err);
     } finally {
       setLoading(false);

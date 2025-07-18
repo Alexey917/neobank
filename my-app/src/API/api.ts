@@ -6,7 +6,11 @@ export const currencyApi: AxiosInstance | null =
         baseURL: `${import.meta.env.VITE_CURRENCY_URL}/${
           import.meta.env.VITE_CURRENCY_KEY
         }`,
-        headers: { 'Content-Type': 'text/plain' },
+        headers: {
+          'Content-Type': 'text/plain',
+          'Accept': '*/*',
+        },
+        withCredentials: false,
       })
     : null;
 

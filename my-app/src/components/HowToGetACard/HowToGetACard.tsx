@@ -16,18 +16,23 @@ interface IHowToGetACardProps {
 
 export const HowToGetACard: FC<IHowToGetACardProps> = ({ formRef }) => {
   return (
-    <section className={classes.how}>
-      <h2 className={classes.how__title}>How to get a card</h2>
-      <article className={classes.how__steps}>
+    <section className={classes.how} aria-labelledby="how-to-get-card-heading">
+      <h2 id="how-to-get-card-heading" className={classes.how__title}>
+        How to get a card
+      </h2>
+      <article className={classes.how__steps} aria-label="Steps to get a card">
         {STEPS_GET_Card.map((step, index) => (
           <div
             key={index}
             className={`${classes.how__stepMap} ${
               classes[`how__stepMap_${index + 1}`]
             }`}
+            role="listitem"
           >
             <div className={classes.how__stepNumWrapper}>
-              <div className={classes.how__stepNum}>{index + 1}</div>
+              <div className={classes.how__stepNum} aria-hidden="true">
+                {index + 1}
+              </div>
               <Divider
                 type="howTo"
                 orientation="horizontal"
@@ -35,6 +40,7 @@ export const HowToGetACard: FC<IHowToGetACardProps> = ({ formRef }) => {
                 thickness={0.125}
                 variant="solid"
                 color="grey"
+                aria-hidden="true"
               />
             </div>
             <p className={classes.how__stepInfo}>{step}</p>
