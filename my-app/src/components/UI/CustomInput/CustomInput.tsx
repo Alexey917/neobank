@@ -50,12 +50,17 @@ export const CustomInput: FC<ICustomInput> = ({
         aria-describedby={id ? `${id}-description` : undefined}
         {...register}
       />
-      {/* Иконка ошибки */}
-      <svg className={classes.error__icon} aria-hidden="true" focusable="false">
-        <use href={error + '#error'}></use>
-      </svg>
 
-      {/* Иконка успеха */}
+      {svgError && (
+        <svg
+          className={classes.error__icon}
+          aria-hidden="true"
+          focusable="false"
+        >
+          <use href={error + '#error'}></use>
+        </svg>
+      )}
+
       <svg className={classes.ok__icon} aria-hidden="true" focusable="false">
         <use href={ok + '#ok'}></use>
       </svg>

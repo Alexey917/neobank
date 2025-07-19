@@ -2,10 +2,10 @@ import { useRef } from 'react';
 
 import { CreditCardDetails } from '../../components/creditCardDetails/creditCardDetails';
 import { CreditCard } from '../../components/CreditCard/CreditCard';
-import { HowToGetACard } from '../../components/HowToGetACard/HowToGetACard';
-import classes from './Loan.module.scss';
+import { HowToGet } from '../../components/HowToGet/HowToGet';
+import classes from './LoanPage.module.scss';
 
-export const Loan = () => {
+export const LoanPage = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
   const scrollToForm = () => {
@@ -21,7 +21,7 @@ export const Loan = () => {
     <main className={classes.main}>
       <CreditCard scrollToForm={scrollToForm} />
       <CreditCardDetails />
-      <HowToGetACard formRef={formRef} />
+      <HowToGet formRef={formRef} />
     </main>
   );
 };

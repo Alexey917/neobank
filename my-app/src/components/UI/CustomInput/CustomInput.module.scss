@@ -49,7 +49,6 @@ input[type='number'] {
 
   &__icon {
     position: absolute;
-    display: none; // По умолчанию скрыта
     top: 50%;
     right: 50%;
     margin-top: -10px;
@@ -84,7 +83,3 @@ input[type='number'] {
 .wrapper {
   position: relative;
 }
-
-// .input:not(:placeholder-shown) ~ .ok__icon {
-//   display: flex; // Показываем только когда есть введенное значение
-// }

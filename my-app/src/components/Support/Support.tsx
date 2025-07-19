@@ -31,8 +31,14 @@ export const Support: FC = () => {
           <Loader />
         </div>
       ) : error ? (
-        <div className={classes.support__error} role="alert">
-          {error}
+        <div>
+          <SupportForm
+            setIsSubscribed={setIsSubscribed}
+            axiosPost={axiosPost}
+          />
+          <div className={classes.support__error} role="alert">
+            {error}
+          </div>
         </div>
       ) : localStorage.getItem('subscribed_email') ? (
         <p className={classes.support__subscribe}>

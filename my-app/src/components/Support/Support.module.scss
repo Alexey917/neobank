@@ -52,6 +52,7 @@
   &__error {
     @include text-properties(Ubuntu, 1rem, 127%, null, 700, red);
     text-align: center;
+    margin-top: 2rem;
   }
 
   &__spinner_wrapper {

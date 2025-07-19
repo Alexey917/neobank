@@ -1,10 +1,10 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CustomButton } from '../../components/UI/CustomButton/CustomButton';
 
 import oops from '../../assets/images/Oops.webp';
-import classes from './PageNotFound.module.scss';
+import classes from './NotFoundPage.module.scss';
 
-export const PageNotFound = () => {
+export const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (

@@ -1,7 +1,7 @@
 import React, { FC, RefObject } from 'react';
 import { Divider } from '../UI/Divider/Divider';
 
-import classes from './HowToGetACard.module.scss';
+import classes from './HowToGet.module.scss';
 import { CustomizeCardForm } from '../CustomizeCardForm/CustomizeCardForm';
 
 const STEPS_GET_Card = [
@@ -14,7 +14,7 @@ interface IHowToGetACardProps {
   formRef: RefObject<HTMLFormElement | null>;
 }
 
-export const HowToGetACard: FC<IHowToGetACardProps> = ({ formRef }) => {
+export const HowToGet: FC<IHowToGetACardProps> = ({ formRef }) => {
   return (
     <section className={classes.how} aria-labelledby="how-to-get-card-heading">
       <h2 id="how-to-get-card-heading" className={classes.how__title}>

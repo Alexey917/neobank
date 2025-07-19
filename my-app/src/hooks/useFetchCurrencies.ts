@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { currencyApi } from '../API/api';
+import { getCurrency } from '../API/api';
 import { useFormatDate } from '../hooks/useFormatDate';
 
 const CURRENCIES = ['USD', 'EUR', 'TRY', 'CNY', 'CHF', 'JPY'];
@@ -28,7 +28,7 @@ export const useFetchCurrencies = () => {
 
     for (const currency of CURRENCIES) {
       try {
-        const response = await currencyApi?.get(`/pair/${currency}/${to}`);
+        const response = await getCurrency(currency, to);
         results.push({
           currency,
           rate: response?.data.conversion_rate?.toFixed(2) || 'N/A',

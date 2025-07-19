@@ -73,10 +73,6 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
     setValue('amount', newValue, { shouldValidate: true }); // Обновляем значение в форме
   };
 
-  const handleDragUpdate = (newValue: number) => {
-    setValue('amount', newValue, { shouldValidate: true });
-  };
-
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -93,12 +89,14 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
           <Loader aria-hidden="false" />
         </div>
       ) : error ? (
-        <div
-          className={classes.customForm__error}
-          role="alert"
-          aria-live="assertive"
-        >
-          {error}
+        <div>
+          <div
+            className={classes.customForm__error}
+            role="alert"
+            aria-live="assertive"
+          >
+            {error}
+          </div>
         </div>
       ) : (
         <div>
@@ -140,7 +138,7 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
                 width={13.75}
                 type="number"
                 variant="amount"
-                value={value}
+                value={amountValue}
                 register={register(
                   DATA_FORM[0].field,
                   convertToRegisterOptions(
@@ -174,10 +172,7 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
                 if (data.field === 'amount') return null;
 
                 // Проверяем, есть ли что рендерить
-                const shouldRender =
-                  data.label ||
-                  data.field === 'term' ||
-                  (data.field !== 'amount' && data.placeholder);
+                const shouldRender = data.label || data.field === 'term';
 
                 if (!shouldRender) return null;
 
