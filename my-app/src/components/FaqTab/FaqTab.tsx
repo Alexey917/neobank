@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Accordion } from '../UI/Accordion/Accordion';
 import { RECEIVE_CARD, USING_CARD } from '../../consts/consts';
 
 import classes from './FaqTab.module.scss';
 
 export const FaqTab = () => {
+  const [openAccordionId, setOpenAccordionId] = useState<string | null>(null);
+
+  const handleAccordionClick = (id: string) => {
+    setOpenAccordionId((prevId) => (prevId === id ? null : id));
+  };
+
   return (
     <section aria-label="Frequently Asked Questions">
       <article className={classes.faq} aria-labelledby="receiving-heading">
@@ -15,6 +21,8 @@ export const FaqTab = () => {
           <Accordion
             question={item.question}
             answer={item.answer}
+            isOpen={openAccordionId === item.question}
+            onClick={() => handleAccordionClick(item.question)}
             key={`receive-${index}`}
           />
         ))}
@@ -27,6 +35,8 @@ export const FaqTab = () => {
           <Accordion
             question={item.question}
             answer={item.answer}
+            isOpen={openAccordionId === item.question}
+            onClick={() => handleAccordionClick(item.question)}
             key={`using-${index}`}
           />
         ))}

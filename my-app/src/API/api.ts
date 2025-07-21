@@ -1,26 +1,44 @@
 import axios, { AxiosInstance } from 'axios';
 
-export const currencyApi: AxiosInstance | null =
-  import.meta.env.VITE_CURRENCY_URL && import.meta.env.VITE_CURRENCY_KEY
-    ? axios.create({
-        baseURL: `${import.meta.env.VITE_CURRENCY_URL}`,
-        headers: {
-          'Content-Type': 'text/plain',
-          'Accept': '*/*',
-        },
-        withCredentials: false,
-      })
-    : null;
+let currencyApi: AxiosInstance | undefined;
+let apiError: string | undefined;
+
+export const initializeCurrencyApi = () => {
+  try {
+    if (!import.meta.env.VITE_CURRENCY_URL) {
+      throw new Error('VITE_CURRENCY_URL не задан');
+    }
+    if (!import.meta.env.VITE_CURRENCY_KEY) {
+      throw new Error('VITE_CURRENCY_KEY не задан');
+    }
+
+    currencyApi = axios.create({
+      baseURL: import.meta.env.VITE_CURRENCY_URL,
+      headers: {
+        'Content-Type': 'text/plain',
+        'Accept': '*/*',
+      },
+      withCredentials: false,
+    });
+
+    return true;
+  } catch (error) {
+    apiError =
+      error instanceof Error
+        ? error.message
+        : 'Неизвестная ошибка инициализации';
+    return false;
+  }
+};
 
 export const getCurrency = async (currency: string, to: string) => {
   if (!currencyApi) {
-    throw new Error();
+    throw new Error(apiError || 'Currency API не инициализирован');
   }
 
-  const response = await currencyApi?.get(
+  return currencyApi.get(
     `/v6/${import.meta.env.VITE_CURRENCY_KEY}/pair/${currency}/${to}`,
   );
-  return response;
 };
 
 export const newsApi: AxiosInstance | null =

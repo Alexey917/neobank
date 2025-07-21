@@ -69,8 +69,8 @@ export const AmountSlider: FC<IAmountSlider> = ({
       </div>
 
       <div className={classes.sliderLabels}>
-        <span>{MIN}</span>
-        <span>{MAX}</span>
+        <span className={classes.sliderMinValue}>{MIN}</span>
+        <span className={classes.sliderMaxValue}>{MAX}</span>
       </div>
     </div>
   );

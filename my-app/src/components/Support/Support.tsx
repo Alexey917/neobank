@@ -10,8 +10,6 @@ export const Support: FC = () => {
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
   const { axiosPost, loading, error } = usePostRequest();
 
-  console.log(error);
-
   return (
     <section className={classes.support} aria-labelledby="support-heading">
       <h4 className={classes.support__title} id="support-heading">

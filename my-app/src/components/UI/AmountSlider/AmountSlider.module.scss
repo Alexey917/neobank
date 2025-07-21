@@ -88,6 +88,18 @@
   justify-content: space-between;
 }
 
+.sliderMinValue,
+.sliderMaxValue {
+  @include text-properties(
+    Ubuntu,
+    1rem,
+    100%,
+    null,
+    500,
+    rgba(120, 109, 109, 1)
+  );
+}
+
 .customSlider {
   margin-top: 2rem;
   padding: 1.5rem 1.5rem 2.5625rem 1.5rem;

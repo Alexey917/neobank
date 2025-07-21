@@ -90,6 +90,148 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
         </div>
       ) : error ? (
         <div>
+          <div>
+            <div className={classes.form__amountWrapper}>
+              <div className={classes.form__selectAmountWrapper}>
+                <div className={classes.form__legendWrapper}>
+                  <legend className={classes.form__legend}>
+                    Customize your card
+                  </legend>
+                  <p className={classes.form__step}>Step 1 of 5</p>
+                </div>
+
+                <AmountSlider
+                  value={amountValue}
+                  sliderRef={sliderRef}
+                  thumbRef={thumbRef}
+                  MIN={MIN}
+                  MAX={MAX}
+                  formatMoney={formatMoney}
+                  startDrag={startDrag}
+                  handleChange={handleAmountChange}
+                />
+              </div>
+
+              <Divider
+                type="form"
+                orientation="vertical"
+                width={14.5}
+                thickness={0.0625}
+                variant="dashed"
+                color="grey-dashed"
+                aria-hidden="true"
+              />
+              <div className={classes.form__chosenAmount}>
+                <h3 className={classes.form__amountTitle}>
+                  You have chosen the amount
+                </h3>
+                <CustomInput
+                  width={13.75}
+                  type="number"
+                  variant="amount"
+                  value={amountValue}
+                  register={register(
+                    DATA_FORM[0].field,
+                    convertToRegisterOptions(
+                      DATA_FORM[0].field,
+                      DATA_FORM[0].errors,
+                    ),
+                  )}
+                  onChange={handleChange}
+                  aria-describedby="amount-error"
+                />
+                {(isSubmitted || errors[DATA_FORM[0].field]) && (
+                  <span
+                    className={classes.form__inputError}
+                    id="amount-error"
+                    role="alert"
+                  >
+                    {errors[DATA_FORM[0].field]?.message?.toString()}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className={classes.form__inputGroupsWrapper}>
+              <h3 className={classes.form__inputGroupsTitle}>
+                Contact Information
+              </h3>
+
+              <div className={classes.form__inputGroups} role="list">
+                {DATA_FORM.map((data) => {
+                  // Пропускаем amount, так как оно рендерится отдельно
+                  if (data.field === 'amount') return null;
+
+                  // Проверяем, есть ли что рендерить
+                  const shouldRender = data.label || data.field === 'term';
+
+                  if (!shouldRender) return null;
+
+                  return (
+                    <div
+                      className={classes.form__inputGroup}
+                      key={data.field}
+                      role="listitem"
+                    >
+                      {data.label && (
+                        <CustomLabel
+                          text={data.label}
+                          required={data.label !== 'Your patronymic'}
+                          inputId={data.label}
+                        />
+                      )}
+
+                      {data.field === 'term' ? (
+                        <CustomSelect
+                          width={18.5625}
+                          options={options}
+                          value={option}
+                          onChange={handleOption}
+                          register={register(
+                            data.field,
+                            convertToRegisterOptions(data.field, data.errors),
+                          )}
+                          aria-describedby={`${data.field}-error`}
+                        />
+                      ) : (
+                        <CustomInput
+                          width={18.5625}
+                          variant="primary"
+                          placeholder={data.placeholder}
+                          id={data.label}
+                          svgError={errors[data.field] ? true : false}
+                          svgSuccess={
+                            isSubmitted && !errors[data.field] ? true : false
+                          }
+                          type={
+                            data.label === 'Your email'
+                              ? 'email'
+                              : data.label === 'Your date of birth'
+                              ? 'text'
+                              : data.label === 'Your passport series' ||
+                                data.label === 'Your passport number'
+                              ? 'number'
+                              : 'text'
+                          }
+                          register={register(
+                            data.field,
+                            convertToRegisterOptions(data.field, data.errors),
+                          )}
+                          aria-describedby={`${data.field}-error`}
+                        />
+                      )}
+
+                      {(isSubmitted || errors[data.field]) && (
+                        <span className={classes.form__inputError} role="alert">
+                          {errors[data.field]?.message?.toString()}
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
           <div
             className={classes.customForm__error}
             role="alert"
