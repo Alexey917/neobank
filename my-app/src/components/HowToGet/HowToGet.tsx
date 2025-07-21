@@ -4,7 +4,7 @@ import { Divider } from '../UI/Divider/Divider';
 import classes from './HowToGet.module.scss';
 import { CustomizeCardForm } from '../CustomizeCardForm/CustomizeCardForm';
 import { LoanOffers } from '../LoanOffers/LoanOffers';
-import { LoanMessage } from '../LoanMessage/LoanMessage';
+import { Message } from '../Message/Message';
 
 const STEPS_GET_Card = [
   'Fill out an online application - you do not need to visit the bank',
@@ -51,7 +51,11 @@ export const HowToGet: FC<IHowToGetACardProps> = ({ formRef }) => {
       </article>
       <CustomizeCardForm formRef={formRef} />
       <LoanOffers />
-      <LoanMessage />
+      <Message
+        title="The preliminary decision has been sent to your email."
+        text="In the letter you can get acquainted with the preliminary decision on
+        the credit card."
+      />
     </section>
   );
 };
