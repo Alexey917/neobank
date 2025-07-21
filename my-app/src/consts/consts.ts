@@ -286,3 +286,30 @@ export const CASHBACK_TAB = [
     text: '30%',
   },
 ];
+
+export const OFFER_DESCRIPTION = [
+  {
+    monthlyPayment: 'Monthly payment: 9 697 ₽',
+    yourRate: 'Your rate: 15%',
+    insuranceIncluded: ['Insurance included', false],
+    salaryClient: ['Salary client', false],
+  },
+  {
+    monthlyPayment: 'Monthly payment: 9 788 ₽',
+    yourRate: 'Your rate: 11%',
+    insuranceIncluded: ['Insurance included', true],
+    salaryClient: ['Salary client', false],
+  },
+  {
+    monthlyPayment: 'Monthly payment: 9 603 ₽',
+    yourRate: 'Your rate: 14%',
+    insuranceIncluded: ['Insurance included', false],
+    salaryClient: ['Salary client', true],
+  },
+  {
+    monthlyPayment: 'Monthly payment: 9 690 ₽',
+    yourRate: 'Your rate: 10%',
+    insuranceIncluded: ['Insurance included', true],
+    salaryClient: ['Salary client', true],
+  },
+];

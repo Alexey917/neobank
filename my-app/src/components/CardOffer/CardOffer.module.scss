@@ -1,0 +1,51 @@
+@use '../../styles/App.scss' as *;
+
+.cardOffer {
+  @include flex-properties(flex, column, null, center, null);
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1.75rem;
+  box-shadow: 0rem 0.125rem 0.25rem 0rem rgba(0, 0, 0, 0.2),
+    0rem 0rem 0.5rem 0rem rgba(0, 0, 0, 0.08);
+
+  &__img {
+    width: 9.375rem;
+    height: 9.375rem;
+    margin-bottom: 2rem;
+  }
+
+  &__list {
+    @include list-style(none, 0, 0);
+  }
+
+  &__text {
+    @include text-properties(
+      Ubuntu,
+      1rem,
+      112%,
+      0.02em,
+      500,
+      rgba(28, 28, 30, 1)
+    );
+    text-align: center;
+    margin: 0 0 0.875rem 0;
+  }
+
+  &__listItem {
+    @include flex-properties(flex, row, center, null, 0.5rem);
+  }
+
+  &__listItem:last-child {
+    margin-bottom: 5.625rem;
+  }
+
+  & > :last-child {
+    align-self: center;
+  }
+}
+
+.error__icon,
+.ok__icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}

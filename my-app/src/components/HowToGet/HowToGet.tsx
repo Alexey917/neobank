@@ -3,6 +3,7 @@ import { Divider } from '../UI/Divider/Divider';
 
 import classes from './HowToGet.module.scss';
 import { CustomizeCardForm } from '../CustomizeCardForm/CustomizeCardForm';
+import { LoanOffers } from '../LoanOffers/LoanOffers';
 
 const STEPS_GET_Card = [
   'Fill out an online application - you do not need to visit the bank',
@@ -48,6 +49,7 @@ export const HowToGet: FC<IHowToGetACardProps> = ({ formRef }) => {
         ))}
       </article>
       <CustomizeCardForm formRef={formRef} />
+      <LoanOffers />
     </section>
   );
 };
