@@ -4,6 +4,7 @@
   @include flex-properties(flex, column, null, center, null);
   padding: 2rem;
   background-color: #fff;
+  border: 2px solid transparent;
   border-radius: 1.75rem;
   box-shadow: 0rem 0.125rem 0.25rem 0rem rgba(0, 0, 0, 0.2),
     0rem 0rem 0.5rem 0rem rgba(0, 0, 0, 0.08);
@@ -48,4 +49,11 @@
 .ok__icon {
   width: 1.125rem;
   height: 1.125rem;
+}
+
+@media (hover: hover) {
+  .cardOffer:hover {
+    cursor: pointer;
+    border: 2px solid rgba(0, 60, 255, 1);
+  }
 }

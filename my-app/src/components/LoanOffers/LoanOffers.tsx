@@ -6,15 +6,9 @@ import classes from './LoanOffers.module.scss';
 
 export const LoanOffers = () => {
   return (
-    <section className={classes.loanOffer}>
+    <section className={classes.loanOffer} aria-label="Loan offers">
       {OFFER_DESCRIPTION.map((item) => (
-        <CardOffer
-          key={item.monthlyPayment}
-          monthlyPayment={item.monthlyPayment}
-          yourRate={item.yourRate}
-          insuranceIncluded={item.insuranceIncluded}
-          salaryClient={item.salaryClient}
-        />
+        <CardOffer key={item.monthlyPayment} {...item} />
       ))}
     </section>
   );

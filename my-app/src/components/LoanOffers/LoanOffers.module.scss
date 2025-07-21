@@ -5,3 +5,10 @@
   margin-top: 3rem;
   margin-bottom: 6rem;
 }
+
+@media (max-width: 1300px) {
+  .loanOffer {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

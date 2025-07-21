@@ -46,19 +46,11 @@ export const CardOffer: FC<ICardOffer> = ({
           <p className={classes.cardOffer__text}>{insuranceIncluded[0]}</p>
           <span>
             {insuranceIncluded[1] ? (
-              <svg
-                className={classes.error__icon}
-                aria-hidden="true"
-                focusable="false"
-              >
+              <svg className={classes.error__icon} focusable="false">
                 <use href={ok + '#ok'}></use>
               </svg>
             ) : (
-              <svg
-                className={classes.error__icon}
-                aria-hidden="true"
-                focusable="false"
-              >
+              <svg className={classes.error__icon} focusable="false">
                 <use href={error + '#error'}></use>
               </svg>
             )}
