@@ -1,0 +1,45 @@
+@use '../../styles/App.scss' as *;
+
+.loanMessage {
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+  padding: 1.5rem 0 2.125rem 0;
+  border-radius: 0.625rem;
+  border: 0.0625rem solid rgba(91, 53, 213, 1);
+
+  &__title {
+    @include text-properties(
+      Ubuntu,
+      1.875rem,
+      112%,
+      0.02em,
+      700,
+      rgba(28, 28, 30, 1)
+    );
+
+    margin: 0, 0, 2rem, 0;
+    text-align: center;
+  }
+
+  &__text {
+    @include text-properties(
+      Ubuntu,
+      1rem,
+      112%,
+      0.02em,
+      500,
+      rgba(79, 86, 101, 1)
+    );
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 920px) {
+  .loanMessage {
+    padding: 1.5rem 0.9375rem 2.125rem 0.9375rem;
+    &__title {
+      font-size: 1.3rem;
+    }
+  }
+}
