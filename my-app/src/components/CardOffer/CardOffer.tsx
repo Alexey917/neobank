@@ -5,20 +5,26 @@ import ok from '../../assets/sprite.svg';
 import error from '../../assets/sprite.svg';
 import classes from './CardOffer.module.scss';
 import { CustomButton } from '../UI/CustomButton/CustomButton';
+import { IOffer } from '../../types/types';
+import { selectedOffer } from '../../API/api';
 
 interface ICardOffer {
-  monthlyPayment: string;
-  yourRate: string;
-  insuranceIncluded: (string | boolean)[];
-  salaryClient: (string | boolean)[];
+  item: IOffer;
 }
 
-export const CardOffer: FC<ICardOffer> = ({
-  monthlyPayment,
-  yourRate,
-  salaryClient,
-  insuranceIncluded,
-}) => {
+export const CardOffer: FC<ICardOffer> = ({ item }) => {
+  // const selectOffer = async () => {
+  //   try {
+  //     const response = await selectedOffer(item);
+
+  //     if (response?.status === 200 && response.data[0].applicationId) {
+  //       checkStatus(response.data[0].applicationId);
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
   return (
     <article className={classes.cardOffer}>
       <img
@@ -28,24 +34,32 @@ export const CardOffer: FC<ICardOffer> = ({
       />
       <ul className={classes.cardOffer__list}>
         <li>
-          <p className={classes.cardOffer__text}>Requested amount: 200 000 ₽</p>
+          <p className={classes.cardOffer__text}>
+            Requested amount: {item.requestedAmount} ₽
+          </p>
         </li>
         <li>
-          <p className={classes.cardOffer__text}>Total amount: 200 000 ₽</p>
+          <p className={classes.cardOffer__text}>
+            Total amount: {item.totalAmount} ₽
+          </p>
         </li>
         <li>
-          <p className={classes.cardOffer__text}>For 24 months</p>
+          <p className={classes.cardOffer__text}>For {item.term} months</p>
         </li>
         <li>
-          <p className={classes.cardOffer__text}>{monthlyPayment}</p>
+          <p className={classes.cardOffer__text}>
+            Monthly payment: {item.monthlyPayment} ₽
+          </p>
         </li>
         <li>
-          <p className={classes.cardOffer__text}>{yourRate}</p>
+          <p className={classes.cardOffer__text}>Your rate: {item.rate} %</p>
         </li>
         <li className={classes.cardOffer__listItem}>
-          <p className={classes.cardOffer__text}>{insuranceIncluded[0]}</p>
+          <p className={classes.cardOffer__text}>
+            Insurance included {item.isInsuranceEnabled}
+          </p>
           <span>
-            {insuranceIncluded[1] ? (
+            {item.isInsuranceEnabled ? (
               <svg className={classes.error__icon} focusable="false">
                 <use href={ok + '#ok'}></use>
               </svg>
@@ -57,9 +71,11 @@ export const CardOffer: FC<ICardOffer> = ({
           </span>
         </li>
         <li className={classes.cardOffer__listItem}>
-          <p className={classes.cardOffer__text}>{salaryClient[0]}</p>
+          <p className={classes.cardOffer__text}>
+            Salary client {item.isSalaryClient}
+          </p>
           <span>
-            {salaryClient[1] ? (
+            {item.isSalaryClient ? (
               <svg
                 className={classes.error__icon}
                 aria-hidden="true"
@@ -79,7 +95,12 @@ export const CardOffer: FC<ICardOffer> = ({
           </span>
         </li>
       </ul>
-      <CustomButton text="select" variant="primary" paddings="pSelect" />
+      <CustomButton
+        text="select"
+        variant="primary"
+        paddings="pSelect"
+        // onClick={selectOffer}
+      />
     </article>
   );
 };

@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
+import { IOffer } from 'src/types/types';
 
 let currencyApi: AxiosInstance | undefined;
 let apiError: string | undefined;
@@ -85,3 +86,35 @@ export const sendCustomizeForm: AxiosInstance | null = import.meta.env
       baseURL: `${import.meta.env.VITE_GET_NEWS_URL}/application`,
     })
   : null;
+
+export const adminApi: AxiosInstance | null = import.meta.env.VITE_GET_NEWS_URL
+  ? axios.create({
+      baseURL: `${import.meta.env.VITE_GET_NEWS_URL}/admin/application`,
+    })
+  : null;
+
+export const applicationStatus = async (id: number) => {
+  if (!adminApi) {
+    throw new Error();
+  }
+
+  const response = await adminApi?.get(`/${id}`);
+
+  return response;
+};
+
+export const applyApi: AxiosInstance | null = import.meta.env.VITE_GET_NEWS_URL
+  ? axios.create({
+      baseURL: `${import.meta.env.VITE_GET_NEWS_URL}/application/apply`,
+    })
+  : null;
+
+export const selectedOffer = async (offer: IOffer) => {
+  if (!applyApi) {
+    throw new Error();
+  }
+
+  const response = await applyApi?.post('', offer);
+
+  return response;
+};

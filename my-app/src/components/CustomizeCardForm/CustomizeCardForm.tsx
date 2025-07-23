@@ -9,10 +9,12 @@ import { CustomSelect } from '../UI/CustomSelect/CustomSelect';
 import { Divider } from '../UI/Divider/Divider';
 import { DATA_FORM } from '../../consts/consts';
 import { usePostRequest } from '../../hooks/usePostRequest';
-import { sendCustomizeForm } from '../../API/api';
+import { sendCustomizeForm, applicationStatus } from '../../API/api';
 import { ISendData } from '../../types/types';
 import { convertToRegisterOptions } from '../../utils/converterToRegisterOptions';
 import { Loader } from '../UI/Loader/Loader';
+import { store } from '../../redux/features/tabs/store';
+import { checkStatus } from '../../redux/features/tabs/statusThunks';
 
 import classes from './CustomizeCardForm.module.scss';
 
@@ -27,6 +29,8 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const { axiosPost, loading, error } = usePostRequest();
+
+  const dispatch = store.dispatch;
 
   const {
     register,
@@ -60,10 +64,20 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
   };
 
   const onSubmit: SubmitHandler<ISendData> = async (data: ISendData) => {
-    console.log(data);
     setIsSubmitted(true);
     if (Object.keys(errors).length === 0) {
-      await axiosPost(sendCustomizeForm, data);
+      try {
+        const response = await axiosPost(sendCustomizeForm, data);
+
+        if (response?.status === 200) {
+          localStorage.setItem('offers', JSON.stringify(response?.data));
+          if (response.data[0].applicationId) {
+            dispatch(checkStatus(response.data[0].applicationId));
+          }
+        }
+      } catch (err) {
+        console.error(err);
+      }
     }
   };
 

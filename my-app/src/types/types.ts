@@ -8,18 +8,6 @@ interface IGetNews {
   email: string;
 }
 
-// export interface ICustomizeFormData {
-//   // amount: number;
-//   // term: number;
-//   firstName: string;
-//   lastName: string;
-//   middleName: string | null;
-//   email: string;
-//   birthdate: string | Date;
-//   passportSeries: string;
-//   passportNumber: string;
-// }
-
 export interface ISendData {
   amount: number;
   term: number;
@@ -50,4 +38,15 @@ interface IValidateForm {
   placeholder?: string;
   valueAsNumber?: boolean;
   errors?: IValidateRules;
+}
+
+export interface IOffer {
+  applicationId: number;
+  isInsuranceEnabled: boolean;
+  isSalaryClient: boolean;
+  monthlyPayment: number;
+  rate: number;
+  requestedAmount: number;
+  term: number;
+  totalAmount: number;
 }
