@@ -49,7 +49,6 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
   const amountValue = watch('amount'); // Следим за значением amount
 
   const {
-    value,
     sliderRef,
     thumbRef,
     MIN,

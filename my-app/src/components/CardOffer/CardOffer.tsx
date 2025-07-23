@@ -7,23 +7,27 @@ import classes from './CardOffer.module.scss';
 import { CustomButton } from '../UI/CustomButton/CustomButton';
 import { IOffer } from '../../types/types';
 import { selectedOffer } from '../../API/api';
+import { store } from '../../redux/features/tabs/store';
+import { checkStatus } from '../../redux/features/tabs/statusThunks';
 
 interface ICardOffer {
   item: IOffer;
 }
 
 export const CardOffer: FC<ICardOffer> = ({ item }) => {
-  // const selectOffer = async () => {
-  //   try {
-  //     const response = await selectedOffer(item);
+  const dispatch = store.dispatch;
 
-  //     if (response?.status === 200 && response.data[0].applicationId) {
-  //       checkStatus(response.data[0].applicationId);
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+  const selectOffer = async () => {
+    try {
+      const response = await selectedOffer(item);
+
+      if (response?.status === 200 && item.applicationId) {
+        dispatch(checkStatus(item.applicationId));
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <article className={classes.cardOffer}>
@@ -99,7 +103,7 @@ export const CardOffer: FC<ICardOffer> = ({ item }) => {
         text="select"
         variant="primary"
         paddings="pSelect"
-        // onClick={selectOffer}
+        onClick={selectOffer}
       />
     </article>
   );

@@ -5,7 +5,13 @@ import type { RootState } from '../../../redux/features/tabs/store';
 import classes from './CustomButton.module.scss';
 
 type buttonVariant = 'primary' | 'tab' | 'danger';
-type buttonPaddings = 'pTab' | 'pPrimary' | 'pBack' | 'pContinue' | 'pSelect';
+type buttonPaddings =
+  | 'pTab'
+  | 'pPrimary'
+  | 'pBack'
+  | 'pContinue'
+  | 'pSelect'
+  | 'pContinueRegistration';
 
 export interface ICustomButton {
   text: string;

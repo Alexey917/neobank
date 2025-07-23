@@ -31,6 +31,7 @@ interface ICreditCardProps {
 
 export const CreditCard: FC<ICreditCardProps> = ({ scrollToForm }) => {
   const activeTab = useSelector((state: RootState) => state.tabs.activeTab);
+  const activeStep = useSelector((state: RootState) => state.steps.activeStep);
 
   return (
     <section className={classes.creditCard} aria-label="Credit card details">
@@ -51,10 +52,18 @@ export const CreditCard: FC<ICreditCardProps> = ({ scrollToForm }) => {
         </ul>
 
         <CustomButton
-          text="Apply for card"
+          text={
+            activeStep === 'BEGIN'
+              ? 'Apply for card'
+              : activeStep === 'PREAPPROVAL'
+              ? 'Choose an offer'
+              : 'Continue registration'
+          }
           aria-label="Apply for platinum card"
           variant="primary"
-          paddings="pPrimary"
+          paddings={
+            activeStep === 'APPROVED' ? 'pContinueRegistration' : 'pPrimary'
+          }
           onClick={scrollToForm}
         />
       </article>

@@ -20,9 +20,15 @@ const STEPS_GET_Card = [
 
 interface IHowToGetACardProps {
   formRef: RefObject<HTMLFormElement | null>;
+  checkEmailRef: RefObject<HTMLElement | null>;
+  offerRef: RefObject<HTMLElement | null>;
 }
 
-export const HowToGet: FC<IHowToGetACardProps> = ({ formRef }) => {
+export const HowToGet: FC<IHowToGetACardProps> = ({
+  formRef,
+  checkEmailRef,
+  offerRef,
+}) => {
   const dispatch = store.dispatch;
   const { activeStep, loading, error } = useSelector(
     (state: RootState) => state.steps,
@@ -80,14 +86,16 @@ export const HowToGet: FC<IHowToGetACardProps> = ({ formRef }) => {
         ))}
       </article>
 
-      {activeStep === 'PREAPPROVAL' && <LoanOffers />}
+      {activeStep === 'PREAPPROVAL' && <LoanOffers offerRef={offerRef} />}
       {activeStep === 'BEGIN' && <CustomizeCardForm formRef={formRef} />}
-
-      <Message
-        title="The preliminary decision has been sent to your email."
-        text="In the letter you can get acquainted with the preliminary decision on
+      {activeStep === 'APPROVED' && (
+        <Message
+          title="The preliminary decision has been sent to your email."
+          text="In the letter you can get acquainted with the preliminary decision on
         the credit card."
-      />
+          checkEmailRef={checkEmailRef}
+        />
+      )}
     </section>
   );
 };
