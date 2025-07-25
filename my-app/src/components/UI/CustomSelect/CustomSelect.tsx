@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
+import { ICustomizeOptions } from '../../../types/types';
 
 import classes from './CustomSelect.module.scss';
 
 interface ICustomSelect {
-  options: number[];
-  value?: number;
+  options: ICustomizeOptions[];
+  value?: number | string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   width: number;
   register?: UseFormRegisterReturn;
@@ -32,8 +33,12 @@ export const CustomSelect: FC<ICustomSelect> = ({
       aria-invalid={register?.name ? false : undefined} // Для валидации
     >
       {options.map((option) => (
-        <option key={option} value={option} aria-selected={value === option}>
-          {option + ' month'}
+        <option
+          key={option.key}
+          value={option.key}
+          aria-selected={value === option.key}
+        >
+          {option.value}
         </option>
       ))}
     </select>

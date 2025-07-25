@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 import { RootState } from '../../redux/features/tabs/store';
-import { Loader } from '../UI/Loader/Loader';
+import { Loader } from '../../components/UI/Loader/Loader';
 import { ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -23,19 +23,12 @@ export const ProtectedRoute = ({
   const offers = localStorage.getItem('offers');
   let id;
 
-  if (offers) {
-    id = JSON.parse(offers)[0].applicationId;
-  }
+  if (offers) id = JSON.parse(offers)[0].applicationId;
 
-  if (loading) {
-    return <Loader />;
-  }
+  if (loading) return <Loader />;
 
-  if (applicationId && applicationId == id) {
-    return children;
-  }
+  if (applicationId && applicationId == id) return children;
 
-  if (requiredStatus && activeStep !== requiredStatus) {
+  if (requiredStatus && activeStep !== requiredStatus)
     return <Navigate to="/" state={{ from: location }} replace />;
-  }
 };

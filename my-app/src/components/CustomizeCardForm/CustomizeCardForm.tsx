@@ -10,7 +10,7 @@ import { Divider } from '../UI/Divider/Divider';
 import { DATA_FORM } from '../../consts/consts';
 import { usePostRequest } from '../../hooks/usePostRequest';
 import { sendCustomizeForm, applicationStatus } from '../../API/api';
-import { ISendData } from '../../types/types';
+import { ISendData, ICustomizeOptions } from '../../types/types';
 import { convertToRegisterOptions } from '../../utils/converterToRegisterOptions';
 import { Loader } from '../UI/Loader/Loader';
 import { store } from '../../redux/features/tabs/store';
@@ -18,14 +18,19 @@ import { checkStatus } from '../../redux/features/tabs/statusThunks';
 
 import classes from './CustomizeCardForm.module.scss';
 
-const options = [6, 12, 18, 24];
+const options: ICustomizeOptions[] = [
+  { key: 6, value: '6 month' },
+  { key: 12, value: '12 month' },
+  { key: 18, value: '18 month' },
+  { key: 24, value: '24 month' },
+];
 
 interface ICustomizeProps {
   formRef: RefObject<HTMLFormElement | null>;
 }
 
 export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
-  const [option, setOption] = useState<number>(options[0]);
+  const [option, setOption] = useState<string | number>(options[0].value);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const { axiosPost, loading, error } = usePostRequest();
@@ -59,13 +64,14 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
   } = useAmountSlider(amountValue);
 
   const handleOption = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setOption(+e.target.value);
+    setOption(e.target.value);
   };
 
   const onSubmit: SubmitHandler<ISendData> = async (data: ISendData) => {
     setIsSubmitted(true);
     if (Object.keys(errors).length === 0) {
       try {
+        console.log(data);
         const response = await axiosPost(sendCustomizeForm, data);
 
         if (response?.status === 200) {

@@ -20,7 +20,30 @@ export interface ISendData {
   passportNumber: string;
 }
 
+export interface IScoringData {
+  gender: 'MALE' | 'FAMALE';
+  maritalStatus: 'MARRIED' | 'DIVORCED' | 'SINGLE' | 'WIDOW_WIDOWER';
+  dependentAmount: number;
+  passportIssueDate: string;
+  passportIssueBranch: string;
+  employmentStatus:
+    | 'UNEMPLOYED'
+    | 'SELF_EMPLOYED'
+    | 'EMPLOYED'
+    | 'BUSINESS_OWNER';
+  employerINN: number;
+  salary: number;
+  position: 'WORKER' | 'MID_MANAGER' | 'TOP_MANAGER' | 'OWNER';
+  workExperienceTotal: number;
+  workExperienceCurrent: number;
+}
+
 export type TCustomizeFormData = IValidateForm[];
+export type TScoringFormData = IScoringForm[];
+export interface ICustomizeOptions {
+  key: number;
+  value: string;
+}
 
 export type IValidateRules = {
   required?: string | { value: boolean; message: string };
@@ -35,6 +58,15 @@ export type IValidateRules = {
 interface IValidateForm {
   label?: string;
   field: keyof ISendData;
+  placeholder?: string;
+  valueAsNumber?: boolean;
+  errors?: IValidateRules;
+}
+
+interface IScoringForm {
+  label?: string;
+  field: keyof IScoringData;
+  options: ICustomizeOptions[];
   placeholder?: string;
   valueAsNumber?: boolean;
   errors?: IValidateRules;

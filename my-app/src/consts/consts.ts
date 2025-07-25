@@ -4,7 +4,7 @@ import calendar from '../assets/sprite.svg';
 import clock from '../assets/sprite.svg';
 import bag from '../assets/sprite.svg';
 import card from '../assets/sprite.svg';
-import { TCustomizeFormData } from '../types/types';
+import { TCustomizeFormData, TScoringFormData } from '../types/types';
 
 export const DATA_FORM: TCustomizeFormData = [
   {
@@ -287,29 +287,128 @@ export const CASHBACK_TAB = [
   },
 ];
 
-export const OFFER_DESCRIPTION = [
+export const DATA_SCORING: TScoringFormData = [
   {
-    monthlyPayment: 'Monthly payment: 9 697 ₽',
-    yourRate: 'Your rate: 15%',
-    insuranceIncluded: ['Insurance included', false],
-    salaryClient: ['Salary client', false],
+    field: 'gender',
+    options: [
+      { key: 0, value: 'MALE' },
+      { key: 1, value: 'FAMALE' },
+    ],
+    errors: {
+      required: {
+        value: true,
+        message: 'Select one of the options',
+      },
+    },
   },
   {
-    monthlyPayment: 'Monthly payment: 9 788 ₽',
-    yourRate: 'Your rate: 11%',
-    insuranceIncluded: ['Insurance included', true],
-    salaryClient: ['Salary client', false],
+    label: 'Your marital status',
+    field: 'maritalStatus',
+    options: [
+      { key: 0, value: 'MARRIED' },
+      { key: 1, value: 'DIVORCED' },
+      { key: 2, value: 'SINGLE' },
+      { key: 3, value: 'WIDOW_WIDOWER' },
+    ],
+    errors: {
+      required: {
+        value: true,
+        message: 'Select one of the options',
+      },
+    },
   },
   {
-    monthlyPayment: 'Monthly payment: 9 603 ₽',
-    yourRate: 'Your rate: 14%',
-    insuranceIncluded: ['Insurance included', false],
-    salaryClient: ['Salary client', true],
+    label: 'Your number of dependents',
+    field: 'dependentAmount',
+    options: [
+      { key: 0, value: '0' },
+      { key: 1, value: '1' },
+      { key: 2, value: '2' },
+    ],
+    errors: {
+      required: {
+        value: true,
+        message: 'Select one of the options',
+      },
+    },
   },
-  {
-    monthlyPayment: 'Monthly payment: 9 690 ₽',
-    yourRate: 'Your rate: 10%',
-    insuranceIncluded: ['Insurance included', true],
-    salaryClient: ['Salary client', true],
-  },
+  // {
+  //   label: 'Your patronymic',
+  //   field: 'middleName',
+  //   placeholder: 'For Example Victorovich',
+  // },
+  // { label: 'Select term', field: 'term', placeholder: '6 month' },
+  // {
+  //   label: 'Your email',
+  //   field: 'email',
+  //   placeholder: 'test@gmail.com',
+  //   errors: {
+  //     required: {
+  //       value: true,
+  //       message: 'Email is required',
+  //     },
+  //     pattern: {
+  //       value:
+  //         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+  //       message: 'Invalid email address',
+  //     },
+  //   },
+  // },
+  // {
+  //   label: 'Your date of birth',
+  //   field: 'birthdate',
+  //   placeholder: 'Select Date and Time',
+  //   errors: {
+  //     required: {
+  //       value: true,
+  //       message: 'Date of birth is required',
+  //     },
+  //     pattern: {
+  //       value: /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/,
+  //       message: 'Please use format YYYY-MM-DD',
+  //     },
+  //     validate: {
+  //       isOver18: (value: string) =>
+  //         isOver18(value) || 'You must be over 18 years old',
+  //     },
+  //   },
+  // },
+  // {
+  //   label: 'Your passport series',
+  //   field: 'passportSeries',
+  //   placeholder: '0000',
+  //   errors: {
+  //     required: {
+  //       value: true,
+  //       message: 'Passport series is required',
+  //     },
+  //     minLength: {
+  //       value: 4,
+  //       message: 'The series must consist of 4 digits',
+  //     },
+  //     maxLength: {
+  //       value: 4,
+  //       message: 'The series must consist of 4 digits',
+  //     },
+  //   },
+  // },
+  // {
+  //   label: 'Your passport number',
+  //   field: 'passportNumber',
+  //   placeholder: '000000',
+  //   errors: {
+  //     required: {
+  //       value: true,
+  //       message: 'Passport number is required',
+  //     },
+  //     minLength: {
+  //       value: 6,
+  //       message: 'The number must consist of 6 digits',
+  //     },
+  //     maxLength: {
+  //       value: 6,
+  //       message: 'The number must consist of 6 digits',
+  //     },
+  //   },
+  // },
 ];

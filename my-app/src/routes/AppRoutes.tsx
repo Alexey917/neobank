@@ -4,7 +4,7 @@ import { HomePage } from '../pages/HomePage/HomePage';
 import { LoanPage } from '../pages/LoanPage/LoanPage';
 import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
 import { LoanIdPage } from '../pages/LoanIdPage/LoanIdPage';
-import { ProtectedRoute } from '../components/ProtectedRoute/ProtectedRoute';
+import { ProtectedRoute } from '../hoc/ProtectedRoute/ProtectedRoute';
 
 export const router = createBrowserRouter([
   {
