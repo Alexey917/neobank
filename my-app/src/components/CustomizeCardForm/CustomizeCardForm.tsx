@@ -18,19 +18,11 @@ import { checkStatus } from '../../redux/features/tabs/statusThunks';
 
 import classes from './CustomizeCardForm.module.scss';
 
-const options: ICustomizeOptions[] = [
-  { key: 6, value: '6 month' },
-  { key: 12, value: '12 month' },
-  { key: 18, value: '18 month' },
-  { key: 24, value: '24 month' },
-];
-
 interface ICustomizeProps {
   formRef: RefObject<HTMLFormElement | null>;
 }
 
 export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
-  const [option, setOption] = useState<string | number>(options[0].value);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const { axiosPost, loading, error } = usePostRequest();
@@ -62,10 +54,6 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
     startDrag,
     handleChange,
   } = useAmountSlider(amountValue);
-
-  const handleOption = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setOption(e.target.value);
-  };
 
   const onSubmit: SubmitHandler<ISendData> = async (data: ISendData) => {
     setIsSubmitted(true);
@@ -203,9 +191,7 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
                       {data.field === 'term' ? (
                         <CustomSelect
                           width={18.5625}
-                          options={options}
-                          value={option}
-                          onChange={handleOption}
+                          options={data.options}
                           register={register(
                             data.field,
                             convertToRegisterOptions(data.field, data.errors),
@@ -354,9 +340,7 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
                     {data.field === 'term' ? (
                       <CustomSelect
                         width={18.5625}
-                        options={options}
-                        value={option}
-                        onChange={handleOption}
+                        options={data.options}
                         register={register(
                           data.field,
                           convertToRegisterOptions(data.field, data.errors),

@@ -58,6 +58,7 @@ export type IValidateRules = {
 interface IValidateForm {
   label?: string;
   field: keyof ISendData;
+  options: ICustomizeOptions[];
   placeholder?: string;
   valueAsNumber?: boolean;
   errors?: IValidateRules;

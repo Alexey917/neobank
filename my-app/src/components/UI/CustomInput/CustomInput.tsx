@@ -53,7 +53,7 @@ export const CustomInput: FC<ICustomInput> = ({
 
       {svgError && (
         <svg
-          className={classes.error__icon}
+          className={width === 38 ? classes.error__iconL : classes.error__icon}
           aria-hidden="true"
           focusable="false"
         >
@@ -61,7 +61,11 @@ export const CustomInput: FC<ICustomInput> = ({
         </svg>
       )}
 
-      <svg className={classes.ok__icon} aria-hidden="true" focusable="false">
+      <svg
+        className={width === 38 ? classes.ok__iconL : classes.ok__icon}
+        aria-hidden="true"
+        focusable="false"
+      >
         <use href={ok + '#ok'}></use>
       </svg>
     </div>

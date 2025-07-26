@@ -57,6 +57,17 @@ input[type='number'] {
     height: 18px;
     z-index: 2;
   }
+
+  &__iconL {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: -10px;
+    margin-right: -288px;
+    width: 18px;
+    height: 18px;
+    z-index: 2;
+  }
 }
 
 .ok__icon {
@@ -70,6 +81,17 @@ input[type='number'] {
   height: 18px;
 }
 
+.ok__iconL {
+  position: absolute;
+  display: none; // По умолчанию скрыта
+  top: 50%;
+  right: 50%;
+  margin-top: -10px;
+  margin-right: -288px;
+  width: 18px;
+  height: 18px;
+}
+
 // Показываем иконку ошибки только когда есть ошибка
 .input.error:not(:placeholder-shown) ~ .error__icon {
   display: flex;
@@ -77,6 +99,11 @@ input[type='number'] {
 
 // Показываем иконку успеха только когда нет ошибки и есть значение
 .input:not(.error):not(:placeholder-shown) ~ .ok__icon {
+  display: flex;
+}
+
+// Показываем иконку успеха только когда нет ошибки и есть значение
+.input:not(.error):not(:placeholder-shown) ~ .ok__iconL {
   display: flex;
 }
 

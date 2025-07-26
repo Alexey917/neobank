@@ -1,4 +1,5 @@
 import { isOver18 } from '../utils/isOver18';
+import { checkDate } from '../utils/checkdate';
 import money from '../assets/sprite.svg';
 import calendar from '../assets/sprite.svg';
 import clock from '../assets/sprite.svg';
@@ -10,6 +11,7 @@ export const DATA_FORM: TCustomizeFormData = [
   {
     field: 'amount',
     valueAsNumber: true,
+    options: [],
     errors: {
       required: {
         value: true,
@@ -28,6 +30,7 @@ export const DATA_FORM: TCustomizeFormData = [
   {
     label: 'Your last name',
     field: 'lastName',
+    options: [],
     placeholder: 'For Example Doe',
     errors: {
       required: 'last name is required',
@@ -36,6 +39,7 @@ export const DATA_FORM: TCustomizeFormData = [
   {
     label: 'Your first name',
     field: 'firstName',
+    options: [],
     placeholder: 'For Example Jhon',
     errors: {
       required: 'first name is required',
@@ -45,12 +49,24 @@ export const DATA_FORM: TCustomizeFormData = [
     label: 'Your patronymic',
     field: 'middleName',
     placeholder: 'For Example Victorovich',
+    options: [],
   },
-  { label: 'Select term', field: 'term', placeholder: '6 month' },
+  {
+    label: 'Select term',
+    field: 'term',
+    placeholder: '6 month',
+    options: [
+      { key: 6, value: '6 month' },
+      { key: 12, value: '12 month' },
+      { key: 18, value: '18 month' },
+      { key: 24, value: '24 month' },
+    ],
+  },
   {
     label: 'Your email',
     field: 'email',
     placeholder: 'test@gmail.com',
+    options: [],
     errors: {
       required: {
         value: true,
@@ -67,6 +83,7 @@ export const DATA_FORM: TCustomizeFormData = [
     label: 'Your date of birth',
     field: 'birthdate',
     placeholder: 'Select Date and Time',
+    options: [],
     errors: {
       required: {
         value: true,
@@ -86,6 +103,7 @@ export const DATA_FORM: TCustomizeFormData = [
     label: 'Your passport series',
     field: 'passportSeries',
     placeholder: '0000',
+    options: [],
     errors: {
       required: {
         value: true,
@@ -105,6 +123,7 @@ export const DATA_FORM: TCustomizeFormData = [
     label: 'Your passport number',
     field: 'passportNumber',
     placeholder: '000000',
+    options: [],
     errors: {
       required: {
         value: true,
@@ -289,10 +308,12 @@ export const CASHBACK_TAB = [
 
 export const DATA_SCORING: TScoringFormData = [
   {
+    label: "What's your gender",
     field: 'gender',
     options: [
-      { key: 0, value: 'MALE' },
-      { key: 1, value: 'FAMALE' },
+      { key: 0, value: '' },
+      { key: 1, value: 'MALE' },
+      { key: 2, value: 'FAMALE' },
     ],
     errors: {
       required: {
@@ -305,10 +326,11 @@ export const DATA_SCORING: TScoringFormData = [
     label: 'Your marital status',
     field: 'maritalStatus',
     options: [
-      { key: 0, value: 'MARRIED' },
-      { key: 1, value: 'DIVORCED' },
-      { key: 2, value: 'SINGLE' },
-      { key: 3, value: 'WIDOW_WIDOWER' },
+      { key: 0, value: '' },
+      { key: 1, value: 'MARRIED' },
+      { key: 2, value: 'DIVORCED' },
+      { key: 3, value: 'SINGLE' },
+      { key: 4, value: 'WIDOW_WIDOWER' },
     ],
     errors: {
       required: {
@@ -321,9 +343,10 @@ export const DATA_SCORING: TScoringFormData = [
     label: 'Your number of dependents',
     field: 'dependentAmount',
     options: [
-      { key: 0, value: '0' },
-      { key: 1, value: '1' },
-      { key: 2, value: '2' },
+      { key: 0, value: '' },
+      { key: 1, value: '0' },
+      { key: 2, value: '1' },
+      { key: 3, value: '2' },
     ],
     errors: {
       required: {
@@ -332,83 +355,141 @@ export const DATA_SCORING: TScoringFormData = [
       },
     },
   },
-  // {
-  //   label: 'Your patronymic',
-  //   field: 'middleName',
-  //   placeholder: 'For Example Victorovich',
-  // },
-  // { label: 'Select term', field: 'term', placeholder: '6 month' },
-  // {
-  //   label: 'Your email',
-  //   field: 'email',
-  //   placeholder: 'test@gmail.com',
-  //   errors: {
-  //     required: {
-  //       value: true,
-  //       message: 'Email is required',
-  //     },
-  //     pattern: {
-  //       value:
-  //         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-  //       message: 'Invalid email address',
-  //     },
-  //   },
-  // },
-  // {
-  //   label: 'Your date of birth',
-  //   field: 'birthdate',
-  //   placeholder: 'Select Date and Time',
-  //   errors: {
-  //     required: {
-  //       value: true,
-  //       message: 'Date of birth is required',
-  //     },
-  //     pattern: {
-  //       value: /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/,
-  //       message: 'Please use format YYYY-MM-DD',
-  //     },
-  //     validate: {
-  //       isOver18: (value: string) =>
-  //         isOver18(value) || 'You must be over 18 years old',
-  //     },
-  //   },
-  // },
-  // {
-  //   label: 'Your passport series',
-  //   field: 'passportSeries',
-  //   placeholder: '0000',
-  //   errors: {
-  //     required: {
-  //       value: true,
-  //       message: 'Passport series is required',
-  //     },
-  //     minLength: {
-  //       value: 4,
-  //       message: 'The series must consist of 4 digits',
-  //     },
-  //     maxLength: {
-  //       value: 4,
-  //       message: 'The series must consist of 4 digits',
-  //     },
-  //   },
-  // },
-  // {
-  //   label: 'Your passport number',
-  //   field: 'passportNumber',
-  //   placeholder: '000000',
-  //   errors: {
-  //     required: {
-  //       value: true,
-  //       message: 'Passport number is required',
-  //     },
-  //     minLength: {
-  //       value: 6,
-  //       message: 'The number must consist of 6 digits',
-  //     },
-  //     maxLength: {
-  //       value: 6,
-  //       message: 'The number must consist of 6 digits',
-  //     },
-  //   },
-  // },
+  {
+    label: 'Date of issue of the passport',
+    field: 'passportIssueDate',
+    placeholder: 'Select Date and Time',
+    options: [],
+    errors: {
+      required: {
+        value: true,
+        message: 'passportIssueDate is required',
+      },
+      pattern: {
+        value: /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/,
+        message: 'Please use format YYYY-MM-DD',
+      },
+      validate: {
+        checkDate: (value: string) =>
+          checkDate(value) || 'the date cannot be greater than the current one',
+      },
+    },
+  },
+  {
+    label: 'Division code',
+    field: 'passportIssueBranch',
+    placeholder: '000000',
+    options: [],
+    errors: {
+      required: {
+        value: true,
+        message: 'Division code is required',
+      },
+      pattern: {
+        value: /^\d{3}-\d{3}$/,
+        message: 'the code must consist of 6 digits separated by a hyphen',
+      },
+    },
+  },
+  {
+    label: 'Your employment status',
+    field: 'employmentStatus',
+    options: [
+      { key: 0, value: '' },
+      { key: 1, value: 'UNEMPLOYED' },
+      { key: 2, value: 'SELF_EMPLOYED' },
+      { key: 3, value: 'EMPLOYED' },
+      { key: 4, value: 'BUSINESS_OWNER' },
+    ],
+    errors: {
+      required: {
+        value: true,
+        message: 'Select one of the options',
+      },
+    },
+  },
+  {
+    label: 'Your employer INN',
+    field: 'employerINN',
+    placeholder: '000000000000',
+    options: [],
+    errors: {
+      required: {
+        value: true,
+        message: 'employer INN is required',
+      },
+      pattern: {
+        value: /^\d{12}$/,
+        message: 'The TIN must consist of 12 digits',
+      },
+    },
+  },
+  {
+    label: 'Your salary',
+    field: 'salary',
+    valueAsNumber: true,
+    placeholder: 'For example 100 000',
+    options: [],
+    errors: {
+      required: {
+        value: true,
+        message: 'salary is required',
+      },
+      pattern: {
+        value: /^\d+$/,
+        message: 'only numbers',
+      },
+    },
+  },
+  {
+    label: 'Your position',
+    field: 'position',
+    options: [
+      { key: 0, value: '' },
+      { key: 1, value: 'WORKER' },
+      { key: 2, value: 'MID_MANAGER' },
+      { key: 3, value: 'TOP_MANAGER' },
+      { key: 4, value: 'OWNER' },
+    ],
+    errors: {
+      required: {
+        value: true,
+        message: 'Select one of the options',
+      },
+    },
+  },
+  {
+    label: 'Your work experience total',
+    field: 'workExperienceTotal',
+    valueAsNumber: true,
+    placeholder: 'For example 10',
+    options: [],
+    errors: {
+      required: {
+        value: true,
+        message: 'work experience total is required',
+      },
+      pattern: {
+        value: /^\d{1,2}$/,
+        message: 'maximum of two characters',
+      },
+    },
+  },
+  {
+    label: 'Your work experience current',
+    field: 'workExperienceCurrent',
+    valueAsNumber: true,
+    placeholder: 'For example 2',
+    options: [],
+    errors: {
+      required: {
+        value: true,
+        message: 'work experience current is required',
+      },
+      pattern: {
+        value: /^\d{1,2}$/,
+        message: 'maximum of two characters',
+      },
+    },
+  },
 ];

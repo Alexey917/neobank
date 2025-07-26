@@ -1,0 +1,98 @@
+@use '../../styles/App' as *;
+
+.form {
+  @include container();
+  margin-top: 2.75rem;
+  margin-bottom: 6rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 1.75rem;
+  box-shadow: 0rem 0.125rem 0.25rem 0rem rgba(0, 0, 0, 0.2),
+    0rem 0rem 0.5rem 0rem rgba(0, 0, 0, 0.08);
+  @include flex-properties(flex, column, null, null, null);
+
+  &__amountWrapper {
+    @include flex-properties(flex, row, flex-start, null, null);
+    margin-bottom: 2rem;
+  }
+
+  &__selectAmountWrapper {
+    margin-right: 2.5rem;
+  }
+
+  &__legendWrapper {
+    @include flex-properties(flex, row, space-between, flex-start, 5rem);
+  }
+
+  &__legend {
+    @include text-properties(
+      Ubuntu,
+      1.875rem,
+      100%,
+      null,
+      700,
+      rgba(0, 0, 0, 1)
+    );
+  }
+
+  &__step {
+    @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(0, 0, 0, 1));
+    margin: 0;
+    margin-top: 0.4375rem;
+  }
+
+  &__inputGroupsWrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  &__inputGroups {
+    @include flex-properties(flex, row, null, null, 1rem);
+    flex-wrap: wrap;
+  }
+
+  &__inputGroup {
+    @include flex-properties(inline-flex, column, null, null, 0.5rem);
+  }
+
+  & > :last-child {
+    align-self: flex-end;
+  }
+
+  &__inputError {
+    @include text-properties(
+      Ubuntu,
+      1rem,
+      100%,
+      null,
+      500,
+      rgba(255, 86, 49, 1)
+    );
+  }
+
+  &__employment {
+    @include flex-properties(flex, row, center, center, null);
+    flex-wrap: wrap;
+  }
+
+  &__employmentTitle {
+    @include text-properties(
+      Ubuntu,
+      1.25rem,
+      100%,
+      null,
+      700,
+      rgba(0, 0, 0, 1)
+    );
+  }
+}
+
+.customForm__spinner_wrapper {
+  @include flex-properties(flex, null, center, center, null);
+  margin-bottom: 1.25rem;
+}
+
+.customForm__error {
+  @include text-properties(Ubuntu, 1rem, 127%, null, 700, red);
+  text-align: center;
+  margin-bottom: 1rem;
+}
