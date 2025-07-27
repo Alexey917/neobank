@@ -19,3 +19,7 @@
     outline: 0.125rem solid rgba(255, 86, 49, 1);
   }
 }
+
+.errorText {
+  @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(255, 86, 49, 1));
+}

@@ -1,5 +1,5 @@
 import { isOver18 } from '../utils/isOver18';
-import { checkDate } from '../utils/checkdate';
+import { checkDate } from '../utils/checkDate';
 import money from '../assets/sprite.svg';
 import calendar from '../assets/sprite.svg';
 import clock from '../assets/sprite.svg';
@@ -311,7 +311,6 @@ export const DATA_SCORING: TScoringFormData = [
     label: "What's your gender",
     field: 'gender',
     options: [
-      { key: 0, value: '' },
       { key: 1, value: 'MALE' },
       { key: 2, value: 'FAMALE' },
     ],
@@ -326,7 +325,6 @@ export const DATA_SCORING: TScoringFormData = [
     label: 'Your marital status',
     field: 'maritalStatus',
     options: [
-      { key: 0, value: '' },
       { key: 1, value: 'MARRIED' },
       { key: 2, value: 'DIVORCED' },
       { key: 3, value: 'SINGLE' },
@@ -343,7 +341,6 @@ export const DATA_SCORING: TScoringFormData = [
     label: 'Your number of dependents',
     field: 'dependentAmount',
     options: [
-      { key: 0, value: '' },
       { key: 1, value: '0' },
       { key: 2, value: '1' },
       { key: 3, value: '2' },
@@ -395,7 +392,6 @@ export const DATA_SCORING: TScoringFormData = [
     label: 'Your employment status',
     field: 'employmentStatus',
     options: [
-      { key: 0, value: '' },
       { key: 1, value: 'UNEMPLOYED' },
       { key: 2, value: 'SELF_EMPLOYED' },
       { key: 3, value: 'EMPLOYED' },
@@ -445,7 +441,6 @@ export const DATA_SCORING: TScoringFormData = [
     label: 'Your position',
     field: 'position',
     options: [
-      { key: 0, value: '' },
       { key: 1, value: 'WORKER' },
       { key: 2, value: 'MID_MANAGER' },
       { key: 3, value: 'TOP_MANAGER' },

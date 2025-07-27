@@ -192,6 +192,7 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
                         <CustomSelect
                           width={18.5625}
                           options={data.options}
+                          defaultValue="6 month"
                           register={register(
                             data.field,
                             convertToRegisterOptions(data.field, data.errors),
@@ -341,6 +342,7 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
                       <CustomSelect
                         width={18.5625}
                         options={data.options}
+                        defaultValue="6 month"
                         register={register(
                           data.field,
                           convertToRegisterOptions(data.field, data.errors),
