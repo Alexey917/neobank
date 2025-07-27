@@ -8,6 +8,9 @@ import { IScoringData } from '../../types/types';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Loader } from '../UI/Loader/Loader';
 import { usePostRequest } from '../../hooks/usePostRequest';
+import { sendScoring } from '../../API/api';
+import { store } from '../../redux/features/tabs/store';
+import { checkStatus } from '../../redux/features/tabs/statusThunks';
 
 import classes from './ScoringForm.module.scss';
 
@@ -16,6 +19,8 @@ export const ScoringForm = () => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const { axiosPost, loading, error } = usePostRequest();
+
+  const dispatch = store.dispatch;
 
   const {
     register,
@@ -28,19 +33,30 @@ export const ScoringForm = () => {
     reValidateMode: 'onBlur',
   });
 
-  const onSubmit: SubmitHandler<IScoringData> = async (data: IScoringData) => {
+  const onSubmit: SubmitHandler<IScoringData> = async (
+    formData: IScoringData,
+  ) => {
     setIsSubmitted(true);
-    if (Object.keys(errors).length === 0) {
-      try {
-        console.log(data);
-        // const response = await axiosPost(sendCustomizeForm, data);
 
-        // if (response?.status === 200) {
-        //   localStorage.setItem('offers', JSON.stringify(response?.data));
-        //   if (response.data[0].applicationId) {
-        //     dispatch(checkStatus(response.data[0].applicationId));
-        //   }
-        // }
+    formData.salary = +formData.salary;
+    formData.workExperienceCurrent = +formData.workExperienceCurrent;
+    formData.workExperienceTotal = +formData.workExperienceTotal;
+    formData.dependentAmount = +formData.dependentAmount;
+    // formData.employerINN = +formData.employerINN;
+
+    if (Object.keys(errors).length === 0) {
+      let data = localStorage.getItem('offers');
+      if (!data || data.trim() === '') {
+        return;
+      }
+      try {
+        const getId = JSON.parse(data);
+        const response = await sendScoring(getId[0].applicationId, formData);
+        console.log(response);
+
+        if (response?.status === 200) {
+          dispatch(checkStatus(getId[0].applicationId));
+        }
       } catch (err) {
         console.error(err);
       }
@@ -107,7 +123,7 @@ export const ScoringForm = () => {
 
                     {data.options.length !== 0 ? (
                       <CustomSelect
-                        width={25.0625}
+                        width={window.innerWidth > 500 ? 25.0625 : 15.625}
                         options={data.options}
                         defaultValue=""
                         required={errors[data.field] ? true : false}
@@ -117,7 +133,13 @@ export const ScoringForm = () => {
                       />
                     ) : (
                       <CustomInput
-                        width={index < 5 ? 38 : 25.0625}
+                        width={
+                          window.innerWidth > 1300
+                            ? 38
+                            : window.innerWidth < 500
+                            ? 15.625
+                            : 25.0625
+                        }
                         variant="primary"
                         placeholder={data.placeholder}
                         id={data.label}
@@ -158,7 +180,7 @@ export const ScoringForm = () => {
 
                     {data.options.length !== 0 ? (
                       <CustomSelect
-                        width={25.0625}
+                        width={window.innerWidth > 500 ? 25.0625 : 15.625}
                         options={data.options}
                         defaultValue=""
                         required={errors[data.field] ? true : false}
@@ -168,7 +190,7 @@ export const ScoringForm = () => {
                       />
                     ) : (
                       <CustomInput
-                        width={25.0625}
+                        width={window.innerWidth > 500 ? 25.0625 : 15.625}
                         variant="primary"
                         placeholder={data.placeholder}
                         id={data.label}

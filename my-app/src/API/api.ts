@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { IOffer } from 'src/types/types';
+import { IOffer, IScoringData } from 'src/types/types';
 
 let currencyApi: AxiosInstance | undefined;
 let apiError: string | undefined;
@@ -115,6 +115,23 @@ export const selectedOffer = async (offer: IOffer) => {
   }
 
   const response = await applyApi?.post('', offer);
+
+  return response;
+};
+
+export const scoringApi: AxiosInstance | null = import.meta.env
+  .VITE_GET_NEWS_URL
+  ? axios.create({
+      baseURL: `${import.meta.env.VITE_GET_NEWS_URL}/application/registration`,
+    })
+  : null;
+
+export const sendScoring = async (id: number, data: IScoringData) => {
+  if (!scoringApi) {
+    throw new Error();
+  }
+
+  const response = await scoringApi?.put(`/${id}`, data);
 
   return response;
 };

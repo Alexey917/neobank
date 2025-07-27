@@ -5,6 +5,7 @@ import { LoanPage } from '../pages/LoanPage/LoanPage';
 import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
 import { LoanIdPage } from '../pages/LoanIdPage/LoanIdPage';
 import { ProtectedRoute } from '../hoc/ProtectedRoute/ProtectedRoute';
+import { LoanDocPage } from '../pages/LoanDocPage/LoanDocPage';
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute requiredStatus="APPROVED">
             <LoanIdPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'loan/:applicationId/document',
+        element: (
+          <ProtectedRoute requiredStatus="CC_DENIED">
+            <LoanDocPage />
           </ProtectedRoute>
         ),
       },

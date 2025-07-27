@@ -97,3 +97,66 @@
   text-align: center;
   margin-bottom: 1rem;
 }
+
+@media (max-width: 1300px) {
+  .form {
+    @include container(57.5rem);
+    margin-top: 2.75rem;
+    margin-bottom: 6rem;
+
+    &__amountWrapper {
+      @include flex-properties(flex, column, flex-start, null, null);
+    }
+
+    &__inputGroupsWrapper {
+      @include flex-properties(flex, column, center, center, null);
+    }
+
+    &__inputGroups {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    & > :last-child {
+      align-self: center;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .form {
+    @include container(31.25rem);
+    margin-top: 2.75rem;
+    margin-bottom: 6rem;
+
+    &__legendWrapper {
+      @include flex-properties(flex, column, center, center, 1rem);
+    }
+
+    &__legend {
+      text-align: center;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .form {
+    @include container(20rem);
+    margin-top: 2.75rem;
+    margin-bottom: 6rem;
+
+    &__legendWrapper {
+      @include flex-properties(flex, column, center, center, 1rem);
+    }
+
+    &__selectAmountWrapper {
+      margin-right: 0;
+    }
+  }
+
+  .customForm__error {
+    font-size: 0.8rem;
+  }
+}

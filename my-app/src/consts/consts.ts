@@ -311,8 +311,8 @@ export const DATA_SCORING: TScoringFormData = [
     label: "What's your gender",
     field: 'gender',
     options: [
-      { key: 1, value: 'MALE' },
-      { key: 2, value: 'FAMALE' },
+      { key: 'MALE', value: 'MALE' },
+      { key: 'FAMALE', value: 'FAMALE' },
     ],
     errors: {
       required: {
@@ -325,10 +325,10 @@ export const DATA_SCORING: TScoringFormData = [
     label: 'Your marital status',
     field: 'maritalStatus',
     options: [
-      { key: 1, value: 'MARRIED' },
-      { key: 2, value: 'DIVORCED' },
-      { key: 3, value: 'SINGLE' },
-      { key: 4, value: 'WIDOW_WIDOWER' },
+      { key: 'MARRIED', value: 'MARRIED' },
+      { key: 'DIVORCED', value: 'DIVORCED' },
+      { key: 'SINGLE', value: 'SINGLE' },
+      { key: 'WIDOW_WIDOWER', value: 'WIDOW_WIDOWER' },
     ],
     errors: {
       required: {
@@ -341,9 +341,9 @@ export const DATA_SCORING: TScoringFormData = [
     label: 'Your number of dependents',
     field: 'dependentAmount',
     options: [
-      { key: 1, value: '0' },
-      { key: 2, value: '1' },
-      { key: 3, value: '2' },
+      { key: 0, value: '0' },
+      { key: 1, value: '1' },
+      { key: 2, value: '2' },
     ],
     errors: {
       required: {
@@ -392,10 +392,10 @@ export const DATA_SCORING: TScoringFormData = [
     label: 'Your employment status',
     field: 'employmentStatus',
     options: [
-      { key: 1, value: 'UNEMPLOYED' },
-      { key: 2, value: 'SELF_EMPLOYED' },
-      { key: 3, value: 'EMPLOYED' },
-      { key: 4, value: 'BUSINESS_OWNER' },
+      { key: 'UNEMPLOYED', value: 'UNEMPLOYED' },
+      { key: 'SELF_EMPLOYED', value: 'SELF_EMPLOYED' },
+      { key: 'EMPLOYED', value: 'EMPLOYED' },
+      { key: 'BUSINESS_OWNER', value: 'BUSINESS_OWNER' },
     ],
     errors: {
       required: {
@@ -441,10 +441,10 @@ export const DATA_SCORING: TScoringFormData = [
     label: 'Your position',
     field: 'position',
     options: [
-      { key: 1, value: 'WORKER' },
-      { key: 2, value: 'MID_MANAGER' },
-      { key: 3, value: 'TOP_MANAGER' },
-      { key: 4, value: 'OWNER' },
+      { key: 'WORKER', value: 'WORKER' },
+      { key: 'MID_MANAGER', value: 'MID_MANAGER' },
+      { key: 'TOP_MANAGER', value: 'TOP_MANAGER' },
+      { key: 'OWNER', value: 'OWNER' },
     ],
     errors: {
       required: {

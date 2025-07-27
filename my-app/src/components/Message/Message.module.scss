@@ -1,12 +1,6 @@
 @use '../../styles/App.scss' as *;
 
 .loanMessage {
-  margin-top: 3rem;
-  margin-bottom: 6rem;
-  padding: 1.5rem 0 2.125rem 0;
-  border-radius: 0.625rem;
-  border: 0.0625rem solid rgba(91, 53, 213, 1);
-
   &__title {
     @include text-properties(
       Ubuntu,
@@ -35,11 +29,48 @@
   }
 }
 
+.loanMessageEmail {
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+  padding: 1.5rem 0 2.125rem 0;
+  border-radius: 0.625rem;
+  border: 0.0625rem solid rgba(91, 53, 213, 1);
+}
+
+.loanMessagePrimary {
+  @include container();
+  margin-top: 10.375rem;
+  margin-bottom: 14.875rem;
+  padding: 1.5rem 0 2.125rem 0;
+}
+
+@media (max-width: 1300px) {
+  .loanMessagePrimary {
+    @include container(57.5rem);
+    margin-top: 3rem;
+    margin-bottom: 6rem;
+  }
+}
+
 @media (max-width: 920px) {
   .loanMessage {
     padding: 1.5rem 0.9375rem 2.125rem 0.9375rem;
     &__title {
       font-size: 1.3rem;
     }
+  }
+
+  .loanMessagePrimary {
+    @include container(31.25rem);
+    margin-top: 3rem;
+    margin-bottom: 6rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .loanMessagePrimary {
+    @include container(20rem);
+    margin-top: 3rem;
+    margin-bottom: 6rem;
   }
 }

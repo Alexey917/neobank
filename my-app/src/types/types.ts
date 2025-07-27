@@ -41,7 +41,7 @@ export interface IScoringData {
 export type TCustomizeFormData = IValidateForm[];
 export type TScoringFormData = IScoringForm[];
 export interface ICustomizeOptions {
-  key: number;
+  key: number | string;
   value: string;
 }
 

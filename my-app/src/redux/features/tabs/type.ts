@@ -1,3 +1,3 @@
 export type TabId = 'About card' | 'Rates and conditions' | 'Cashback' | 'FAQ';
 
-export type stepId = 'BEGIN' | 'PREAPPROVAL' | 'APPROVED';
+export type stepId = 'BEGIN' | 'PREAPPROVAL' | 'APPROVED' | 'CC_DENIED';
