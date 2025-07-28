@@ -135,3 +135,20 @@ export const sendScoring = async (id: number, data: IScoringData) => {
 
   return response;
 };
+
+export const scheduleApi: AxiosInstance | null = import.meta.env
+  .VITE_GET_NEWS_URL
+  ? axios.create({
+      baseURL: `${import.meta.env.VITE_GET_NEWS_URL}/admin/application/`,
+    })
+  : null;
+
+export const getSchedule = async (id: number) => {
+  if (!scoringApi) {
+    throw new Error();
+  }
+
+  const response = await scheduleApi?.get(`/${id}`);
+
+  return response;
+};

@@ -390,7 +390,7 @@ export const DATA_SCORING: TScoringFormData = [
   },
   {
     label: 'Your employment status',
-    field: 'employmentStatus',
+    field: 'employment.employmentStatus',
     options: [
       { key: 'UNEMPLOYED', value: 'UNEMPLOYED' },
       { key: 'SELF_EMPLOYED', value: 'SELF_EMPLOYED' },
@@ -406,7 +406,7 @@ export const DATA_SCORING: TScoringFormData = [
   },
   {
     label: 'Your employer INN',
-    field: 'employerINN',
+    field: 'employment.employerINN',
     placeholder: '000000000000',
     options: [],
     errors: {
@@ -422,7 +422,7 @@ export const DATA_SCORING: TScoringFormData = [
   },
   {
     label: 'Your salary',
-    field: 'salary',
+    field: 'employment.salary',
     valueAsNumber: true,
     placeholder: 'For example 100 000',
     options: [],
@@ -439,7 +439,7 @@ export const DATA_SCORING: TScoringFormData = [
   },
   {
     label: 'Your position',
-    field: 'position',
+    field: 'employment.position',
     options: [
       { key: 'WORKER', value: 'WORKER' },
       { key: 'MID_MANAGER', value: 'MID_MANAGER' },
@@ -455,7 +455,7 @@ export const DATA_SCORING: TScoringFormData = [
   },
   {
     label: 'Your work experience total',
-    field: 'workExperienceTotal',
+    field: 'employment.workExperienceTotal',
     valueAsNumber: true,
     placeholder: 'For example 10',
     options: [],
@@ -472,7 +472,7 @@ export const DATA_SCORING: TScoringFormData = [
   },
   {
     label: 'Your work experience current',
-    field: 'workExperienceCurrent',
+    field: 'employment.workExperienceCurrent',
     valueAsNumber: true,
     placeholder: 'For example 2',
     options: [],

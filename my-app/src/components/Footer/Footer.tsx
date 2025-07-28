@@ -43,7 +43,7 @@ export const Footer: FC = () => {
         <nav>
           <ul className={classes.footer__list}>
             {Object.entries(LINKS).map(([key, value]) => (
-              <li>
+              <li key={key}>
                 <CustomLink to={value} variant="footer" paddings="pNav">
                   {key}
                 </CustomLink>

@@ -38,10 +38,15 @@ export const ScoringForm = () => {
   ) => {
     setIsSubmitted(true);
 
-    formData.salary = +formData.salary;
-    formData.workExperienceCurrent = +formData.workExperienceCurrent;
-    formData.workExperienceTotal = +formData.workExperienceTotal;
+    console.log(formData);
+
+    formData.employment.salary = +formData.employment.salary;
+    formData.employment.workExperienceCurrent =
+      +formData.employment.workExperienceCurrent;
+    formData.employment.workExperienceTotal =
+      +formData.employment.workExperienceTotal;
     formData.dependentAmount = +formData.dependentAmount;
+    formData.account = '11223344556677889900';
     // formData.employerINN = +formData.employerINN;
 
     if (Object.keys(errors).length === 0) {
@@ -83,6 +88,173 @@ export const ScoringForm = () => {
         </div>
       ) : error ? (
         <div>
+          <div>
+            <div className={classes.form__amountWrapper}>
+              <div className={classes.form__selectAmountWrapper}>
+                <div className={classes.form__legendWrapper}>
+                  <legend className={classes.form__legend}>
+                    Continuation of the application
+                  </legend>
+                  <p className={classes.form__step}>Step 2 of 5</p>
+                </div>
+              </div>
+
+              <div className={classes.form__chosenAmount}></div>
+            </div>
+
+            <div className={classes.form__inputGroupsWrapper}>
+              <div className={classes.form__inputGroups} role="group">
+                {personalFields.map((data, index) => {
+                  return (
+                    <div className={classes.form__inputGroup} key={data.field}>
+                      {index < 5 && data.label ? (
+                        <CustomLabel
+                          text={data.label}
+                          required={true}
+                          inputId={data.label}
+                        />
+                      ) : (
+                        ''
+                      )}
+
+                      {data.options.length !== 0 ? (
+                        <CustomSelect
+                          width={window.innerWidth > 500 ? 25.0625 : 15.625}
+                          options={data.options}
+                          defaultValue=""
+                          required={
+                            errors[data.field as keyof IScoringData]
+                              ? true
+                              : false
+                          }
+                          register={register(data.field, data.errors)}
+                          aria-invalid={
+                            errors[data.field as keyof IScoringData]
+                              ? 'true'
+                              : 'false'
+                          }
+                          aria-describedby={`${data.field}-error`}
+                        />
+                      ) : (
+                        <CustomInput
+                          width={
+                            window.innerWidth > 1300
+                              ? 38
+                              : window.innerWidth < 500
+                              ? 15.625
+                              : 25.0625
+                          }
+                          variant="primary"
+                          placeholder={data.placeholder}
+                          id={data.label}
+                          svgError={
+                            errors[data.field as keyof IScoringData]
+                              ? true
+                              : false
+                          }
+                          svgSuccess={
+                            isSubmitted &&
+                            !errors[data.field as keyof IScoringData]
+                              ? true
+                              : false
+                          }
+                          type="text"
+                          register={register(data.field, data.errors)}
+                          aria-invalid={
+                            errors[data.field as keyof IScoringData]
+                              ? 'true'
+                              : 'false'
+                          }
+                          aria-describedby={`${data.field}-error`}
+                        />
+                      )}
+
+                      {(isSubmitted ||
+                        errors[data.field as keyof IScoringData]) && (
+                        <span className={classes.form__inputError} role="alert">
+                          {errors[
+                            data.field as keyof IScoringData
+                          ]?.message?.toString()}
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              <h3 className={classes.form__employmentTitle}>Employment</h3>
+
+              <div className={classes.form__inputGroups} role="group">
+                {employmentFields.map((data, index) => {
+                  return (
+                    <div className={classes.form__inputGroup} key={data.field}>
+                      {data.label && (
+                        <CustomLabel
+                          text={data.label}
+                          required={true}
+                          inputId={data.label}
+                        />
+                      )}
+
+                      {data.options.length !== 0 ? (
+                        <CustomSelect
+                          width={window.innerWidth > 500 ? 25.0625 : 15.625}
+                          options={data.options}
+                          defaultValue=""
+                          required={
+                            errors[data.field as keyof IScoringData]
+                              ? true
+                              : false
+                          }
+                          register={register(data.field, data.errors)}
+                          aria-invalid={
+                            errors[data.field as keyof IScoringData]
+                              ? 'true'
+                              : 'false'
+                          }
+                          aria-describedby={`${data.field}-error`}
+                        />
+                      ) : (
+                        <CustomInput
+                          width={window.innerWidth > 500 ? 25.0625 : 15.625}
+                          variant="primary"
+                          placeholder={data.placeholder}
+                          id={data.label}
+                          svgError={
+                            errors[data.field as keyof IScoringData]
+                              ? true
+                              : false
+                          }
+                          svgSuccess={
+                            isSubmitted &&
+                            !errors[data.field as keyof IScoringData]
+                              ? true
+                              : false
+                          }
+                          type="text"
+                          register={register(data.field, data.errors)}
+                          aria-invalid={
+                            errors[data.field as keyof IScoringData]
+                              ? 'true'
+                              : 'false'
+                          }
+                          aria-describedby={`${data.field}-error`}
+                        />
+                      )}
+                      {(isSubmitted ||
+                        errors[data.field as keyof IScoringData]) && (
+                        <span className={classes.form__inputError} role="alert">
+                          {errors[
+                            data.field as keyof IScoringData
+                          ]?.message?.toString()}
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
           <div
             className={classes.customForm__error}
             role="alert"
@@ -126,9 +298,17 @@ export const ScoringForm = () => {
                         width={window.innerWidth > 500 ? 25.0625 : 15.625}
                         options={data.options}
                         defaultValue=""
-                        required={errors[data.field] ? true : false}
+                        required={
+                          errors[data.field as keyof IScoringData]
+                            ? true
+                            : false
+                        }
                         register={register(data.field, data.errors)}
-                        aria-invalid={errors[data.field] ? 'true' : 'false'}
+                        aria-invalid={
+                          errors[data.field as keyof IScoringData]
+                            ? 'true'
+                            : 'false'
+                        }
                         aria-describedby={`${data.field}-error`}
                       />
                     ) : (
@@ -143,20 +323,34 @@ export const ScoringForm = () => {
                         variant="primary"
                         placeholder={data.placeholder}
                         id={data.label}
-                        svgError={errors[data.field] ? true : false}
+                        svgError={
+                          errors[data.field as keyof IScoringData]
+                            ? true
+                            : false
+                        }
                         svgSuccess={
-                          isSubmitted && !errors[data.field] ? true : false
+                          isSubmitted &&
+                          !errors[data.field as keyof IScoringData]
+                            ? true
+                            : false
                         }
                         type="text"
                         register={register(data.field, data.errors)}
-                        aria-invalid={errors[data.field] ? 'true' : 'false'}
+                        aria-invalid={
+                          errors[data.field as keyof IScoringData]
+                            ? 'true'
+                            : 'false'
+                        }
                         aria-describedby={`${data.field}-error`}
                       />
                     )}
 
-                    {(isSubmitted || errors[data.field]) && (
+                    {(isSubmitted ||
+                      errors[data.field as keyof IScoringData]) && (
                       <span className={classes.form__inputError} role="alert">
-                        {errors[data.field]?.message?.toString()}
+                        {errors[
+                          data.field as keyof IScoringData
+                        ]?.message?.toString()}
                       </span>
                     )}
                   </div>
@@ -183,9 +377,17 @@ export const ScoringForm = () => {
                         width={window.innerWidth > 500 ? 25.0625 : 15.625}
                         options={data.options}
                         defaultValue=""
-                        required={errors[data.field] ? true : false}
+                        required={
+                          errors[data.field as keyof IScoringData]
+                            ? true
+                            : false
+                        }
                         register={register(data.field, data.errors)}
-                        aria-invalid={errors[data.field] ? 'true' : 'false'}
+                        aria-invalid={
+                          errors[data.field as keyof IScoringData]
+                            ? 'true'
+                            : 'false'
+                        }
                         aria-describedby={`${data.field}-error`}
                       />
                     ) : (
@@ -194,19 +396,33 @@ export const ScoringForm = () => {
                         variant="primary"
                         placeholder={data.placeholder}
                         id={data.label}
-                        svgError={errors[data.field] ? true : false}
+                        svgError={
+                          errors[data.field as keyof IScoringData]
+                            ? true
+                            : false
+                        }
                         svgSuccess={
-                          isSubmitted && !errors[data.field] ? true : false
+                          isSubmitted &&
+                          !errors[data.field as keyof IScoringData]
+                            ? true
+                            : false
                         }
                         type="text"
                         register={register(data.field, data.errors)}
-                        aria-invalid={errors[data.field] ? 'true' : 'false'}
+                        aria-invalid={
+                          errors[data.field as keyof IScoringData]
+                            ? 'true'
+                            : 'false'
+                        }
                         aria-describedby={`${data.field}-error`}
                       />
                     )}
-                    {(isSubmitted || errors[data.field]) && (
+                    {(isSubmitted ||
+                      errors[data.field as keyof IScoringData]) && (
                       <span className={classes.form__inputError} role="alert">
-                        {errors[data.field]?.message?.toString()}
+                        {errors[
+                          data.field as keyof IScoringData
+                        ]?.message?.toString()}
                       </span>
                     )}
                   </div>

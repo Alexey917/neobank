@@ -26,6 +26,11 @@ export interface IScoringData {
   dependentAmount: number;
   passportIssueDate: string;
   passportIssueBranch: string;
+  employment: IEmploymentData;
+  account: string;
+}
+
+interface IEmploymentData {
   employmentStatus:
     | 'UNEMPLOYED'
     | 'SELF_EMPLOYED'
@@ -40,6 +45,7 @@ export interface IScoringData {
 
 export type TCustomizeFormData = IValidateForm[];
 export type TScoringFormData = IScoringForm[];
+
 export interface ICustomizeOptions {
   key: number | string;
   value: string;
@@ -66,7 +72,7 @@ interface IValidateForm {
 
 interface IScoringForm {
   label?: string;
-  field: keyof IScoringData;
+  field: keyof IScoringData | `employment.${keyof IEmploymentData}`;
   options: ICustomizeOptions[];
   placeholder?: string;
   valueAsNumber?: boolean;

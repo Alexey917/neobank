@@ -42,7 +42,7 @@ export const Header: FC = () => {
           <li>
             <ul className={classes.header__list_inside}>
               {Object.entries(LINKS).map(([key, value]) => (
-                <li>
+                <li key={key}>
                   <CustomLink to={value} variant="header" paddings="pNav">
                     {key}
                   </CustomLink>
