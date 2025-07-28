@@ -57,6 +57,8 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
 
   const onSubmit: SubmitHandler<ISendData> = async (data: ISendData) => {
     setIsSubmitted(true);
+    data.term = +data.term;
+
     if (Object.keys(errors).length === 0) {
       try {
         console.log(data);

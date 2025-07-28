@@ -47,7 +47,6 @@ export const ScoringForm = () => {
       +formData.employment.workExperienceTotal;
     formData.dependentAmount = +formData.dependentAmount;
     formData.account = '11223344556677889900';
-    // formData.employerINN = +formData.employerINN;
 
     if (Object.keys(errors).length === 0) {
       let data = localStorage.getItem('offers');

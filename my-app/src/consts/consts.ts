@@ -50,6 +50,12 @@ export const DATA_FORM: TCustomizeFormData = [
     field: 'middleName',
     placeholder: 'For Example Victorovich',
     options: [],
+    errors: {
+      required: {
+        value: false,
+        message: '',
+      },
+    },
   },
   {
     label: 'Select term',
