@@ -6,11 +6,21 @@ interface ICustomLabel {
   text: string;
   required: boolean;
   inputId: string;
+  variant?: string;
 }
 
-export const CustomLabel: FC<ICustomLabel> = ({ text, required, inputId }) => {
+export const CustomLabel: FC<ICustomLabel> = ({
+  text,
+  required,
+  inputId,
+  variant,
+}) => {
   return (
-    <label htmlFor={inputId} className={classes.label} aria-required={required}>
+    <label
+      htmlFor={inputId}
+      className={`${classes.label} ${variant && classes.label_checkbox}`}
+      aria-required={required}
+    >
       {text}{' '}
       {required && (
         <span className={classes.required} aria-hidden="true">

@@ -8,7 +8,7 @@ import ok from '../../../assets/sprite.svg';
 interface ICustomInput {
   width: number;
   type: string;
-  variant: 'primary' | 'amount';
+  variant: 'primary' | 'amount' | 'checkbox';
   placeholder?: string;
   value?: number;
   onChange?: (elem: React.ChangeEvent<HTMLInputElement>) => void;

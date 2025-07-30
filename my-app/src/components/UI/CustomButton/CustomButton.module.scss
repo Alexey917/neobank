@@ -5,6 +5,9 @@
   @include text-properties(Ubuntu, 1rem, 112%, 0.02em, 700, null);
   border-radius: 0.5rem;
   border: none;
+  &[disabled] {
+    background-color: rgba(119, 150, 192, 1);
+  }
 }
 
 .primary {
@@ -58,6 +61,10 @@
 
 .pBack {
   padding: 0.6875rem 4.0313rem;
+}
+
+.pDoc {
+  padding: 0.6875rem 1.7813rem;
 }
 
 @media (hover: hover) {

@@ -11,13 +11,15 @@ type buttonPaddings =
   | 'pBack'
   | 'pContinue'
   | 'pSelect'
-  | 'pContinueRegistration';
+  | 'pContinueRegistration'
+  | 'pDoc';
 
 export interface ICustomButton {
   text: string;
   paddings: buttonPaddings;
   variant: buttonVariant;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 export const CustomButton: FC<ICustomButton> = ({
@@ -25,6 +27,7 @@ export const CustomButton: FC<ICustomButton> = ({
   paddings,
   variant,
   onClick,
+  disabled,
 }) => {
   const activeTab = useSelector((state: RootState) => state.tabs.activeTab);
   return (
@@ -33,6 +36,7 @@ export const CustomButton: FC<ICustomButton> = ({
         activeTab === text ? classes.active : ''
       }`}
       onClick={onClick}
+      disabled={disabled}
     >
       {text}
     </button>
