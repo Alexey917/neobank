@@ -89,3 +89,16 @@ export interface IOffer {
   term: number;
   totalAmount: number;
 }
+
+export interface ISchedule {
+  number: number;
+  date: string;
+  debtPayment: number;
+  interestPayment: number;
+  remainingDebt: number;
+  totalPayment: number;
+}
+
+export interface ILoanDocument {
+  schedule: ISchedule[];
+}

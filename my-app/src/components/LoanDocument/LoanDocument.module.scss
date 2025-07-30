@@ -12,6 +12,7 @@
 
   &__legendWrapper {
     @include flex-properties(flex, row, null, null, 7.5rem);
+    margin-bottom: 4.75rem;
   }
 
   &__legend {
@@ -33,6 +34,7 @@
 
   &__footer {
     @include flex-properties(flex, row, space-between, center, null);
+    margin-top: 2.7188rem;
   }
 
   &__sendGroup {

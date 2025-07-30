@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-
-import classes from './LoanDocument.module.scss';
+import React, { FC, useState } from 'react';
 import { CustomButton } from '../UI/CustomButton/CustomButton';
-import { CustomInput } from '../UI/CustomInput/CustomInput';
 import { CustomLabel } from '../UI/CustomLabel/CustomLabel';
 import { Checkbox } from '../UI/CheckBox/Checkbox';
+import { Table } from '../UI/Table/Table';
+import { ILoanDocument } from 'src/types/types';
 
-export const LoanDocument = () => {
+import classes from './LoanDocument.module.scss';
+
+export const LoanDocument: FC<ILoanDocument> = ({ schedule }) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const toggleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(e.target.checked);
   };
-
-  console.log(isChecked);
 
   return (
     <form className={classes.formDoc}>
@@ -22,7 +20,7 @@ export const LoanDocument = () => {
         <legend className={classes.formDoc__legend}>Payment Schedule</legend>
         <p className={classes.formDoc__step}>Step 3 of 5</p>
       </div>
-      {/* <Table /> */}
+      <Table schedule={schedule} />
       <div className={classes.formDoc__footer}>
         <CustomButton text="Deny" paddings="pDoc" variant="danger" />
         <div className={classes.formDoc__sendGroup}>
