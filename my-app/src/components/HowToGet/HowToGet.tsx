@@ -87,9 +87,11 @@ export const HowToGet: FC<IHowToGetACardProps> = ({
         ))}
       </article>
 
-      {activeStep === 'PREAPPROVAL' && <LoanOffers offerRef={offerRef} />}
-      {activeStep === 'BEGIN' && <CustomizeCardForm formRef={formRef} />}
-      {activeStep === 'APPROVED' && (
+      {activeStep === 'PREAPPROVAL' ? (
+        <LoanOffers offerRef={offerRef} />
+      ) : activeStep === 'BEGIN' ? (
+        <CustomizeCardForm formRef={formRef} />
+      ) : (
         <Message
           title="The preliminary decision has been sent to your email."
           text="In the letter you can get acquainted with the preliminary decision on

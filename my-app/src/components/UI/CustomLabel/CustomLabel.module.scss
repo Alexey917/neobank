@@ -18,3 +18,9 @@
 .required {
   @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(255, 0, 0, 1));
 }
+
+@media (max-width: 500px) {
+  .label_checkbox {
+    font-size: 0.89rem;
+  }
+}

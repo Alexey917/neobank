@@ -15,7 +15,6 @@ import { checkStatus } from '../../redux/features/tabs/statusThunks';
 import classes from './ScoringForm.module.scss';
 
 export const ScoringForm = () => {
-  // const [option, setOption] = useState<string | number>('');
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const { axiosPost, loading, error } = usePostRequest();

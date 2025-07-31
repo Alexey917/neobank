@@ -45,3 +45,43 @@
     @include flex-properties(flex, row-reverse, null, center, 0.875rem);
   }
 }
+
+@media (max-width: 1300px) {
+  .formDoc {
+    @include container(57.5rem);
+  }
+}
+
+@media (max-width: 920px) {
+  .formDoc {
+    @include container(31.25rem);
+
+    &__legend {
+      font-size: 1.3rem;
+    }
+
+    &__footer {
+      & > :first-child {
+        margin-top: 2.5rem;
+      }
+    }
+
+    &__footer,
+    &__sendGroup {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .formDoc {
+    @include container(20rem);
+
+    &__legendWrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+}

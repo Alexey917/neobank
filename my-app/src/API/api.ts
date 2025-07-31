@@ -152,3 +152,20 @@ export const getSchedule = async (id: number) => {
 
   return response;
 };
+
+export const documentApi: AxiosInstance | null = import.meta.env
+  .VITE_GET_NEWS_URL
+  ? axios.create({
+      baseURL: `${import.meta.env.VITE_GET_NEWS_URL}/document/`,
+    })
+  : null;
+
+export const sendDocument = async (id: number, emptyBody: {}) => {
+  if (!scoringApi) {
+    throw new Error();
+  }
+
+  const response = await documentApi?.post(`/${id}`, emptyBody);
+
+  return response;
+};
