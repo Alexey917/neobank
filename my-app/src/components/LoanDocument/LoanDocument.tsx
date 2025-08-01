@@ -9,9 +9,12 @@ import { store } from '../../redux/features/tabs/store';
 import { checkStatus } from '../../redux/features/tabs/statusThunks';
 
 import classes from './LoanDocument.module.scss';
+import { ModalWindow } from '../UI/ModalWindow/ModalWindow';
 
 export const LoanDocument: FC<ILoanDocument> = ({ schedule }) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isModal, setIsModal] = useState<boolean>(false);
+  const [isDeny, setIsDeny] = useState<boolean>(false);
 
   const dispatch = store.dispatch;
 
@@ -39,43 +42,60 @@ export const LoanDocument: FC<ILoanDocument> = ({ schedule }) => {
   };
 
   return (
-    <form className={classes.formDoc} onSubmit={handleSubmit}>
-      <div className={classes.formDoc__legendWrapper}>
-        <legend className={classes.formDoc__legend}>Payment Schedule</legend>
-        <p className={classes.formDoc__step}>Step 3 of 5</p>
-      </div>
-      <Table schedule={schedule} />
-      <div className={classes.formDoc__footer}>
-        <CustomButton
-          text="Deny"
-          paddings="pDoc"
-          variant="danger"
-          aria-label="Reject payment schedule"
-        />
-        <div className={classes.formDoc__sendGroup}>
-          <div className={classes.formDoc__inputGroup}>
-            <CustomLabel
-              text="I agree with the payment schedule"
-              required={false}
-              inputId="checkbox"
-              variant="checkbox"
-            />
-            <Checkbox
-              id="checkbox"
-              checked={isChecked}
-              onChange={toggleCheckbox}
-              aria-required="true"
+    <>
+      <form className={classes.formDoc} onSubmit={handleSubmit}>
+        <div className={classes.formDoc__legendWrapper}>
+          <legend className={classes.formDoc__legend}>Payment Schedule</legend>
+          <p className={classes.formDoc__step}>Step 3 of 5</p>
+        </div>
+        <Table schedule={schedule} />
+        <div className={classes.formDoc__footer}>
+          <CustomButton
+            text="Deny"
+            paddings="pDoc"
+            variant="danger"
+            aria-label="Reject payment schedule"
+            onClick={() => setIsModal(true)}
+          />
+          <div className={classes.formDoc__sendGroup}>
+            <div className={classes.formDoc__inputGroup}>
+              <CustomLabel
+                text="I agree with the payment schedule"
+                required={false}
+                inputId="checkbox"
+                variant="checkbox"
+              />
+              <Checkbox
+                id="checkbox"
+                checked={isChecked}
+                onChange={toggleCheckbox}
+                aria-required="true"
+              />
+            </div>
+            <CustomButton
+              text="Send"
+              paddings="pDoc"
+              variant="primary"
+              disabled={!isChecked}
+              aria-disabled={!isChecked}
             />
           </div>
-          <CustomButton
-            text="Send"
-            paddings="pDoc"
-            variant="primary"
-            disabled={!isChecked}
-            aria-disabled={!isChecked}
-          />
         </div>
-      </div>
-    </form>
+      </form>
+      {isModal && (
+        <ModalWindow
+          text="You exactly sure, you want to cancel this application?"
+          setIsModal={setIsModal}
+          setIsDeny={setIsDeny}
+        />
+      )}
+      {isDeny && (
+        <ModalWindow
+          text="Your application has been deny!"
+          setIsModal={setIsModal}
+          isDeny={isDeny}
+        />
+      )}
+    </>
   );
 };
