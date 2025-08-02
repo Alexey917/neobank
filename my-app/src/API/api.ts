@@ -169,3 +169,23 @@ export const sendDocument = async (id: number, emptyBody: {}) => {
 
   return response;
 };
+
+export const SignApi: AxiosInstance | null = import.meta.env.VITE_GET_NEWS_URL
+  ? axios.create({
+      baseURL: `${import.meta.env.VITE_GET_NEWS_URL}/document`,
+      // headers: {
+      //   'Content-Type': 'text/plain',
+      //   'Access-Control-Allow-Origin': '*',
+      // },
+    })
+  : null;
+
+export const signDocument = async (id: number, emptyBody: {}) => {
+  if (!scoringApi) {
+    throw new Error();
+  }
+
+  const response = await SignApi?.post(`/${id}/sign`, emptyBody);
+
+  return response;
+};
