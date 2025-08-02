@@ -1,0 +1,57 @@
+@use '../../styles/App.scss' as *;
+
+.formCode {
+  @include container();
+  margin-top: 6.5rem;
+  margin-bottom: 6rem;
+
+  &__legend {
+    text-align: center;
+    @include text-properties(Ubuntu, 1.875rem, 112%, 0.02em, 700, #1c1c1e);
+    margin: 0;
+    margin-bottom: 32px;
+  }
+
+  &__inputWrapper {
+    @include flex-properties(flex, row, center, null, 1rem);
+    border: none;
+  }
+
+  &__input {
+    @include flex-properties(flex, row, center, center, null);
+    @include text-properties(Ubuntu, 1.25rem, 112%, 0.02em, 500, #000000);
+    text-align: center;
+    width: 3rem;
+    height: 3rem;
+    border: 0.0313rem solid #808080;
+    border-radius: 0.5rem;
+
+    &:focus {
+      outline: 1px solid #3182ce;
+    }
+  }
+
+  &__inputGroup {
+    position: relative;
+  }
+
+  &__inputDecoration {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 0.0938rem solid #808080;
+    border-radius: 50%;
+  }
+
+  &__input:focus + &__inputDecoration {
+    display: none;
+  }
+
+  &__input:not(:placeholder-shown) + &__inputDecoration {
+    display: none;
+  }
+}

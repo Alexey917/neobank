@@ -173,10 +173,6 @@ export const sendDocument = async (id: number, emptyBody: {}) => {
 export const SignApi: AxiosInstance | null = import.meta.env.VITE_GET_NEWS_URL
   ? axios.create({
       baseURL: `${import.meta.env.VITE_GET_NEWS_URL}/document`,
-      // headers: {
-      //   'Content-Type': 'text/plain',
-      //   'Access-Control-Allow-Origin': '*',
-      // },
     })
   : null;
 
@@ -186,6 +182,30 @@ export const signDocument = async (id: number, emptyBody: {}) => {
   }
 
   const response = await SignApi?.post(`/${id}/sign`, emptyBody);
+
+  return response;
+};
+
+export const CodeApi: AxiosInstance | null = import.meta.env.VITE_GET_NEWS_URL
+  ? axios.create({
+      baseURL: `${import.meta.env.VITE_GET_NEWS_URL}/document`,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': '*/*',
+      },
+    })
+  : null;
+
+// interface Icode {
+//   code: string;
+// }
+
+export const sendCode = async (id: number, code: string) => {
+  if (!scoringApi) {
+    throw new Error();
+  }
+
+  const response = await CodeApi?.post(`/${id}/sign/code`, code);
 
   return response;
 };

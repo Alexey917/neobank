@@ -7,4 +7,5 @@ export type stepId =
   | 'CC_DENIED'
   | 'CC_APPROVED'
   | 'DOCUMENT_CREATED'
-  | 'PREPARE_DOCUMENTS';
+  | 'PREPARE_DOCUMENTS'
+  | 'CREDIT_ISSUED';

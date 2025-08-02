@@ -11,11 +11,11 @@ export const SignPage = () => {
 
   return (
     <main className={classes.main} aria-labelledby="loan-document-title">
-      {activeStep === 'DOCUMENT_CREATED' ? (
+      {activeStep === 'DOCUMENT_CREATED' || activeStep === 'BEGIN' ? (
         <Message
           title="Documents have been successfully signed and sent for approval"
           text="Within 10 minutes you will be sent a PIN code to your email for confirmation"
-          variant="primary"
+          variant="sign"
         />
       ) : (
         <SignDoc />

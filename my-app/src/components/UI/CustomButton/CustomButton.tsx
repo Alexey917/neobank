@@ -14,7 +14,8 @@ type buttonPaddings =
   | 'pContinueRegistration'
   | 'pDoc'
   | 'pCancel'
-  | 'pSend';
+  | 'pSend'
+  | 'pCongratulation';
 
 export interface ICustomButton {
   text: string;
