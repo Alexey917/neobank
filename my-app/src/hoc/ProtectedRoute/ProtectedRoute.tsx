@@ -4,6 +4,7 @@ import { RootState } from '../../redux/features/tabs/store';
 import { Loader } from '../../components/UI/Loader/Loader';
 import { ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
+import { STEP_ORDER, stepId } from '../../redux/features/tabs/type';
 
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -27,8 +28,11 @@ export const ProtectedRoute = ({
 
   if (loading) return <Loader />;
 
-  if (applicationId && applicationId == id) return children;
-
-  if (requiredStatus && activeStep !== requiredStatus)
+  if (
+    requiredStatus &&
+    STEP_ORDER[activeStep as stepId] < STEP_ORDER[requiredStatus as stepId]
+  )
     return <Navigate to="/" state={{ from: location }} replace />;
+
+  if (applicationId && applicationId == id) return children;
 };

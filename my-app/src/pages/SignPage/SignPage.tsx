@@ -3,6 +3,7 @@ import { SignDoc } from '../..//components/SignDoc/SignDoc';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/features/tabs/store';
 import { Message } from '../../components/Message/Message';
+import { STEP_ORDER } from '../../redux/features/tabs/type';
 
 import classes from './SignPage.module.scss';
 
@@ -11,7 +12,7 @@ export const SignPage = () => {
 
   return (
     <main className={classes.main} aria-labelledby="loan-document-title">
-      {activeStep === 'DOCUMENT_CREATED' || activeStep === 'BEGIN' ? (
+      {STEP_ORDER[activeStep] >= STEP_ORDER['DOCUMENT_CREATED'] ? (
         <Message
           title="Documents have been successfully signed and sent for approval"
           text="Within 10 minutes you will be sent a PIN code to your email for confirmation"

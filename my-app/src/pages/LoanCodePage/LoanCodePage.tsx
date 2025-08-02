@@ -12,7 +12,7 @@ export const LoanCodePage = () => {
 
   return (
     <main className={classes.main} aria-labelledby="loan-code-title">
-      {activeStep === 'CREDIT_ISSUED' || activeStep === 'BEGIN' ? (
+      {activeStep === 'CREDIT_ISSUED' ? (
         <Message
           title="Congratulations! You have completed your new credit card."
           text="Your credit card will arrive soon. Thank you for choosing us!"

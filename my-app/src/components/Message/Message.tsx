@@ -4,6 +4,8 @@ import classes from './Message.module.scss';
 
 import { CustomButton } from '../UI/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { switchStep } from '../../redux/features/tabs/tabSlice';
 
 interface IMessage {
   title: string;
@@ -23,10 +25,12 @@ export const Message: FC<IMessage> = ({
   btn,
 }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const finishRegistration = () => {
     localStorage.removeItem('offers');
-    return () => navigate('/');
+    dispatch(switchStep('BEGIN'));
+    return navigate('/');
   };
 
   return (

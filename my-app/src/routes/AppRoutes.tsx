@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
       {
         path: 'loan/:applicationId/document',
         element: (
-          <ProtectedRoute requiredStatus="CC_DENIED">
+          <ProtectedRoute requiredStatus="CC_APPROVED">
             <LoanDocPage />
           </ProtectedRoute>
         ),

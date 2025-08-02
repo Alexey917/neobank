@@ -6,6 +6,7 @@ import { Loader } from '../../components/UI/Loader/Loader';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/features/tabs/store';
 import { Message } from '../../components/Message/Message';
+import { STEP_ORDER } from '../../redux/features/tabs/type';
 
 import classes from './LoanDocPage.module.scss';
 
@@ -67,8 +68,7 @@ export const LoanDocPage = () => {
         >
           <p>Error: {error}</p>
         </div>
-      ) : activeStep === 'DOCUMENT_CREATED' ||
-        activeStep === 'PREPARE_DOCUMENTS' ? (
+      ) : STEP_ORDER[activeStep] >= STEP_ORDER['PREPARE_DOCUMENTS'] ? (
         <Message
           title="Documents are formed"
           variant="primary"

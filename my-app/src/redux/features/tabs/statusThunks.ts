@@ -8,6 +8,6 @@ export const checkStatus = createAsyncThunk(
     const response = await applicationStatus(id);
     console.log(response.data.status);
     dispatch(switchStep(response.data.status));
-    return response.data.status; // Можно вернуть результат
+    return response.data.status;
   },
 );

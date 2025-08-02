@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { CustomButton } from '../CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { switchStep } from '../../../redux/features/tabs/tabSlice';
 
 import classes from './ModalWindow.module.scss';
 import closeModal from '../../../assets/sprite.svg';
@@ -19,11 +21,14 @@ export const ModalWindow: FC<IModal> = ({
   setIsDeny,
 }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleDenyClick = () => {
     if (setIsDeny) {
       setIsDeny(true);
     }
+    localStorage.removeItem('offers');
+    dispatch(switchStep('BEGIN'));
   };
 
   const handleCloseClick = () => {
