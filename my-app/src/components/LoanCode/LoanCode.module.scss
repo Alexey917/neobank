@@ -54,4 +54,48 @@
   &__input:not(:placeholder-shown) + &__inputDecoration {
     display: none;
   }
+
+  &__inputError {
+    margin-top: 16px;
+    align-self: center;
+    @include text-properties(Ubuntu, 1rem, 100%, null, 500, #ff5631);
+  }
+}
+
+.spinner {
+  @include flex-properties(flex, row, center, center, null);
+  margin-bottom: 3rem;
+}
+
+.error {
+  text-align: center;
+  @include text-properties(Ubuntu, 1rem, 147%, null, 500, #ff5631);
+}
+
+@media (max-width: 1300px) {
+  .formCode {
+    @include container(57.5rem);
+    margin-top: 6.5rem;
+    margin-bottom: 6rem;
+  }
+}
+
+@media (max-width: 920px) {
+  .formCode {
+    @include container(31.25rem);
+    margin-top: 6.5rem;
+    margin-bottom: 6rem;
+
+    &__legend {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .formCode {
+    @include container(20rem);
+    margin-top: 6.5rem;
+    margin-bottom: 6rem;
+  }
 }

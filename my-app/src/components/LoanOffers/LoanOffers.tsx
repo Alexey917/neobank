@@ -1,6 +1,5 @@
 import React, { FC, RefObject } from 'react';
 import { CardOffer } from '../CardOffer/CardOffer';
-import { OFFER_DESCRIPTION } from '../../consts/consts';
 
 import classes from './LoanOffers.module.scss';
 import { IOffer } from 'src/types/types';

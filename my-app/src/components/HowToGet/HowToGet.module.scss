@@ -66,6 +66,16 @@
   }
 }
 
+.spinner {
+  @include flex-properties(flex, row, center, center, null);
+  margin-bottom: 3rem;
+}
+
+.error {
+  text-align: center;
+  @include text-properties(Ubuntu, 1rem, 147%, null, 500, #ff5631);
+}
+
 @media (max-width: 1300px) {
   .how {
     @include container(57.5rem);

@@ -6,6 +6,8 @@ import { ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
 import { STEP_ORDER, stepId } from '../../redux/features/tabs/type';
 
+import classes from './ProtectedRoute.module.scss';
+
 interface ProtectedRouteProps {
   children: ReactNode;
   requiredStatus?: string;
@@ -26,13 +28,21 @@ export const ProtectedRoute = ({
 
   if (offers) id = JSON.parse(offers)[0].applicationId;
 
-  if (loading) return <Loader />;
+  if (loading)
+    return (
+      <div className={classes.spinner}>
+        <Loader />
+      </div>
+    );
 
   if (
     requiredStatus &&
     STEP_ORDER[activeStep as stepId] < STEP_ORDER[requiredStatus as stepId]
-  )
+  ) {
     return <Navigate to="/" state={{ from: location }} replace />;
-
-  if (applicationId && applicationId == id) return children;
+  } else if (applicationId && applicationId == id) {
+    return children;
+  } else {
+    return <Navigate to="/" state={{ from: location }} replace />;
+  }
 };

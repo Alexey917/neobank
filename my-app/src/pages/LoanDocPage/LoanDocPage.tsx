@@ -57,15 +57,11 @@ export const LoanDocPage = () => {
   return (
     <main className={classes.main} aria-labelledby="loan-document-title">
       {isLoading ? (
-        <div role="status" aria-live="polite" className={classes.loaderWrapper}>
+        <div role="status" aria-live="polite" className={classes.spinner}>
           <Loader />
         </div>
       ) : error ? (
-        <div
-          role="alert"
-          aria-live="assertive"
-          className={classes.errorWrapper}
-        >
+        <div role="alert" aria-live="assertive" className={classes.error}>
           <p>Error: {error}</p>
         </div>
       ) : STEP_ORDER[activeStep] >= STEP_ORDER['PREPARE_DOCUMENTS'] ? (

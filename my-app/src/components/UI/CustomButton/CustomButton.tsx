@@ -23,6 +23,7 @@ export interface ICustomButton {
   variant: buttonVariant;
   onClick?: () => void;
   disabled?: boolean;
+  type?: 'button' | 'submit';
 }
 
 export const CustomButton: FC<ICustomButton> = ({
@@ -31,10 +32,12 @@ export const CustomButton: FC<ICustomButton> = ({
   variant,
   onClick,
   disabled,
+  type,
 }) => {
   const activeTab = useSelector((state: RootState) => state.tabs.activeTab);
   return (
     <button
+      type={type}
       className={`${classes.button} ${classes[paddings]} ${classes[variant]} ${
         activeTab === text ? classes.active : ''
       }`}

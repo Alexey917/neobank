@@ -14,7 +14,9 @@ export const LoanCode: FC<ILoanCode> = ({ count }) => {
   const [values, setValues] = useState<string[]>(['', '', '', '']);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [inputError, inputSetError] = useState<string | null>(null);
   const inputsRef = useRef<HTMLInputElement[]>([]);
+
   const dispatch = store.dispatch;
 
   const handleChange = (
@@ -41,14 +43,16 @@ export const LoanCode: FC<ILoanCode> = ({ count }) => {
   }, [count]);
 
   const onSubmit = async () => {
-    // e.preventDefault();
     setIsLoading(true);
     setError(null);
     let data = localStorage.getItem('offers');
+
     if (!data || data.trim() === '') {
       setError('No offers data found');
+      setIsLoading(false);
       return;
     }
+
     try {
       if (values.length === 4 && values.every((value) => /^\d$/.test(value))) {
         const getId = JSON.parse(data);
@@ -65,6 +69,7 @@ export const LoanCode: FC<ILoanCode> = ({ count }) => {
     } catch (err) {
       console.error(err);
       setError(err instanceof Error ? err.message : 'Unknown error occurred');
+      inputSetError('Invalid confirmation code');
     } finally {
       setIsLoading(false);
     }
@@ -77,15 +82,11 @@ export const LoanCode: FC<ILoanCode> = ({ count }) => {
   return (
     <>
       {isLoading ? (
-        <div role="status" aria-live="polite" className={classes.loaderWrapper}>
+        <div role="status" aria-live="polite" className={classes.spinner}>
           <Loader />
         </div>
       ) : error ? (
-        <div
-          role="alert"
-          aria-live="assertive"
-          className={classes.errorWrapper}
-        >
+        <div role="alert" aria-live="assertive" className={classes.error}>
           <form className={classes.formCode}>
             <legend className={classes.formCode__legend}>
               Please enter confirmation code
@@ -109,6 +110,11 @@ export const LoanCode: FC<ILoanCode> = ({ count }) => {
                 </div>
               ))}
             </fieldset>
+            {inputError === 'Invalid confirmation code' && (
+              <span className={classes.formCode__inputError}>
+                Invalid confirmation code
+              </span>
+            )}
           </form>
           <p>Error: {error}</p>
         </div>
@@ -137,6 +143,9 @@ export const LoanCode: FC<ILoanCode> = ({ count }) => {
               </div>
             ))}
           </fieldset>
+          {inputError === 'Invalid confirmation code' && (
+            <span>Invalid confirmation code</span>
+          )}
         </form>
       )}
     </>

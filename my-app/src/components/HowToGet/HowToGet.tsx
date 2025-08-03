@@ -51,8 +51,13 @@ export const HowToGet: FC<IHowToGetACardProps> = ({
     }
   }, [dispatch]);
 
-  if (loading) return <Loader />;
-  if (error) return <div>{error}</div>;
+  if (loading)
+    return (
+      <div className={classes.spinner}>
+        <Loader />
+      </div>
+    );
+  if (error) return <div className={classes.error}>{error}</div>;
 
   return (
     <section className={classes.how} aria-labelledby="how-to-get-card-heading">

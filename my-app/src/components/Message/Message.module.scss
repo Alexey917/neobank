@@ -92,6 +92,12 @@
     margin-top: 3rem;
     margin-bottom: 6rem;
   }
+
+  .loanMessageSign {
+    @include container(31.25rem);
+    margin-top: 10.375rem;
+    margin-bottom: 18.0625rem;
+  }
 }
 
 @media (max-width: 500px) {

@@ -55,6 +55,7 @@ export const LoanDocument: FC<ILoanDocument> = ({ schedule }) => {
             paddings="pDoc"
             variant="danger"
             aria-label="Reject payment schedule"
+            type="button"
             onClick={() => setIsModal(true)}
           />
           <div className={classes.formDoc__sendGroup}>

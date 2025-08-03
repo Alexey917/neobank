@@ -50,15 +50,11 @@ export const SignDoc: FC = () => {
   return (
     <>
       {isLoading ? (
-        <div role="status" aria-live="polite" className={classes.loaderWrapper}>
+        <div role="status" aria-live="polite" className={classes.spinner}>
           <Loader />
         </div>
       ) : error ? (
-        <div
-          role="alert"
-          aria-live="assertive"
-          className={classes.errorWrapper}
-        >
+        <div role="alert" aria-live="assertive" className={classes.error}>
           <form
             className={classes.formSign}
             aria-labelledby="form-title"

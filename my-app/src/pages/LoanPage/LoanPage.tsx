@@ -33,13 +33,6 @@ export const LoanPage = () => {
           behavior: 'smooth',
         });
     }
-
-    // if (formRef.current) {
-    //   window.scrollTo({
-    //     top: formRef.current.offsetTop,
-    //     behavior: 'smooth',
-    //   });
-    // }
   };
 
   return (
