@@ -60,7 +60,6 @@ export const LoanCode: FC<ILoanCode> = ({ count }) => {
           getId[0].applicationId,
           values.join(''),
         );
-        console.log(response);
 
         if (response?.status === 200) {
           dispatch(checkStatus(getId[0].applicationId));

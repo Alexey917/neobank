@@ -27,7 +27,6 @@ export const LoanDocument: FC<ILoanDocument> = ({ schedule }) => {
     try {
       const getId = JSON.parse(data);
       const response = await sendDocument(getId[0].applicationId, {});
-      console.log(response);
 
       if (response?.status === 200) {
         dispatch(checkStatus(getId[0].applicationId));

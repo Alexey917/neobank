@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import type { RootState } from '../../../redux/features/tabs/store';
+import { getTab } from '../../../redux/features/store';
 
 import classes from './CustomButton.module.scss';
 
@@ -34,7 +34,7 @@ export const CustomButton: FC<ICustomButton> = ({
   disabled,
   type,
 }) => {
-  const activeTab = useSelector((state: RootState) => state.tabs.activeTab);
+  const { activeTab } = useSelector(getTab);
   return (
     <button
       type={type}

@@ -13,7 +13,7 @@ export interface ISendData {
   term: number;
   firstName: string;
   lastName: string;
-  middleName: string | null;
+  middleName?: string | null;
   email: string;
   birthdate: string;
   passportSeries: string;

@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import type { RootState } from '../../redux/features/tabs/store';
+import { getTab } from '../../redux/features/store';
 import { FaqTab } from '../FaqTab/FaqTab';
 import { RatesTab } from '../RatesTab/RatesTab';
 import { AboutTab } from '../AboutTab/AboutTab';
 import { CashbackTab } from '../CashbackTab/CashbackTab';
 
 export const CreditTabContent = () => {
-  const activeTab = useSelector((state: RootState) => state.tabs.activeTab);
+  const { activeTab } = useSelector(getTab);
   return (
     <article>
       {activeTab === 'About card' && <AboutTab />}

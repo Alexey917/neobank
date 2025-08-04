@@ -37,8 +37,6 @@ export const ScoringForm = () => {
   ) => {
     setIsSubmitted(true);
 
-    console.log(formData);
-
     formData.employment.salary = +formData.employment.salary;
     formData.employment.workExperienceCurrent =
       +formData.employment.workExperienceCurrent;
@@ -55,7 +53,6 @@ export const ScoringForm = () => {
       try {
         const getId = JSON.parse(data);
         const response = await sendScoring(getId[0].applicationId, formData);
-        console.log(response);
 
         if (response?.status === 200) {
           dispatch(checkStatus(getId[0].applicationId));

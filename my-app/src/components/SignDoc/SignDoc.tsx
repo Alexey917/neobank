@@ -34,7 +34,6 @@ export const SignDoc: FC = () => {
     try {
       const getId = JSON.parse(data);
       const response = await signDocument(getId[0].applicationId, {});
-      console.log(response);
 
       if (response?.status === 200) {
         dispatch(checkStatus(getId[0].applicationId));

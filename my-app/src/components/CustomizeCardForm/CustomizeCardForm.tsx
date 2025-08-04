@@ -59,9 +59,12 @@ export const CustomizeCardForm: FC<ICustomizeProps> = ({ formRef }) => {
     setIsSubmitted(true);
     data.term = +data.term;
 
+    if (data.middleName === '') {
+      data.middleName = null;
+    }
+
     if (Object.keys(errors).length === 0) {
       try {
-        console.log(data);
         const response = await axiosPost(sendCustomizeForm, data);
 
         if (response?.status === 200) {

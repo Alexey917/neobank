@@ -6,7 +6,6 @@ export const checkStatus = createAsyncThunk(
   'status/check',
   async (id: number, { dispatch }) => {
     const response = await applicationStatus(id);
-    console.log(response.data.status);
     dispatch(switchStep(response.data.status));
     return response.data.status;
   },
