@@ -102,3 +102,10 @@ export interface ISchedule {
 export interface ILoanDocument {
   schedule: ISchedule[];
 }
+
+export interface INewsParams {
+  category: string;
+  country: string;
+  pageSize: string;
+  [key: string]: string | undefined;
+}

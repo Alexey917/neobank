@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { IOffer, IScoringData } from 'src/types/types';
+import { IOffer, IScoringData, INewsParams } from '../types/types';
 
 let currencyApi: AxiosInstance | undefined;
 let apiError: string | undefined;
@@ -49,14 +49,17 @@ export const newsApi: AxiosInstance | null =
       })
     : null;
 
-export const getNews = async () => {
+export const getNews = async (params: INewsParams) => {
   if (!newsApi) {
     throw new Error();
   }
 
-  const response = await newsApi?.get(
-    `/v2/top-headlines/business/country/${import.meta.env.VITE_NEWS_KEY}`,
-  );
+  const response = await newsApi?.get('v2/top-headlines/', {
+    params: {
+      ...params,
+      apiKey: import.meta.env.VITE_NEWS_KEY,
+    },
+  });
 
   return response;
 };

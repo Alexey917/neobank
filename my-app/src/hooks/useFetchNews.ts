@@ -24,7 +24,11 @@ export const useFetchNews = () => {
     const fetchNews = async (quantity: string) => {
       try {
         setLoading(true);
-        const response = await getNews();
+        const response = await getNews({
+          category: 'business',
+          country: 'us',
+          pageSize: '35',
+        });
         const validNews = await filterNews(response?.data.articles);
         setNews(validNews);
       } catch (err) {
