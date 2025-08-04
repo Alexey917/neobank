@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CustomLink } from '../UI/CustomLink/CustomLink';
-import { NavItem } from '../NavItem/NavItem';
 import { HeaderMenu } from '../HeaderMenu/HeaderMenu';
 
 import classes from './Header.module.scss';

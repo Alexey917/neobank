@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { CustomButton } from '../CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { switchStep } from '../../../redux/features/tabs/tabSlice';
+import { switchStep } from '../../../redux/features/steps/stepSlice';
 
 import classes from './ModalWindow.module.scss';
 import closeModal from '../../../assets/sprite.svg';

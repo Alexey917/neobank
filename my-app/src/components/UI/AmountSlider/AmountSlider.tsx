@@ -1,5 +1,4 @@
 import { FC, RefObject } from 'react';
-import { useAmountSlider } from '../../../hooks/useAmountSlider';
 import classes from './AmountSlider.module.scss';
 
 interface IAmountSlider {
@@ -11,7 +10,6 @@ interface IAmountSlider {
   value: number;
   sliderRef: RefObject<HTMLDivElement | null>;
   thumbRef: RefObject<HTMLDivElement | null>;
-  // onDragUpdate?: (value: number) => void;
 }
 
 export const AmountSlider: FC<IAmountSlider> = ({

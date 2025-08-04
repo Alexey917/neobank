@@ -6,11 +6,12 @@ import { CustomizeCardForm } from '../CustomizeCardForm/CustomizeCardForm';
 import { LoanOffers } from '../LoanOffers/LoanOffers';
 import { Message } from '../Message/Message';
 import { IOffer } from '../../types/types';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../redux/features/tabs/store';
-import { checkStatus } from '../../redux/features/tabs/statusThunks';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/features/store';
+import { checkStatus } from '../../redux/features/steps/statusThunks';
 import { Loader } from '../UI/Loader/Loader';
-import { store } from '../../redux/features/tabs/store';
+import { store } from '../../redux/features/store';
+import { getStep } from '../../redux/features/store';
 
 const STEPS_GET_Card = [
   'Fill out an online application - you do not need to visit the bank',
@@ -30,9 +31,7 @@ export const HowToGet: FC<IHowToGetACardProps> = ({
   offerRef,
 }) => {
   const dispatch = store.dispatch;
-  const { activeStep, loading, error } = useSelector(
-    (state: RootState) => state.steps,
-  );
+  const { activeStep, loading, error } = useSelector(getStep);
 
   useEffect(() => {
     const savedData = localStorage.getItem('offers');

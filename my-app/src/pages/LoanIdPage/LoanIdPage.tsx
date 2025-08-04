@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ScoringForm } from '../../components/ScoringForm/ScoringForm';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/features/tabs/store';
-import { STEP_ORDER } from '../../redux/features/tabs/type';
+import { RootState } from '../../redux/features/store';
+import { STEP_ORDER } from '../../redux/features/steps/type';
+import { getStep } from '../../redux/features/store';
 
 import classes from './LoanIdPage.module.scss';
 import { Message } from '../../components/Message/Message';
 
 export const LoanIdPage = () => {
-  const { activeStep } = useSelector((state: RootState) => state.steps);
+  const { activeStep } = useSelector(getStep);
 
   return (
     <main className={classes.main}>

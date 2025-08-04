@@ -29,7 +29,6 @@ export const Divider: FC<IDividerProps> = ({
         classes[type]
       }`}
       style={{
-        // width: orientation === 'horizontal' ? `${width}rem` : 0,
         height: orientation === 'vertical' ? `${width}rem` : 0,
         borderBottom: `${thickness}rem ${variant} ${
           color === 'grey'

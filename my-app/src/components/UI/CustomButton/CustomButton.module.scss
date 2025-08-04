@@ -5,8 +5,10 @@
   @include text-properties(Ubuntu, 1rem, 112%, 0.02em, 700, null);
   border-radius: 0.5rem;
   border: none;
+  cursor: pointer;
   &[disabled] {
     background-color: rgba(119, 150, 192, 1);
+    cursor: not-allowed;
   }
 }
 

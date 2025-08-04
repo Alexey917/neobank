@@ -1,7 +1,7 @@
-import React, { FC, useState, useRef, useEffect, FormEvent } from 'react';
+import React, { FC, useState, useRef, useEffect } from 'react';
 import { sendCode } from '../../API/api';
-import { store } from '../../redux/features/tabs/store';
-import { checkStatus } from '../../redux/features/tabs/statusThunks';
+import { store } from '../../redux/features/store';
+import { checkStatus } from '../../redux/features/steps/statusThunks';
 import { Loader } from '../UI/Loader/Loader';
 
 import classes from './LoanCode.module.scss';

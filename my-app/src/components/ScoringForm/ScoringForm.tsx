@@ -9,8 +9,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { Loader } from '../UI/Loader/Loader';
 import { usePostRequest } from '../../hooks/usePostRequest';
 import { sendScoring } from '../../API/api';
-import { store } from '../../redux/features/tabs/store';
-import { checkStatus } from '../../redux/features/tabs/statusThunks';
+import { store } from '../../redux/features/store';
+import { checkStatus } from '../../redux/features/steps/statusThunks';
 
 import classes from './ScoringForm.module.scss';
 

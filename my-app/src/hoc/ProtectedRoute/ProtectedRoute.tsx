@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { RootState } from '../../redux/features/tabs/store';
+import { RootState } from '../../redux/features/store';
 import { Loader } from '../../components/UI/Loader/Loader';
 import { ReactNode } from 'react';
 import { useParams } from 'react-router-dom';
-import { STEP_ORDER, stepId } from '../../redux/features/tabs/type';
+import { STEP_ORDER, stepId } from '../../redux/features/steps/type';
 
 import classes from './ProtectedRoute.module.scss';
 

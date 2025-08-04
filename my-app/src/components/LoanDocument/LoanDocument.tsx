@@ -5,8 +5,8 @@ import { Checkbox } from '../UI/CheckBox/Checkbox';
 import { Table } from '../UI/Table/Table';
 import { ILoanDocument } from 'src/types/types';
 import { sendDocument } from '../../API/api';
-import { store } from '../../redux/features/tabs/store';
-import { checkStatus } from '../../redux/features/tabs/statusThunks';
+import { store } from '../../redux/features/store';
+import { checkStatus } from '../../redux/features/steps/statusThunks';
 
 import classes from './LoanDocument.module.scss';
 import { ModalWindow } from '../UI/ModalWindow/ModalWindow';

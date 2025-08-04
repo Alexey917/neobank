@@ -5,7 +5,7 @@ import classes from './Message.module.scss';
 import { CustomButton } from '../UI/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { switchStep } from '../../redux/features/tabs/tabSlice';
+import { switchStep } from '../../redux/features/steps/stepSlice';
 
 interface IMessage {
   title: string;

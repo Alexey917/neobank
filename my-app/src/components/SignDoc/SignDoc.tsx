@@ -2,8 +2,8 @@ import React, { FC, useState } from 'react';
 import { CustomButton } from '../UI/CustomButton/CustomButton';
 import { CustomLabel } from '../UI/CustomLabel/CustomLabel';
 import { Checkbox } from '../UI/CheckBox/Checkbox';
-import { store } from '../../redux/features/tabs/store';
-import { checkStatus } from '../../redux/features/tabs/statusThunks';
+import { store } from '../../redux/features/store';
+import { checkStatus } from '../../redux/features/steps/statusThunks';
 import { signDocument } from '../../API/api';
 import { Loader } from '../UI/Loader/Loader';
 

@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { store, persistor } from '../src/redux/features/tabs/store';
+import { store, persistor } from './redux/features/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import './index.css';

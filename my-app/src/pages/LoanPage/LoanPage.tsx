@@ -3,12 +3,12 @@ import { CreditCardDetails } from '../../components/creditCardDetails/creditCard
 import { CreditCard } from '../../components/CreditCard/CreditCard';
 import { HowToGet } from '../../components/HowToGet/HowToGet';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/features/tabs/store';
+import { getStep } from '../../redux/features/store';
 
 import classes from './LoanPage.module.scss';
 
 export const LoanPage = () => {
-  const activeStep = useSelector((state: RootState) => state.steps.activeStep);
+  const { activeStep } = useSelector(getStep);
   const formRef = useRef<HTMLFormElement>(null);
   const offerRef = useRef<HTMLElement>(null);
   const checkEmailRef = useRef<HTMLElement>(null);

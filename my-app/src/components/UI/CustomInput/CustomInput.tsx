@@ -30,7 +30,6 @@ export const CustomInput: FC<ICustomInput> = ({
   id,
   register,
   svgError,
-  svgSuccess,
   required = false,
 }) => {
   return (

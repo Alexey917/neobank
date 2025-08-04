@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { FooterItem } from '../FooterItem/FooterItem';
 
 import classes from './Footer.module.scss';
 import neoLogo from '../../assets/images/neoLogo.png';

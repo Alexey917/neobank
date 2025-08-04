@@ -4,9 +4,9 @@ import { getSchedule } from '../../API/api';
 import { ISchedule } from '../../types/types';
 import { Loader } from '../../components/UI/Loader/Loader';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/features/tabs/store';
 import { Message } from '../../components/Message/Message';
-import { STEP_ORDER } from '../../redux/features/tabs/type';
+import { STEP_ORDER } from '../../redux/features/steps/type';
+import { getStep } from '../../redux/features/store';
 
 import classes from './LoanDocPage.module.scss';
 
@@ -15,7 +15,7 @@ export const LoanDocPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const { activeStep } = useSelector((state: RootState) => state.steps);
+  const { activeStep } = useSelector(getStep);
 
   const getData = async () => {
     try {

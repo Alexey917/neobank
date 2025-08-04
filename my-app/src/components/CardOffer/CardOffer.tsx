@@ -7,8 +7,8 @@ import classes from './CardOffer.module.scss';
 import { CustomButton } from '../UI/CustomButton/CustomButton';
 import { IOffer } from '../../types/types';
 import { selectedOffer } from '../../API/api';
-import { store } from '../../redux/features/tabs/store';
-import { checkStatus } from '../../redux/features/tabs/statusThunks';
+import { store } from '../../redux/features/store';
+import { checkStatus } from '../../redux/features/steps/statusThunks';
 
 interface ICardOffer {
   item: IOffer;
@@ -100,7 +100,7 @@ export const CardOffer: FC<ICardOffer> = ({ item }) => {
         </li>
       </ul>
       <CustomButton
-        text="select"
+        text="Select"
         variant="primary"
         paddings="pSelect"
         onClick={selectOffer}

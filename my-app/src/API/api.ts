@@ -71,14 +71,12 @@ export const subscribeApi: AxiosInstance | null = import.meta.env
     })
   : null;
 
-export const getSubscription = async () => {
+export const getSubscription = async (email: string) => {
   if (!newsApi) {
     throw new Error();
   }
 
-  const response = await newsApi?.get(
-    `/v2/top-headlines/business/country/${import.meta.env.VITE_NEWS_KEY}`,
-  );
+  const response = await newsApi?.post('', email);
 
   return response;
 };

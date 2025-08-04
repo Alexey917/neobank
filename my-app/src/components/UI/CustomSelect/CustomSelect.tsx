@@ -40,11 +40,7 @@ export const CustomSelect: FC<ICustomSelect> = ({
       >
         {!defaultValue && <option value="" hidden></option>}
         {options.map((option) => (
-          <option
-            key={option.key}
-            value={option.key}
-            // aria-selected={option.value}
-          >
+          <option key={option.key} value={option.key}>
             {option.value}
           </option>
         ))}

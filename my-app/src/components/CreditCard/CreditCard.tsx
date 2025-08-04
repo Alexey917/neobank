@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { CreditCardFeature } from '../CreditCardFeature/CreditCardFeature';
 import { CustomButton } from '../UI/CustomButton/CustomButton';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/features/tabs/store';
+import { RootState } from '../../redux/features/store';
 
 import classes from './CreditCard.module.scss';
 import creditCardImg from '../../assets/images/creditCard.webp';

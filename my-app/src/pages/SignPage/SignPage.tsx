@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SignDoc } from '../..//components/SignDoc/SignDoc';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/features/tabs/store';
+import { getStep } from '../../redux/features/store';
 import { Message } from '../../components/Message/Message';
-import { STEP_ORDER } from '../../redux/features/tabs/type';
+import { STEP_ORDER } from '../../redux/features/steps/type';
 
 import classes from './SignPage.module.scss';
 
 export const SignPage = () => {
-  const { activeStep } = useSelector((state: RootState) => state.steps);
+  const { activeStep } = useSelector(getStep);
 
   return (
     <main className={classes.main} aria-labelledby="loan-document-title">

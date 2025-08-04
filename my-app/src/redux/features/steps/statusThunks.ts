@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { applicationStatus } from '../../../API/api';
-import { switchStep } from './tabSlice';
+import { switchStep } from '../steps/stepSlice';
 
 export const checkStatus = createAsyncThunk(
   'status/check',

@@ -9,12 +9,12 @@ import { CustomSelect } from '../UI/CustomSelect/CustomSelect';
 import { Divider } from '../UI/Divider/Divider';
 import { DATA_FORM } from '../../consts/consts';
 import { usePostRequest } from '../../hooks/usePostRequest';
-import { sendCustomizeForm, applicationStatus } from '../../API/api';
-import { ISendData, ICustomizeOptions } from '../../types/types';
+import { sendCustomizeForm } from '../../API/api';
+import { ISendData } from '../../types/types';
 import { convertToRegisterOptions } from '../../utils/converterToRegisterOptions';
 import { Loader } from '../UI/Loader/Loader';
-import { store } from '../../redux/features/tabs/store';
-import { checkStatus } from '../../redux/features/tabs/statusThunks';
+import { store } from '../../redux/features/store';
+import { checkStatus } from '../../redux/features/steps/statusThunks';
 
 import classes from './CustomizeCardForm.module.scss';
 

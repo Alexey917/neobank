@@ -1,5 +1,6 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import { tabsReducer, stepsReducer } from './tabSlice';
+import { stepsReducer } from './steps/stepSlice';
+import { tabsReducer } from './tabs/tabSlice';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // Использует localStorage
 
@@ -22,6 +23,9 @@ export const store = configureStore({
       serializableCheck: false, // Отключаем проверку для redux-persist
     }),
 });
+
+export const getStep = (state: RootState) => state.steps;
+export const getTab = (state: RootState) => state.tabs;
 
 export const persistor = persistStore(store); // Для PersistGate
 export type RootState = ReturnType<typeof store.getState>;

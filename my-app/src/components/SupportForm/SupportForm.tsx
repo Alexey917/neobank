@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { useEmailValidation } from '../../hooks/useEmailValidation';
-import { usePostRequest } from '../../hooks/usePostRequest';
-import { getNews } from '../../API/api';
+import { getSubscription } from '../../API/api';
 import { AxiosResponse } from 'axios';
 
 import classes from './Support.module.scss';
@@ -18,11 +17,10 @@ export const SupportForm: FC<ISupportFrom> = ({
   axiosPost,
 }) => {
   const { emailValidation, errorLabel, canSend, value } = useEmailValidation();
-  // const { axiosPost } = usePostRequest();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await axiosPost(getNews, { email: value });
+    const response = await getSubscription(value);
 
     if (response?.status === 200) {
       setIsSubscribed(true);
