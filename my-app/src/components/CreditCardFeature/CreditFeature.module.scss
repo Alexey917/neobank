@@ -1,0 +1,57 @@
+@use '../../styles/App.scss' as *;
+
+.creditCard {
+  &__listItem {
+    margin: 0 0 2.25rem 0;
+    position: relative;
+  }
+
+  &__listItemTitle {
+    margin: 0 0 0.5625rem 0;
+    @include text-properties(
+      Ubuntu,
+      1.25rem,
+      112%,
+      0.02em,
+      700,
+      rgba(61, 61, 61, 1)
+    );
+  }
+
+  &__listItemText {
+    @include text-properties(
+      Ubuntu,
+      1rem,
+      112%,
+      0.02em,
+      500,
+      rgba(61, 61, 61, 1)
+    );
+  }
+}
+
+@media (hover: hover) {
+  .creditCard__listItem:hover {
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 920px) {
+  .creditCard {
+    &__listItemTitle {
+      text-align: center;
+    }
+
+    &__listItemText {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .creditCard {
+    &__listItemTitle {
+      font-size: 1rem;
+    }
+  }
+}

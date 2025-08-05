@@ -1,0 +1,23 @@
+@use '../../styles/App.scss' as *;
+
+.details {
+  @include container();
+}
+
+@media (max-width: 1300px) {
+  .details {
+    @include container(57.5rem);
+  }
+}
+
+@media (max-width: 920px) {
+  .details {
+    @include container(31.25rem);
+  }
+}
+
+@media (max-width: 500px) {
+  .details {
+    @include container(20rem);
+  }
+}

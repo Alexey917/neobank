@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useFormatDate } from '../hooks/useFormatDate';
-import { newsApi } from '../API/api';
+import { getNews } from '../API/api';
 import { filterNews } from '../utils/filterNews';
 import { UPDATE_INTERVAL } from './useFetchCurrencies';
 
@@ -24,15 +24,12 @@ export const useFetchNews = () => {
     const fetchNews = async (quantity: string) => {
       try {
         setLoading(true);
-        const response = await newsApi?.get('', {
-          params: {
-            pageSize: quantity,
-            from: date,
-          },
+        const response = await getNews({
+          category: 'business',
+          country: 'us',
+          pageSize: '35',
         });
-        console.log(response?.data.articles.length);
         const validNews = await filterNews(response?.data.articles);
-        console.log(validNews.length);
         setNews(validNews);
       } catch (err) {
         setError('Failed to fetch news');

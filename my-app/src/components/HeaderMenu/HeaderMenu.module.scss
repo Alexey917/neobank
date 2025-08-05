@@ -14,8 +14,6 @@
   }
 }
 
-@include buttonLink(inline-flex);
-
 .button_text {
   @include text-properties(Ubuntu, 16px, 112%, 0.02em, 700, #ffffff);
 }

@@ -1,0 +1,91 @@
+@use '../../../styles/App.scss' as *;
+
+.modal {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    z-index: 20;
+  }
+
+  &__content {
+    position: fixed;
+    padding: 1rem;
+    width: 28rem;
+    height: 10.875rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 30;
+  }
+
+  &__btn {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: rgba(51, 54, 63, 1);
+  }
+
+  &__titleWrapper {
+    @include flex-properties(flex, row, space-between, null, null);
+  }
+
+  &__title {
+    @include text-properties(
+      Ubuntu,
+      1rem,
+      147%,
+      0.02em,
+      700,
+      rgba(28, 28, 30, 1)
+    );
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    @include text-properties(
+      Ubuntu,
+      1rem,
+      147%,
+      0.02em,
+      500,
+      rgba(28, 28, 30, 1)
+    );
+    margin: 0;
+  }
+
+  &__buttonsWrapper {
+    margin-top: 2.1875rem;
+    @include flex-properties(flex, row, flex-end, null, 2.5rem);
+  }
+}
+
+@media (max-width: 500px) {
+  .modal {
+    &__content {
+      width: 20rem;
+      height: 12.625rem;
+    }
+
+    &__text {
+      text-align: center;
+    }
+
+    &__buttonsWrapper {
+      justify-content: center;
+    }
+  }
+}

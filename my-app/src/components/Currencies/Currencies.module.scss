@@ -122,6 +122,11 @@
     );
     margin-right: 32rem;
   }
+
+  &__error {
+    @include text-properties(Ubuntu, 1rem, 127%, null, 700, red);
+    margin-bottom: 0.5rem;
+  }
 }
 
 @media (hover: hover) {
@@ -146,6 +151,11 @@
 
     &__btn {
       align-self: center;
+    }
+
+    &__converterTitle,
+    &__error {
+      text-align: center;
     }
   }
 }
@@ -189,6 +199,10 @@
 
     &__rate {
       margin-right: 0;
+    }
+
+    &__error {
+      font-size: 0.8rem;
     }
   }
 }

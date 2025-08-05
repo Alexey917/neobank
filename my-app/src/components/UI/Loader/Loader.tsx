@@ -1,7 +1,7 @@
 import spinner from '../../../assets/sprite.svg';
-import classes from './Spinner.module.scss';
+import classes from './Loader.module.scss';
 
-export const Spinner = () => {
+export const Loader = () => {
   return (
     <>
       <svg className={classes.spinner} width="70px" height="70px">

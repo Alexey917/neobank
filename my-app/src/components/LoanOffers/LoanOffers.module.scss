@@ -1,0 +1,14 @@
+@use '../../styles/App.scss' as *;
+
+.loanOffer {
+  @include flex-properties(flex, row, space-between, null, 2.5rem);
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+}
+
+@media (max-width: 1300px) {
+  .loanOffer {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

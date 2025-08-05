@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { OnlineBank } from '../UI/OnlineBank/OnlineBank';
+import { CustomLink } from '../UI/CustomLink/CustomLink';
 import { ChooseCardImage } from '../ChooseCardImage/ChooseCardImage';
 
 import classes from './Choose.module.scss';
@@ -14,13 +14,14 @@ export const ChooseCard: FC = () => {
         <h1 className={classes.chooseCard__title} id="chooseCard-heading">
           Choose the design you like and apply for card right now
         </h1>
-        <OnlineBank
+        <CustomLink
           aria-label="Choose a card in online bank"
           to="chooseCard"
-          className={classes.link}
+          variant="primary"
+          paddings="pPrimary"
         >
           <span className={classes.button_text}>Choose the card</span>
-        </OnlineBank>
+        </CustomLink>
       </article>
 
       <ChooseCardImage />

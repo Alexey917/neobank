@@ -1,9 +1,12 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { CustomButton } from '../../components/UI/CustomButton/CustomButton';
 
 import oops from '../../assets/images/Oops.webp';
-import classes from './PageNotFound.module.scss';
+import classes from './NotFoundPage.module.scss';
 
-export const PageNotFound = () => {
+export const NotFoundPage = () => {
+  const navigate = useNavigate();
+
   return (
     <section className={classes.notFound}>
       <article className={classes.notFound__info}>
@@ -15,13 +18,12 @@ export const PageNotFound = () => {
         <p className={classes.notFound__text}>
           This Page doesn`t exist or was removed! We suggest you go back.
         </p>
-        <Link
-          to="/"
-          className={classes.notFound__goBack}
-          aria-label="Return to homepage"
-        >
-          Go back
-        </Link>
+        <CustomButton
+          text="Go back"
+          paddings="pBack"
+          variant="primary"
+          onClick={() => navigate(-1)}
+        />
       </article>
       <figure className={classes.notFound__imgWrapper}>
         <img

@@ -1,0 +1,131 @@
+@use '../../styles/App.scss' as *;
+
+.creditCard {
+  @include container();
+  @include flex-properties(flex, row, space-between, null, 7.6094rem);
+  box-shadow: 0rem 0.125rem 0.25rem 0rem rgba(0, 0, 0, 0.2),
+    0rem 0rem 0.5rem 0rem rgba(0, 0, 0, 0.08);
+  border-radius: 1.8125rem;
+  padding: 3.1875rem 7.25rem 2.8125rem 2rem;
+  margin-top: 1.0625rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(
+    180.8deg,
+    rgba(203, 213, 224, 0.624) 34.33%,
+    rgba(254, 235, 200, 0.56) 64.27%
+  );
+  &__info {
+    @include flex-properties(flex, column, null, null, null);
+  }
+
+  &__title {
+    margin: 0 0 3rem 0;
+    @include text-properties(
+      Ubuntu,
+      3rem,
+      100%,
+      0.02em,
+      700,
+      rgba(255, 255, 255, 1)
+    );
+  }
+
+  &__text {
+    width: 32.1875rem;
+    margin: 0 0 2rem 0;
+    @include text-properties(
+      Ubuntu,
+      1rem,
+      112%,
+      0.02em,
+      500,
+      rgba(45, 55, 72, 1)
+    );
+  }
+
+  &__list {
+    @include list-style(none, 0, 0);
+    @include flex-properties(flex, row, null, null, 5rem);
+  }
+
+  &__imgWrapper {
+    margin: 0;
+  }
+
+  &__img {
+    margin-top: 1.9375rem;
+    width: 23.75rem;
+    height: 14.125rem;
+  }
+}
+
+.rotate_img {
+  transform: rotate(10deg);
+}
+
+@media (max-width: 1300px) {
+  .creditCard {
+    @include container(57.5rem);
+    @include flex-properties(flex, column-reverse, space-between, center, 50px);
+    padding: 3.1875rem 2rem 2.8125rem 2rem;
+    margin-top: 1.0625rem;
+    margin-bottom: 3rem;
+
+    &__text,
+    &__list {
+      align-self: center;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .creditCard {
+    @include container(31.25rem);
+    margin-top: 1.0625rem;
+    margin-bottom: 3rem;
+
+    &__title {
+      text-align: center;
+      font-size: 2.3rem;
+      line-height: 127%;
+    }
+
+    &__text {
+      text-align: center;
+      width: 27.25rem;
+      line-height: 127%;
+    }
+
+    &__img {
+      width: 21.75rem;
+      height: 13.125rem;
+    }
+
+    &__list {
+      @include flex-properties(flex, column, null, null, 0.625rem);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .creditCard {
+    @include container(20.125rem);
+    margin-top: 1.0625rem;
+    margin-bottom: 3rem;
+    gap: 1.875rem;
+
+    &__title {
+      font-size: 1.3rem;
+    }
+
+    &__text {
+      width: 14.75rem;
+      line-height: 127%;
+    }
+
+    &__img {
+      width: 16rem;
+      height: 10.125rem;
+    }
+  }
+}

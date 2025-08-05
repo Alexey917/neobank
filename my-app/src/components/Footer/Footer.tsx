@@ -1,9 +1,22 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { FooterItem } from '../FooterItem/FooterItem';
 
 import classes from './Footer.module.scss';
 import neoLogo from '../../assets/images/neoLogo.png';
+import { CustomLink } from '../UI/CustomLink/CustomLink';
+
+const LINKS = {
+  'About bank': '/about',
+  'Ask a Question': '/questions',
+  'Quality of service': '/quality',
+  'Requisites': '/requisites',
+  'Press center': '/press',
+  'Bank career': '/career',
+  'Investors': '/investors',
+  'Analytics': '/analytics',
+  'Business and processes': '/business',
+  'Compliance and business ethics': '/compliance',
+};
 
 export const Footer: FC = () => {
   return (
@@ -28,18 +41,13 @@ export const Footer: FC = () => {
         </div>
         <nav>
           <ul className={classes.footer__list}>
-            <FooterItem to="about">About bank</FooterItem>
-            <FooterItem to="faq">Ask a Question</FooterItem>
-            <FooterItem to="quality">Quality of service</FooterItem>
-            <FooterItem to="requisites">Requisites</FooterItem>
-            <FooterItem to="press">Press center</FooterItem>
-            <FooterItem to="careers">Bank career</FooterItem>
-            <FooterItem to="investors">Investors</FooterItem>
-            <FooterItem to="analytics">Analytics</FooterItem>
-            <FooterItem to="business">Business and processes</FooterItem>
-            <FooterItem to="compliance">
-              Compliance and business ethics
-            </FooterItem>
+            {Object.entries(LINKS).map(([key, value]) => (
+              <li key={key}>
+                <CustomLink to={value} variant="footer" paddings="pNav">
+                  {key}
+                </CustomLink>
+              </li>
+            ))}
           </ul>
         </nav>
         <hr className={classes.footer__separator} aria-hidden="true" />

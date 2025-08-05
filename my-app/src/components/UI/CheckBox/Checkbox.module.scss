@@ -1,0 +1,29 @@
+@use '../../../styles/App.scss' as *;
+
+.wrapper {
+  display: flex;
+}
+
+input[type='checkbox'] {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.125rem;
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid rgba(128, 128, 128, 1);
+  &:checked {
+    border-color: rgba(0, 60, 255, 1);
+    background-color: rgba(0, 60, 255, 1);
+    position: relative;
+
+    &::after {
+      content: '✓';
+      position: absolute;
+      color: white;
+      font-size: 0.875rem;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

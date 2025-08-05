@@ -1,16 +1,14 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
+import { usePostRequest } from '../../hooks/usePostRequest';
+
+import { Loader } from '../UI/Loader/Loader';
 
 import classes from './Support.module.scss';
-import sprite from '../../assets/sprite.svg';
-import { useEmailValidation } from '../../hooks/useEmailValidation';
+import { SupportForm } from '../SupportForm/SupportForm';
 
 export const Support: FC = () => {
-  const { emailValidation, errorLabel, canSend } = useEmailValidation();
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    alert('You are now subscribed to the newsletter.');
-  };
+  const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
+  const { axiosPost, loading, error } = usePostRequest();
 
   return (
     <section className={classes.support} aria-labelledby="support-heading">
@@ -22,43 +20,31 @@ export const Support: FC = () => {
         <br />
         <span className={classes.support__textSpan}>Bank News</span>
       </p>
-      <form action="#" noValidate name="subscribe" onSubmit={handleSubmit}>
-        <fieldset
-          className={classes.support__fieldset}
-          aria-describedby="email-hint"
+      {loading ? (
+        <div
+          aria-label="send email"
+          aria-busy="true"
+          className={classes.support__spinner_wrapper}
         >
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            aria-required="true"
-            placeholder=" "
-            className={classes.support__input}
-            onChange={emailValidation}
+          <Loader />
+        </div>
+      ) : error ? (
+        <div>
+          <SupportForm
+            setIsSubscribed={setIsSubscribed}
+            axiosPost={axiosPost}
           />
-          <label htmlFor="email" className={classes.support__label}>
-            <svg className={classes.support__emailIcon} aria-hidden="true">
-              <use href={`${sprite}#email`}></use>
-            </svg>
-            <span className={classes.support__emailPlaceholder}>
-              Your email
-            </span>
-          </label>
-          <span className={classes.support__errorLabel}>{errorLabel}</span>
-          <button
-            type="submit"
-            className={classes.support__btn}
-            aria-label="Subscribe to newsletter"
-            disabled={canSend}
-          >
-            <svg className={classes.support__letterIcon} aria-hidden="true">
-              <use href={`${sprite}#letter`}></use>
-            </svg>
-            <span className={classes.button_text}>Subscribe</span>
-          </button>
-        </fieldset>
-      </form>
+          <div className={classes.support__error} role="alert">
+            {error}
+          </div>
+        </div>
+      ) : localStorage.getItem('subscribed_email') ? (
+        <p className={classes.support__subscribe}>
+          {localStorage.getItem('subscribed_email')}
+        </p>
+      ) : (
+        <SupportForm setIsSubscribed={setIsSubscribed} axiosPost={axiosPost} />
+      )}
     </section>
   );
 };

@@ -1,0 +1,131 @@
+@use '../../styles//App.scss' as *;
+
+.formSign {
+  @include container();
+  margin-top: 6.5rem;
+  margin-bottom: 6.0625rem;
+  background-color: transparent;
+
+  &__legendWrapper {
+    @include flex-properties(flex, row, null, null, 7.5rem);
+    margin-bottom: 2rem;
+  }
+
+  &__legend {
+    @include text-properties(
+      Ubuntu,
+      1.875rem,
+      147%,
+      0.02em,
+      700,
+      rgba(28, 28, 30, 1)
+    );
+  }
+
+  &__step {
+    @include text-properties(Ubuntu, 1rem, 147%, 0.02em, 500, rgba(0, 0, 0, 1));
+    margin: 0;
+    margin-top: 0.5625rem;
+  }
+
+  &__text {
+    @include text-properties(Ubuntu, 1.25rem, 112%, null, 500, #4f5665);
+    margin-bottom: 2rem;
+  }
+
+  &__pdf {
+    padding: 0;
+    @include flex-properties(flex, row, null, center, 0.75rem);
+    background-color: transparent;
+    border: none;
+  }
+
+  &__iconPdf {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+
+  &__pdfText {
+    @include text-properties(Ubuntu, 1.25rem, 112%, null, 500, #000000);
+  }
+
+  &__footer {
+    @include flex-properties(flex, row, flex-end, center, null);
+    margin-top: 2.7188rem;
+  }
+
+  &__sendGroup {
+    @include flex-properties(flex, row, null, center, 5rem);
+  }
+
+  &__inputGroup {
+    @include flex-properties(flex, row-reverse, null, center, 1rem);
+  }
+}
+
+.spinner {
+  @include flex-properties(flex, row, center, center, null);
+  margin-bottom: 3rem;
+}
+
+.error {
+  text-align: center;
+  @include text-properties(Ubuntu, 1rem, 147%, null, 500, #ff5631);
+}
+
+@media (max-width: 1300px) {
+  .formSign {
+    @include container(57.5rem);
+    margin-top: 6.5rem;
+    margin-bottom: 6.0625rem;
+  }
+}
+
+@media (max-width: 920px) {
+  .formSign {
+    @include container(31.25rem);
+    margin-top: 6.5rem;
+    margin-bottom: 6.0625rem;
+
+    &__legend {
+      font-size: 1.3rem;
+    }
+
+    &__iconPdf {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    &__footer,
+    &__pdf {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .formSign {
+    @include container(20rem);
+    margin-top: 6.5rem;
+    margin-bottom: 6.0625rem;
+
+    &__pdfText {
+      font-size: 1rem;
+    }
+
+    &__legend,
+    &__step,
+    &__text {
+      text-align: center;
+    }
+
+    &__legendWrapper {
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    &__sendGroup {
+      gap: 4rem;
+    }
+  }
+}

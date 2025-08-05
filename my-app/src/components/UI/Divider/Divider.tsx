@@ -1,0 +1,43 @@
+import { FC } from 'react';
+import classes from './Divider.module.scss';
+
+type DividerOrientation = 'horizontal' | 'vertical';
+type DividerVariant = 'solid' | 'dashed';
+type DividerColor = 'grey' | 'blue-grey' | 'grey-dashed';
+type DividerType = 'tabs' | 'howTo' | 'rates' | 'form';
+
+interface IDividerProps {
+  width: number;
+  thickness: number;
+  orientation: DividerOrientation;
+  variant: DividerVariant;
+  color: DividerColor;
+  type: DividerType;
+}
+
+export const Divider: FC<IDividerProps> = ({
+  width,
+  thickness,
+  orientation,
+  variant,
+  color,
+  type,
+}) => {
+  return (
+    <div
+      className={`${orientation === 'vertical' ? classes.borderVertical : ''} ${
+        classes[type]
+      }`}
+      style={{
+        height: orientation === 'vertical' ? `${width}rem` : 0,
+        borderBottom: `${thickness}rem ${variant} ${
+          color === 'grey'
+            ? 'rgba(128, 128, 128, 0.2)'
+            : color === 'grey-dashed'
+            ? 'rgba(128, 128, 128, 0.4)'
+            : 'rgba(127, 146, 172, 1)'
+        }`,
+      }}
+    ></div>
+  );
+};

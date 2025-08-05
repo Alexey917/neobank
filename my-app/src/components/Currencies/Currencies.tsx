@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Spinner } from '../UI/Spinner/Spinner';
+import { Loader } from '../UI/Loader/Loader';
 import { useFetchCurrencies } from '../../hooks/useFetchCurrencies';
 
 import classes from './Currencies.module.scss';
@@ -20,11 +20,14 @@ export const Currencies: FC = () => {
         <article className={classes.currencies__converter}>
           <h4 className={classes.currencies__converterTitle}>Currency</h4>
           {isLoading ? (
-            <div aria-label="Loading currency rates">
-              <Spinner />
+            <div
+              aria-label="Loading currency rates"
+              className={classes.currencies__spinner}
+            >
+              <Loader />
             </div>
           ) : error ? (
-            <div className={classes.error}>{error}</div>
+            <div className={classes.currencies__error}>{error}</div>
           ) : (
             <ul
               className={classes.currencies__list}

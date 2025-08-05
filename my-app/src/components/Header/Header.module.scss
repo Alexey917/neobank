@@ -2,7 +2,7 @@
 
 .header {
   @include container();
-  padding: 0.4375rem 0;
+  padding: 1.25rem 0;
 
   &__list {
     @include flex-properties(flex, null, space-between, center, null);
@@ -47,8 +47,6 @@
   }
 }
 
-@include buttonLink(inline-flex);
-
 .button_text {
   @include text-properties(Ubuntu, 16px, 112%, 0.02em, 700, #ffffff);
 }
@@ -77,8 +75,6 @@
       display: flex;
     }
   }
-
-  @include buttonLink(none);
 }
 
 @media (max-width: 500px) {

@@ -1,0 +1,125 @@
+@use '../../styles/App' as *;
+
+.how {
+  @include container();
+  margin-bottom: 6rem;
+  margin-top: 3rem;
+
+  &__title {
+    @include text-properties(
+      Ubuntu,
+      1.875rem,
+      147%,
+      null,
+      700,
+      rgba(0, 0, 0, 1)
+    );
+    text-align: center;
+    margin-bottom: 0.875rem;
+    margin-top: 0;
+  }
+
+  &__steps {
+    @include flex-properties(flex, row, space-between, center, 3.5rem);
+  }
+
+  &__stepMap {
+    @include flex-properties(flex, column, center, center, 1.25rem);
+  }
+
+  &__stepMap_1 {
+    width: 20.875rem;
+  }
+
+  &__stepMap_2 {
+    width: 24.0625rem;
+  }
+
+  &__stepMap_3 {
+    width: 26.1875rem;
+  }
+
+  &__stepNumWrapper {
+    @include flex-properties(flex, row, null, center, 2.25rem);
+  }
+
+  &__stepNum {
+    @include flex-properties(flex, row, center, center, null);
+    @include text-properties(
+      Ubuntu,
+      1.25rem,
+      147%,
+      null,
+      700,
+      rgba(0, 0, 0, 1)
+    );
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3.125rem;
+    background-color: rgba(217, 217, 217, 1);
+  }
+
+  &__stepInfo {
+    @include text-properties(Ubuntu, 1rem, 147%, null, 500, rgba(0, 0, 0, 1));
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.spinner {
+  @include flex-properties(flex, row, center, center, null);
+  margin-bottom: 3rem;
+}
+
+.error {
+  text-align: center;
+  @include text-properties(Ubuntu, 1rem, 147%, null, 500, #ff5631);
+}
+
+@media (max-width: 1300px) {
+  .how {
+    @include container(57.5rem);
+
+    &__stepMap_1,
+    &__stepMap_2,
+    &__stepMap_3 {
+      width: 260px;
+    }
+
+    &__steps {
+      align-items: flex-start;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .how {
+    @include container(31.25rem);
+
+    &__steps {
+      margin-top: 1rem;
+      @include flex-properties(flex, column, null, center, 2.5rem);
+    }
+
+    &__stepNum {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .how {
+    @include container(20rem);
+
+    &__title {
+      font-size: 1.3rem;
+    }
+
+    &__stepNum {
+      font-size: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}

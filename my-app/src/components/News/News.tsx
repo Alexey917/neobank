@@ -4,7 +4,7 @@ import { useFetchNews } from '../../hooks/useFetchNews';
 import { NewsItem } from '../NewsItem/NewsItem';
 import { useSlider } from '../../hooks/useSlider';
 import { useAdaptiveSlider } from '../../hooks/useAdaptiveSlider';
-import { Spinner } from '../UI/Spinner/Spinner';
+import { Loader } from '../UI/Loader/Loader';
 
 import classes from './News.module.scss';
 
@@ -34,16 +34,16 @@ export const News: FC = () => {
         <div
           aria-label="Loading news"
           aria-busy="true"
-          className={classes.spinner_wrapper}
+          className={classes.news__spinner_wrapper}
         >
-          <Spinner />
+          <Loader />
         </div>
       ) : error ? (
-        <div className={classes.error} role="alert">
+        <div className={classes.news__error} role="alert">
           {error}
         </div>
       ) : news.length === 0 ? (
-        <div className={classes.empty}>No news available</div>
+        <div className={classes.news__empty}>No news available</div>
       ) : (
         <ul
           className={classes.news__sliderWrapper}

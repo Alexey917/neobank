@@ -1,0 +1,46 @@
+@use '../../styles/App' as *;
+
+.cashback {
+  @include flex-properties(flex, row, null, null, 40px);
+  flex-wrap: wrap;
+  margin-top: 49px;
+
+  &__wrapper {
+    flex-basis: 406px;
+    padding: 37px 32px 32px 32px;
+    background-color: rgba(234, 236, 238, 1);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2),
+      0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+
+    border-radius: 28px;
+  }
+
+  &__wrapper_1,
+  &__wrapper_3,
+  &__wrapper_5 {
+    background-color: rgba(136, 179, 184, 0.6);
+  }
+
+  &__title {
+    @include text-properties(
+      Ubuntu,
+      16px,
+      147%,
+      null,
+      500,
+      rgba(67, 67, 67, 0.9)
+    );
+    margin: 0 0 22px 0;
+  }
+
+  &__text {
+    @include text-properties(Ubuntu, 36px, 147%, null, 700, rgba(0, 0, 0, 1));
+    margin: 0;
+  }
+}
+
+@media (max-width: 1300px) {
+  .cashback {
+    @include flex-properties(flex, row, center, null, 40px);
+  }
+}

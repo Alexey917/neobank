@@ -1,0 +1,143 @@
+@use '../../../styles/App.scss' as *;
+
+.primary {
+  background-color: rgba(249, 245, 227, 1);
+  padding: 0.75rem 1rem;
+  border: 0.0625rem solid rgba(128, 128, 128, 0.2);
+  @include text-properties(Ubuntu, 1rem, 100%, null, 400, rgba(0, 0, 0, 1));
+  border-radius: 0.375rem;
+
+  &:focus {
+    // border: 0.125rem solid rgba(91, 53, 213, 1);
+    outline: 0.125rem solid rgba(91, 53, 213, 1);
+  }
+}
+
+.amount {
+  padding: 0;
+  padding-bottom: 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(0, 0, 0, 1));
+  outline: none;
+
+  &[focus] {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.checkbox {
+  height: 1.25rem;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Для Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.error {
+  border: 0.125rem solid rgba(255, 86, 49, 1);
+
+  &:focus {
+    outline: 0.125rem solid rgba(255, 86, 49, 1);
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: -10px;
+    margin-right: -130.5px;
+    width: 18px;
+    height: 18px;
+    z-index: 2;
+  }
+
+  &__iconL {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: -10px;
+    margin-right: -288px;
+    width: 18px;
+    height: 18px;
+    z-index: 2;
+  }
+
+  &__iconM {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: -10px;
+    margin-right: -184.5px;
+    width: 18px;
+    height: 18px;
+    z-index: 2;
+  }
+}
+
+.ok__icon {
+  position: absolute;
+  display: none; // По умолчанию скрыта
+  top: 50%;
+  right: 50%;
+  margin-top: -10px;
+  margin-right: -130.5px;
+  width: 18px;
+  height: 18px;
+}
+
+.ok__iconL {
+  position: absolute;
+  display: none; // По умолчанию скрыта
+  top: 50%;
+  right: 50%;
+  margin-top: -10px;
+  margin-right: -288px;
+  width: 18px;
+  height: 18px;
+}
+
+.ok__iconM {
+  position: absolute;
+  display: none; // По умолчанию скрыта
+  top: 50%;
+  right: 50%;
+  margin-top: -10px;
+  margin-right: -184.5px;
+  width: 18px;
+  height: 18px;
+}
+
+// Показываем иконку ошибки только когда есть ошибка
+.input.error:not(:placeholder-shown) ~ .error__icon {
+  display: flex;
+}
+
+// Показываем иконку успеха только когда нет ошибки и есть значение
+.input:not(.error):not(:placeholder-shown) ~ .ok__icon {
+  display: flex;
+}
+
+// Показываем иконку успеха только когда нет ошибки и есть значение
+.input:not(.error):not(:placeholder-shown) ~ .ok__iconL {
+  display: flex;
+}
+
+.input:not(.error):not(:placeholder-shown) ~ .ok__iconM {
+  display: flex;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+}

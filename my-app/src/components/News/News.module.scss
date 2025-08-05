@@ -37,10 +37,17 @@
     margin-bottom: 2rem;
     transition-duration: 500ms;
   }
-}
 
-.spinner_wrapper {
-  @include flex-properties(flex, null, center, center, null);
+  &__error,
+  &__empty {
+    @include text-properties(Ubuntu, 1rem, 127%, null, 700, red);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  &__spinner_wrapper {
+    @include flex-properties(flex, null, center, center, null);
+  }
 }
 
 @media (max-width: 1300px) {
@@ -81,6 +88,11 @@
 
     &__sliderWrapper {
       transform: translateX(0);
+    }
+
+    &__error,
+    &__empty {
+      font-size: 0.8rem;
     }
   }
 }

@@ -23,8 +23,6 @@
   @include text-properties(Ubuntu, 1rem, 112%, 0.02em, 700, #ffffff);
 }
 
-@include buttonLink(inline-flex);
-
 @media (max-width: 1300px) {
   .chooseCard {
     @include container(57.5rem);
@@ -52,8 +50,6 @@
       font-size: 2.3rem;
     }
   }
-
-  @include buttonLink(inline-flex);
 }
 
 @media (max-width: 500px) {

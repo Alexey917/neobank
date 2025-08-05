@@ -1,0 +1,26 @@
+@use '../../../styles/App.scss' as *;
+
+.label {
+  @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(26, 32, 44, 1));
+}
+
+.label_checkbox {
+  @include text-properties(
+    Ubuntu,
+    1.125rem,
+    100%,
+    null,
+    400,
+    rgba(26, 32, 44, 1)
+  );
+}
+
+.required {
+  @include text-properties(Ubuntu, 1rem, 100%, null, 500, rgba(255, 0, 0, 1));
+}
+
+@media (max-width: 500px) {
+  .label_checkbox {
+    font-size: 0.89rem;
+  }
+}
