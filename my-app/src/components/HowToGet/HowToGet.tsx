@@ -1,4 +1,4 @@
-import React, { FC, RefObject, useEffect, useState } from 'react';
+import React, { FC, RefObject, useEffect } from 'react';
 import { Divider } from '../UI/Divider/Divider';
 
 import classes from './HowToGet.module.scss';
@@ -7,7 +7,6 @@ import { LoanOffers } from '../LoanOffers/LoanOffers';
 import { Message } from '../Message/Message';
 import { IOffer } from '../../types/types';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/features/store';
 import { checkStatus } from '../../redux/features/steps/statusThunks';
 import { Loader } from '../UI/Loader/Loader';
 import { store } from '../../redux/features/store';
