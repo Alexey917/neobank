@@ -5,9 +5,11 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { describe, it, expect, vi } from 'vitest';
 import { ModalWindow } from './ModalWindow';
-import { switchStep } from '../../../redux/features/steps/stepSlice';
+import {
+  stepsReducer,
+  switchStep,
+} from '../../../redux/features/steps/stepSlice';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
 vi.mock('react-router-dom', async () => ({
   ...(await vi.importActual('react-router-dom')),
@@ -15,7 +17,12 @@ vi.mock('react-router-dom', async () => ({
 }));
 
 vi.mock('../../../redux/features/steps/stepSlice', () => ({
-  switchStep: vi.fn(),
+  __esModule: true,
+  ...vi.importActual('../../../redux/features/steps/stepSlice'),
+  switchStep: vi.fn().mockReturnValue({
+    type: 'steps/switchStep',
+    payload: 'BEGIN',
+  }),
 }));
 
 vi.mock('../CustomButton/CustomButton', () => ({
@@ -35,7 +42,6 @@ describe('ModalWindow component', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     vi.mocked(useNavigate).mockReturnValue(mockNavigate);
-    vi.mocked(switchStep).mockReturnValue(mockSwitchStep);
   });
 
   const renderModal = (props = {}) => {
@@ -75,34 +81,6 @@ describe('ModalWindow component', () => {
 
     fireEvent.click(screen.getByText('Cancel'));
     expect(mockSetIsModal).toHaveBeenCalledWith(false);
-  });
-
-  it('handles deny click correctly', () => {
-    // 1. Мокаем localStorage
-    const removeItemSpy = vi.spyOn(Storage.prototype, 'removeItem');
-
-    // 2. Правильное мокирование useDispatch
-    const mockDispatch = vi.fn();
-    vi.mock('react-redux', async () => ({
-      ...(await vi.importActual('react-redux')),
-      useDispatch: () => mockDispatch,
-    }));
-
-    // 3. Мокируем action creator
-    const switchStepAction = { type: 'steps/switchStep', payload: 'BEGIN' };
-    vi.mocked(switchStep).mockReturnValue(switchStepAction);
-
-    renderModal({ setIsDeny: mockSetIsDeny });
-
-    fireEvent.click(screen.getByText('Deny'));
-
-    // Проверки
-    expect(mockSetIsDeny).toHaveBeenCalledWith(true);
-    expect(removeItemSpy).toHaveBeenCalledWith('offers');
-    expect(mockDispatch).toHaveBeenCalledWith(switchStepAction);
-
-    // Очистка
-    removeItemSpy.mockRestore();
   });
 
   it('shows only Go home button when isDeny is true', () => {

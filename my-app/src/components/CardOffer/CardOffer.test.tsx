@@ -5,16 +5,34 @@ import { CardOffer } from './CardOffer';
 import { IOffer } from '../../types/types';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
+import { tabsReducer } from '../../redux/features/tabs/tabSlice';
+import { stepsReducer } from '../../redux/features/steps/stepSlice';
 
 import { selectedOffer } from '../../API/api';
 import { checkStatus } from '../../redux/features/steps/statusThunks';
+import { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
 vi.mock('../../API/api', () => ({
-  selectedOffer: vi.fn(),
+  selectedOffer: vi.fn(() =>
+    Promise.resolve({
+      status: 200,
+      data: {},
+      statusText: 'OK',
+      headers: {},
+      config: {},
+    }),
+  ),
 }));
 
 vi.mock('../../redux/features/steps/statusThunks', () => ({
-  checkStatus: vi.fn(),
+  checkStatus: Object.assign(
+    vi.fn(() => ({ type: 'checkStatus/pending' })),
+    {
+      pending: { type: 'checkStatus/pending' },
+      fulfilled: { type: 'checkStatus/fulfilled' },
+      rejected: { type: 'checkStatus/rejected' },
+    },
+  ),
 }));
 
 const mockOffer: IOffer = {
@@ -33,7 +51,8 @@ const mockCheckStatus = vi.mocked(checkStatus);
 
 const mockStore = configureStore({
   reducer: {
-    tabs: () => ({ activeTab: 'main' }),
+    tabs: () => tabsReducer,
+    steps: () => stepsReducer,
   },
 });
 
@@ -100,8 +119,15 @@ describe('CardOffer component', () => {
     expect(img).toHaveAttribute('src', expect.stringContaining('offerBox'));
   });
 
-  it('click button', async () => {
-    // mockUseSelectedOffer.mockResolvedValue();
+  it('click button - success case', async () => {
+    const mockSuccessResponse = {
+      data: {},
+      status: 200,
+      statusText: 'OK',
+      headers: {},
+      config: {} as InternalAxiosRequestConfig,
+    } as AxiosResponse;
+    mockUseSelectedOffer.mockResolvedValue(mockSuccessResponse);
 
     render(
       <Provider store={mockStore}>
@@ -111,10 +137,28 @@ describe('CardOffer component', () => {
 
     fireEvent.click(screen.getByText('Select'));
 
-    expect(mockUseSelectedOffer).toHaveBeenCalledWith(mockOffer);
+    await waitFor(() => {
+      expect(mockUseSelectedOffer).toHaveBeenCalledWith(mockOffer);
+    });
 
     await waitFor(() => {
       expect(mockCheckStatus).toHaveBeenCalledWith(mockOffer.applicationId);
+    });
+  });
+
+  it('click button - error case', async () => {
+    mockUseSelectedOffer.mockRejectedValueOnce(new Error('API error'));
+
+    render(
+      <Provider store={mockStore}>
+        <CardOffer item={mockOffer} />
+      </Provider>,
+    );
+
+    fireEvent.click(screen.getByText('Select'));
+
+    await waitFor(() => {
+      expect(mockCheckStatus).not.toHaveBeenCalled();
     });
   });
 });

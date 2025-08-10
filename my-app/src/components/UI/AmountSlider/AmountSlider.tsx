@@ -54,6 +54,7 @@ export const AmountSlider: FC<IAmountSlider> = ({
           <div className="progress" style={{ width: `${value * 0.01}%` }}></div>
         </div>
         <div
+          data-testid="range"
           className="thumb"
           ref={thumbRef}
           onMouseDown={startDrag}

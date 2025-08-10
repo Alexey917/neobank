@@ -5,15 +5,8 @@ import { getSubscription } from '../../API/api';
 import { AxiosResponse, AxiosHeaders, InternalAxiosRequestConfig } from 'axios';
 import { useEmailValidation } from '../../hooks/useEmailValidation';
 
-// vi.mock('../../API/api', () => ({
-//   getSubscription: () => ({
-//     __esModule: true,
-//     default: 'test@example.com',
-//   }),
-// }));
-
 vi.mock('../../API/api', () => ({
-  getSubscription: vi.fn(), // Теперь это мок-функция
+  getSubscription: vi.fn(),
 }));
 
 vi.mock('../../hooks/useEmailValidation', () => ({
@@ -55,13 +48,12 @@ describe('', () => {
 
   it('handles form submission successfully', async () => {
     mockedGetSubscription.mockResolvedValueOnce({
-      data: {}, // Основные данные ответа
-      status: 200, // Код статуса
-      statusText: 'OK', // Текст статуса
-      headers: {}, // Обязательные заголовки
+      data: {},
+      status: 200,
+      statusText: 'OK',
+      headers: {},
       config: {
-        headers: {} as AxiosHeaders, // Заголовки конфига
-        // Другие обязательные поля конфига
+        headers: {} as AxiosHeaders,
       } as InternalAxiosRequestConfig,
     } as AxiosResponse);
 
