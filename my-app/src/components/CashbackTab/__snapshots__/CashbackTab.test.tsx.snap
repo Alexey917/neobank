@@ -1,0 +1,507 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AboutTab component > CashbackTab snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <section
+        aria-label="Cashback Terms"
+        class="_cashback_afe6c5"
+      >
+        <article
+          aria-labelledby="cashback-title-0"
+          class="_cashback__wrapper_afe6c5 _cashback__wrapper_0_afe6c5"
+        >
+          <h3
+            class="_cashback__title_afe6c5"
+          >
+            For food delivery, cafes and restaurants
+          </h3>
+          <p
+            class="_cashback__text_afe6c5"
+          >
+            5%
+          </p>
+        </article>
+        <article
+          aria-labelledby="cashback-title-1"
+          class="_cashback__wrapper_afe6c5 _cashback__wrapper_1_afe6c5"
+        >
+          <h3
+            class="_cashback__title_afe6c5"
+          >
+            In supermarkets with our subscription
+          </h3>
+          <p
+            class="_cashback__text_afe6c5"
+          >
+            5%
+          </p>
+        </article>
+        <article
+          aria-labelledby="cashback-title-2"
+          class="_cashback__wrapper_afe6c5 _cashback__wrapper_2_afe6c5"
+        >
+          <h3
+            class="_cashback__title_afe6c5"
+          >
+            In clothing stores and children's goods
+          </h3>
+          <p
+            class="_cashback__text_afe6c5"
+          >
+            2%
+          </p>
+        </article>
+        <article
+          aria-labelledby="cashback-title-3"
+          class="_cashback__wrapper_afe6c5 _cashback__wrapper_3_afe6c5"
+        >
+          <h3
+            class="_cashback__title_afe6c5"
+          >
+            Other purchases and payment of services and fines
+          </h3>
+          <p
+            class="_cashback__text_afe6c5"
+          >
+            1%
+          </p>
+        </article>
+        <article
+          aria-labelledby="cashback-title-4"
+          class="_cashback__wrapper_afe6c5 _cashback__wrapper_4_afe6c5"
+        >
+          <h3
+            class="_cashback__title_afe6c5"
+          >
+            Shopping in online stores
+          </h3>
+          <p
+            class="_cashback__text_afe6c5"
+          >
+            up to 3%
+          </p>
+        </article>
+        <article
+          aria-labelledby="cashback-title-5"
+          class="_cashback__wrapper_afe6c5 _cashback__wrapper_5_afe6c5"
+        >
+          <h3
+            class="_cashback__title_afe6c5"
+          >
+            Purchases from our partners
+          </h3>
+          <p
+            class="_cashback__text_afe6c5"
+          >
+            30%
+          </p>
+        </article>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      aria-label="Cashback Terms"
+      class="_cashback_afe6c5"
+    >
+      <article
+        aria-labelledby="cashback-title-0"
+        class="_cashback__wrapper_afe6c5 _cashback__wrapper_0_afe6c5"
+      >
+        <h3
+          class="_cashback__title_afe6c5"
+        >
+          For food delivery, cafes and restaurants
+        </h3>
+        <p
+          class="_cashback__text_afe6c5"
+        >
+          5%
+        </p>
+      </article>
+      <article
+        aria-labelledby="cashback-title-1"
+        class="_cashback__wrapper_afe6c5 _cashback__wrapper_1_afe6c5"
+      >
+        <h3
+          class="_cashback__title_afe6c5"
+        >
+          In supermarkets with our subscription
+        </h3>
+        <p
+          class="_cashback__text_afe6c5"
+        >
+          5%
+        </p>
+      </article>
+      <article
+        aria-labelledby="cashback-title-2"
+        class="_cashback__wrapper_afe6c5 _cashback__wrapper_2_afe6c5"
+      >
+        <h3
+          class="_cashback__title_afe6c5"
+        >
+          In clothing stores and children's goods
+        </h3>
+        <p
+          class="_cashback__text_afe6c5"
+        >
+          2%
+        </p>
+      </article>
+      <article
+        aria-labelledby="cashback-title-3"
+        class="_cashback__wrapper_afe6c5 _cashback__wrapper_3_afe6c5"
+      >
+        <h3
+          class="_cashback__title_afe6c5"
+        >
+          Other purchases and payment of services and fines
+        </h3>
+        <p
+          class="_cashback__text_afe6c5"
+        >
+          1%
+        </p>
+      </article>
+      <article
+        aria-labelledby="cashback-title-4"
+        class="_cashback__wrapper_afe6c5 _cashback__wrapper_4_afe6c5"
+      >
+        <h3
+          class="_cashback__title_afe6c5"
+        >
+          Shopping in online stores
+        </h3>
+        <p
+          class="_cashback__text_afe6c5"
+        >
+          up to 3%
+        </p>
+      </article>
+      <article
+        aria-labelledby="cashback-title-5"
+        class="_cashback__wrapper_afe6c5 _cashback__wrapper_5_afe6c5"
+      >
+        <h3
+          class="_cashback__title_afe6c5"
+        >
+          Purchases from our partners
+        </h3>
+        <p
+          class="_cashback__text_afe6c5"
+        >
+          30%
+        </p>
+      </article>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`CashbackTab component > CashbackTab snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <section
+        aria-label="Cashback Terms"
+        class="_cashback_afe6c5"
+      >
+        <article
+          aria-labelledby="cashback-title-0"
+          class="_cashback__wrapper_afe6c5 _cashback__wrapper_0_afe6c5"
+        >
+          <h3
+            class="_cashback__title_afe6c5"
+          >
+            For food delivery, cafes and restaurants
+          </h3>
+          <p
+            class="_cashback__text_afe6c5"
+          >
+            5%
+          </p>
+        </article>
+        <article
+          aria-labelledby="cashback-title-1"
+          class="_cashback__wrapper_afe6c5 _cashback__wrapper_1_afe6c5"
+        >
+          <h3
+            class="_cashback__title_afe6c5"
+          >
+            In supermarkets with our subscription
+          </h3>
+          <p
+            class="_cashback__text_afe6c5"
+          >
+            5%
+          </p>
+        </article>
+        <article
+          aria-labelledby="cashback-title-2"
+          class="_cashback__wrapper_afe6c5 _cashback__wrapper_2_afe6c5"
+        >
+          <h3
+            class="_cashback__title_afe6c5"
+          >
+            In clothing stores and children's goods
+          </h3>
+          <p
+            class="_cashback__text_afe6c5"
+          >
+            2%
+          </p>
+        </article>
+        <article
+          aria-labelledby="cashback-title-3"
+          class="_cashback__wrapper_afe6c5 _cashback__wrapper_3_afe6c5"
+        >
+          <h3
+            class="_cashback__title_afe6c5"
+          >
+            Other purchases and payment of services and fines
+          </h3>
+          <p
+            class="_cashback__text_afe6c5"
+          >
+            1%
+          </p>
+        </article>
+        <article
+          aria-labelledby="cashback-title-4"
+          class="_cashback__wrapper_afe6c5 _cashback__wrapper_4_afe6c5"
+        >
+          <h3
+            class="_cashback__title_afe6c5"
+          >
+            Shopping in online stores
+          </h3>
+          <p
+            class="_cashback__text_afe6c5"
+          >
+            up to 3%
+          </p>
+        </article>
+        <article
+          aria-labelledby="cashback-title-5"
+          class="_cashback__wrapper_afe6c5 _cashback__wrapper_5_afe6c5"
+        >
+          <h3
+            class="_cashback__title_afe6c5"
+          >
+            Purchases from our partners
+          </h3>
+          <p
+            class="_cashback__text_afe6c5"
+          >
+            30%
+          </p>
+        </article>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      aria-label="Cashback Terms"
+      class="_cashback_afe6c5"
+    >
+      <article
+        aria-labelledby="cashback-title-0"
+        class="_cashback__wrapper_afe6c5 _cashback__wrapper_0_afe6c5"
+      >
+        <h3
+          class="_cashback__title_afe6c5"
+        >
+          For food delivery, cafes and restaurants
+        </h3>
+        <p
+          class="_cashback__text_afe6c5"
+        >
+          5%
+        </p>
+      </article>
+      <article
+        aria-labelledby="cashback-title-1"
+        class="_cashback__wrapper_afe6c5 _cashback__wrapper_1_afe6c5"
+      >
+        <h3
+          class="_cashback__title_afe6c5"
+        >
+          In supermarkets with our subscription
+        </h3>
+        <p
+          class="_cashback__text_afe6c5"
+        >
+          5%
+        </p>
+      </article>
+      <article
+        aria-labelledby="cashback-title-2"
+        class="_cashback__wrapper_afe6c5 _cashback__wrapper_2_afe6c5"
+      >
+        <h3
+          class="_cashback__title_afe6c5"
+        >
+          In clothing stores and children's goods
+        </h3>
+        <p
+          class="_cashback__text_afe6c5"
+        >
+          2%
+        </p>
+      </article>
+      <article
+        aria-labelledby="cashback-title-3"
+        class="_cashback__wrapper_afe6c5 _cashback__wrapper_3_afe6c5"
+      >
+        <h3
+          class="_cashback__title_afe6c5"
+        >
+          Other purchases and payment of services and fines
+        </h3>
+        <p
+          class="_cashback__text_afe6c5"
+        >
+          1%
+        </p>
+      </article>
+      <article
+        aria-labelledby="cashback-title-4"
+        class="_cashback__wrapper_afe6c5 _cashback__wrapper_4_afe6c5"
+      >
+        <h3
+          class="_cashback__title_afe6c5"
+        >
+          Shopping in online stores
+        </h3>
+        <p
+          class="_cashback__text_afe6c5"
+        >
+          up to 3%
+        </p>
+      </article>
+      <article
+        aria-labelledby="cashback-title-5"
+        class="_cashback__wrapper_afe6c5 _cashback__wrapper_5_afe6c5"
+      >
+        <h3
+          class="_cashback__title_afe6c5"
+        >
+          Purchases from our partners
+        </h3>
+        <p
+          class="_cashback__text_afe6c5"
+        >
+          30%
+        </p>
+      </article>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
