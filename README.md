@@ -35,15 +35,12 @@ Neobank позволяет оформлять кредитные продукт�
 
 ## Технологический стек
 
-- **HTML**
-- **CSS**
-- **Sass**
-- **TypeScript**
-- **React**
-- **Axios**
-- **React-hook-form**
-- **Redux toolkit**
-- **testing-library-react**
+*   **Frontend:** React, TypeScript
+*   **Стилизация:** Sass (SCSS)
+*   **Управление состоянием:** Redux Toolkit
+*   **Работа с формами:** React-hook-form
+*   **HTTP-клиент:** Axios
+*   **Тестирование:** React Testing Library, Vitest
 
 ## Ссылка на проект
 
