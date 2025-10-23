@@ -26,7 +26,7 @@ Neobank позволяет оформлять кредитные продукт�
 
 ## Локальный запуск проекта
 
-git clone [[repository-url]](https://github.com/Alexey917/neobank.git)
+git clone [(https://github.com/Alexey917/neobank.git)](https://github.com/Alexey917/neobank.git)
 cd my-app
 
 ### Запуск фронта
