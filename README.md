@@ -26,7 +26,7 @@ Neobank позволяет оформлять кредитные продукт�
 
 ## Локальный запуск проекта
 
-git clone [repository-url]
+git clone [[repository-url]](https://github.com/Alexey917/neobank.git)
 cd my-app
 
 ### Запуск фронта
@@ -34,7 +34,7 @@ npm install && npm run dev
 
 ### Запуск бэканда
 1. устанавливаем docker desktop
-2. скачиваем docker file для запуска backend - [docker-compose.yaml](my-app/docker-compose.yaml)
+2. скачиваем docker file для запуска backend - [docker-compose.yaml](my-app/Docker-compose.yaml)
 3. командой docker-compose up – build запускается основной контейнер.
 4. после скачивания и запуска контейнера по адресу - localhost:8080/swagger-ui/index.html откроется swagger, где можно смотреть все доступные API методы.
 
